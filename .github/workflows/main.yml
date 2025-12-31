@@ -28,5 +28,6 @@ jobs:
       - name: Commit to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
+          token: ${{ secrets.GITHUB_TOKEN }} # Use this built-in one!
           folder: release/wwwroot # The folder the action should deploy.
           branch: gh-pages # The branch the action should deploy to.
