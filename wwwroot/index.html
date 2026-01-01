@@ -4,8 +4,20 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OrthodoxPrayerBlazorSite2</title>
-    <base href="/MertikaOrthodoxPrayerHelper/" />
+    <title>Orthodox Prayer Helper</title>
+
+    <base id="base-tag" href="/" />
+    <script>
+        // If the URL contains 'localhost', keep base as /
+        // Otherwise, set it to your GitHub repository name
+        var baseTag = document.getElementById('base-tag');
+        if (window.location.hostname.includes('localhost')) {
+            baseTag.setAttribute('href', '/');
+        } else {
+            baseTag.setAttribute('href', '/MertikaOrthodoxPrayerHelper/');
+        }
+    </script>
+
     <link rel="preload" id="webassembly" />
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/app.css" />
