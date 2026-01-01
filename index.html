@@ -4,9 +4,21 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OrthodoxPrayerBlazorSite2</title>
-    <base href="/MertikaOrthodoxPrayerHelper/" />
-    <link href="_framework/dotnet.1mbuonjcy7.js" rel="preload" as="script" fetchpriority="high" crossorigin="anonymous" integrity="sha256-t2VX3fO5fXqtBB9s3XckKviGf72fIcNrqN+G+9JDL5M=" />
+    <title>Orthodox Prayer Helper</title>
+
+    <base id="base-tag" href="/" />
+    <script>
+        // If the URL contains 'localhost', keep base as /
+        // Otherwise, set it to your GitHub repository name
+        var baseTag = document.getElementById('base-tag');
+        if (window.location.hostname.includes('localhost')) {
+            baseTag.setAttribute('href', '/');
+        } else {
+            baseTag.setAttribute('href', '/MertikaOrthodoxPrayerHelper/');
+        }
+    </script>
+
+    <link href="_framework/dotnet.7bi028bp56.js" rel="preload" as="script" fetchpriority="high" crossorigin="anonymous" integrity="sha256-TVGwBq1OK4SPpQV2R7jdtWpygqvxVS2ttHmVSE/CcDs=" />
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/app.css" />
     <link rel="icon" type="image/png" href="favicon.png" />
@@ -14,7 +26,7 @@
     <script type="importmap">{
   "imports": {
     "./_framework/blazor.webassembly.js": "./_framework/blazor.webassembly.66stpp682q.js",
-    "./_framework/dotnet.js": "./_framework/dotnet.1mbuonjcy7.js",
+    "./_framework/dotnet.js": "./_framework/dotnet.7bi028bp56.js",
     "./_framework/dotnet.native.js": "./_framework/dotnet.native.cs8mcre4gh.js",
     "./_framework/dotnet.runtime.js": "./_framework/dotnet.runtime.0j6ezsi0n0.js"
   },
@@ -22,8 +34,8 @@
   "integrity": {
     "./_framework/blazor.webassembly.66stpp682q.js": "sha256-3lCWrko3zwspV40aQhs2S/IMkRSarnHRKIdkHhuXIBA=",
     "./_framework/blazor.webassembly.js": "sha256-3lCWrko3zwspV40aQhs2S/IMkRSarnHRKIdkHhuXIBA=",
-    "./_framework/dotnet.1mbuonjcy7.js": "sha256-t2VX3fO5fXqtBB9s3XckKviGf72fIcNrqN+G+9JDL5M=",
-    "./_framework/dotnet.js": "sha256-t2VX3fO5fXqtBB9s3XckKviGf72fIcNrqN+G+9JDL5M=",
+    "./_framework/dotnet.7bi028bp56.js": "sha256-TVGwBq1OK4SPpQV2R7jdtWpygqvxVS2ttHmVSE/CcDs=",
+    "./_framework/dotnet.js": "sha256-TVGwBq1OK4SPpQV2R7jdtWpygqvxVS2ttHmVSE/CcDs=",
     "./_framework/dotnet.native.cs8mcre4gh.js": "sha256-/I3SDHIle7heAxlUGBrgxax+lkKyWyRLBVEJmTHJSCs=",
     "./_framework/dotnet.native.js": "sha256-/I3SDHIle7heAxlUGBrgxax+lkKyWyRLBVEJmTHJSCs=",
     "./_framework/dotnet.runtime.0j6ezsi0n0.js": "sha256-jCsbbdXoVd1zzGc0fQT2sz4mKuv0ANdurPVGo5Sc2jg=",
