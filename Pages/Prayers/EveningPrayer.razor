@@ -33,6 +33,11 @@ else
     <NiceneCreed HeadingKind="HeadingKindEnum.SubHeading" />
 }
 
+@if (!IsBrief)
+{
+    <TrulyMeetTheotokos HeadingKind="HeadingKindEnum.SubHeading" />
+}
+
 @if (IsLent)
 {
     <LentStEphremPrayer HeadingKind="HeadingKindEnum.SubHeading" />
