@@ -1,4 +1,4 @@
-﻿<Heading>
+﻿<Heading HeadingKind="HeadingKind">
     O Heavenly King and Trisagion Prayers
 </Heading>
 
@@ -28,25 +28,9 @@
     Amen.
 </p>
 
-<p>
-    Our Father, Who art in Heaven,
-    <br />
-    hallowed be Thy name.
-    <br />
-    Thy Kingdom come;
-    <br />
-    Thy will be done, on earth as it is in Heaven.
-    <br />
-    Give us this day our daily bread;
-    <br />
-    and forgive us our trespasses, as we forgive those who trespass against us;
-    <br />
-    and lead us not into temptation, but deliver us from the evil one.
-</p>
+<OurFather/>
 
-<p>
-    Lord, have mercy. (12x)
-</p>
+<LordHaveMercy TimesToSay="12"/>
 
 <p>
     Come! Let us worship God, our King!
@@ -57,5 +41,6 @@
 </p>
 
 @code {
-
+    [Parameter, EditorRequired]
+    public HeadingKindEnum HeadingKind { get; set; }
 }

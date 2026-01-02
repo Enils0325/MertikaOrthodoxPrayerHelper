@@ -1,6 +1,14 @@
-﻿<h3>@(ChildContent)</h3>
+﻿@if (HeadingKind != HeadingKindEnum.None)
+{
+    <h3>@(ChildContent)</h3>
+}
 
 @code {
+
+
     [Parameter, EditorRequired]
     public RenderFragment? ChildContent { get; set; } = null!;
+
+    [Parameter, EditorRequired]
+    public HeadingKindEnum HeadingKind { get; set; }
 }

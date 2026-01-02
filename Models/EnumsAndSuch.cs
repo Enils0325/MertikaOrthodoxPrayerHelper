@@ -18,3 +18,12 @@ public enum EnglishKindEnum
     Contemporary,
     Old,
 }
+
+public enum HeadingKindEnum
+{
+    None,
+    MainHeading,
+    Heading,
+    SubHeading,
+    SubHeading2,
+}
