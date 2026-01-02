@@ -1,0 +1,26 @@
+﻿
+div.meal-kind-container {
+    display: flex;
+    gap: 0.4em;
+    margin: 0.5em 0.2em 0.5em 0.2em;
+}
+
+div.meal-kind-container > div {
+    background-color: red;
+    padding: 0.5em;
+    border-radius: 0.75em;
+    margin: 0.5em 0.2em 0.5em 0.2em;
+}
+
+div.before-after-container {
+    display: flex;
+    gap: 0.4em;
+    margin: 0.5em 0.2em 0.5em 0.2em;
+}
+
+div.before-after-container > div {
+    background-color: red;
+    padding: 0.5em;
+    border-radius: 0.75em;
+    margin: 0.5em 0.2em 0.5em 0.2em;
+}

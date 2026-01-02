@@ -1,22 +1,21 @@
 ﻿<Heading>
-
-    @switch (timeOfDayPrayer)
+    @switch (MealKind)
     {
-        case MealPrayerKindEnum.Breakfast:
+        case MealKindEnum.Breakfast:
         {
             <span>
                 Prayer and Blessing @(getBeforeAfterText()) Breakfast
             </span>
             break;
         }
-        case MealPrayerKindEnum.Lunch:
+        case MealKindEnum.Lunch:
         {
             <span>
                 Prayer and Blessing @(getBeforeAfterText()) the Midday Meal
             </span>
             break;
         }
-        case MealPrayerKindEnum.Dinner:
+        case MealKindEnum.Dinner:
         {
             <span>
                 Prayer and Blessing @(getBeforeAfterText()) the Midday Meal
@@ -33,26 +32,42 @@
     }
 </Heading>
 
-<InputRadioGroup @bind-Value="timeOfDayPrayer">
-    <InputRadio Value="MealPrayerKindEnum.Breakfast" /> Morning Prayer
-    <br />
-    <InputRadio Value="MealPrayerKindEnum.Lunch" /> Lunch Prayer
-    <br />
-    <InputRadio Value="MealPrayerKindEnum.Dinner" /> Evening Prayer
-</InputRadioGroup>
+<div class="meal-kind-container">
+    <InputRadioGroup @bind-Value="MealKind">
+        <div>
+            <InputRadio Value="MealKindEnum.Breakfast" id="radioOptionBreakfast" />
+            <label for="radioOptionBreakfast">Morning Prayer</label>
+        </div>
+        <div>
+            <InputRadio Value="MealKindEnum.Lunch" id="radioOptionLunch" />
+            <label for="radioOptionLunch">Lunch Prayer</label>
+        </div>
+        <div>
+            <InputRadio Value="MealKindEnum.Dinner" id="radioOptionDinner" />
+            <label for="radioOptionDinner">Evening Prayer</label>
+        </div>
+    </InputRadioGroup>
+</div>
 
-<InputRadioGroup @bind-Value="beforeAfterKind">
-    <InputRadio Value="BeforeAfterKindEnum.Before" /> Before
-    <br />
-    <InputRadio Value="BeforeAfterKindEnum.After" /> After
-</InputRadioGroup>
+<div class="before-after-container">
+    <InputRadioGroup @bind-Value="BeforeAfterKind">
+        <div>
+            <InputRadio Value="BeforeAfterKindEnum.Before" id="radioOptionBefore" />
+            <label for="radioOptionBefore">Before</label>
+        </div>
+        <div>
+            <InputRadio Value="BeforeAfterKindEnum.After" id="radioOptionAfter" />
+            <label for="radioOptionAfter">After</label>
+        </div>
+    </InputRadioGroup>
+</div>
 
 <div>
-    @switch (timeOfDayPrayer)
+    @switch (MealKind)
     {
-        case MealPrayerKindEnum.Breakfast:
+        case MealKindEnum.Breakfast:
         {
-            @if (beforeAfterKind == BeforeAfterKindEnum.Before)
+            @if (BeforeAfterKind == BeforeAfterKindEnum.Before)
             {
                 switch (MainUtil.GetRandomIndex(3))
                 {
@@ -73,11 +88,11 @@
             }
             break;
         }
-        case MealPrayerKindEnum.Lunch:
-        case MealPrayerKindEnum.Dinner:
+        case MealKindEnum.Lunch:
+        case MealKindEnum.Dinner:
         {
 
-            @if (beforeAfterKind == BeforeAfterKindEnum.Before)
+            @if (BeforeAfterKind == BeforeAfterKindEnum.Before)
             {
                 switch (MainUtil.GetRandomIndex(4))
                 {
@@ -97,7 +112,7 @@
             }
             else
             {
-                
+
             }
             break;
         }
@@ -105,9 +120,5 @@
 </div>
 
 @code {
-    private MealPrayerKindEnum timeOfDayPrayer = MealPrayerKindEnum.Breakfast;
 
-    private BeforeAfterKindEnum beforeAfterKind = BeforeAfterKindEnum.Before;
-
-    private string getBeforeAfterText() => beforeAfterKind == BeforeAfterKindEnum.Before ? "before" : "after";
 }

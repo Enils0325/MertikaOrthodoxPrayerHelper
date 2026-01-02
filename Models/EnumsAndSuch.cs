@@ -1,6 +1,14 @@
 ﻿namespace OrthodoxPrayerBlazorSite2.Models;
 
-public enum MealPrayerKindEnum { Breakfast, Lunch, Dinner, }
+
+public enum MealKindEnum { Breakfast, Lunch, Dinner, }
 
 public enum BeforeAfterKindEnum { Before, After, }
 
+public enum MainPrayerChoiceKind
+{
+    None,
+    Meal,
+    MorningPrayer,
+    EveningPrayer,
+}

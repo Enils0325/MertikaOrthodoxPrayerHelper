@@ -1,0 +1,2 @@
+﻿global using OrthodoxPrayerBlazorSite2.Models;
+global using OrthodoxPrayerBlazorSite2.Utils;

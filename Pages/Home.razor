@@ -20,18 +20,13 @@
         </ButtonLink>
     </div>
     <div>
-        <ButtonLink OnClick="() => this.MainPrayerChoice = MainPrayerChoiceKind.BeforeMeal">
+        <ButtonLink OnClick="() => this.MainPrayerChoice = MainPrayerChoiceKind.Meal">
             Before Meal
-        </ButtonLink>
-    </div>
-    <div>
-        <ButtonLink OnClick="() => this.MainPrayerChoice = MainPrayerChoiceKind.AfterMeal">
-            After Meal
         </ButtonLink>
     </div>
 </div>
 
-<div style="display: flex; gap: 2px; padding: 8px 4px 8px 4px;">
+<div style="padding: 8px 4px 8px 4px;">
     @switch (MainPrayerChoice)
     {
         case MainPrayerChoiceKind.MorningPrayer:
@@ -40,18 +35,13 @@
         case MainPrayerChoiceKind.EveningPrayer:
             <EveningPrayer Date="Date" />
             break;
-        case MainPrayerChoiceKind.BeforeMeal:
-            <PreMealPrayer />
-            break;
-        case MainPrayerChoiceKind.AfterMeal:
-            <PostMealPrayer />
+        case MainPrayerChoiceKind.Meal:
+            <MealPrayer />
             break;
         default:
             <div>Select a prayer.</div>
             break;
     }
-    <div>
-    </div>
 </div>
 
 @code {

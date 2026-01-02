@@ -6,12 +6,3 @@ public partial class Home
     private MainPrayerChoiceKind MainPrayerChoice { get; set; } = MainPrayerChoiceKind.None;
 
 }
-
-public enum MainPrayerChoiceKind
-{
-    None,
-    BeforeMeal,
-    AfterMeal,
-    MorningPrayer,
-    EveningPrayer,
-}
