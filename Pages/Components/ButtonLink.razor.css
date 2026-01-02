@@ -1,11 +1,14 @@
 ﻿a.button-link {
-    padding: 4px;
+    padding: 8px;
     margin: 8px 4px 8px 4px;
     border-radius: 4px;
     cursor: pointer;
     text-decoration: none;
+    background-color: var(--dark-red);
+    color: var(--lighter-beige);
 }
 
     a.button-link:hover {
-        font-weight: bolder;
+        font-style: italic;
+        filter: hue-rotate(260deg);
     }
