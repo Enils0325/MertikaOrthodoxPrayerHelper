@@ -1,12 +1,68 @@
-﻿<Heading HeadingKind="HeadingKindEnum.MainHeading">
+﻿
+<Heading HeadingKind="HeadingKindEnum.MainHeading">
     Morning Prayer
 </Heading>
 
 <OHeavenlyKingAndTrisagion HeadingKind="HeadingKindEnum.Heading" />
 
+@if (IsBrief)
+{
+    switch (MainUtil.GetRandomIndex(2))
+    {
+        case 0:
+            <StBasilMorningPrayer HeadingKind="HeadingKindEnum.SubHeading" />
+            break;
+        case 1:
+            <ToTheHolyTrinityMorningPrayer HeadingKind="HeadingKindEnum.SubHeading" />
+            break;
+    }
+}
+else
+{
+    switch (MainUtil.GetRandomIndex(3))
+    {
+        case 0:
+            <StBasilMorningPrayer HeadingKind="HeadingKindEnum.SubHeading" />
+            break;
+        case 1:
+            <ToTheHolyTrinityMorningPrayer HeadingKind="HeadingKindEnum.SubHeading" />
+            break;
+        case 2:
+            <APrayerForForgiveness HeadingKind="HeadingKindEnum.SubHeading" />
+            <EveningIntercession HeadingKind="HeadingKindEnum.SubHeading" />
+            break;
+    }
+}
 
+@if (HasNiceneCreed)
+{
+    <NiceneCreed HeadingKind="HeadingKindEnum.SubHeading" />
+}
+
+@if (HasPrayerToMotherOfGod || !IsBrief)
+{
+    <TrulyMeetTheotokos HeadingKind="HeadingKindEnum.SubHeading" />
+}
+
+@if (IsLent && !IsBrief)
+{
+    <LentStEphremPrayer HeadingKind="HeadingKindEnum.SubHeading" />
+}
+
+<ClosingPrayers HeadingKind="HeadingKindEnum.SubHeading" Date=Date" />
 
 @code {
     [Parameter, EditorRequired]
     public DateTime Date { get; set; }
+
+    [Parameter]
+    public bool IsBrief { get; set; } = false;
+
+    [Parameter]
+    public bool HasPrayerToMotherOfGod { get; set; } = false;
+
+    [Parameter]
+    public bool HasNiceneCreed { get; set; } = false;
+
+    private bool IsLent => false;
 }

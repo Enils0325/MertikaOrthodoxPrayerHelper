@@ -1,5 +1,7 @@
 ﻿
-<Heading HeadingKind="HeadingKindEnum.MainHeading">Evening Prayer</Heading>
+<Heading HeadingKind="HeadingKindEnum.MainHeading">
+    Evening Prayer
+</Heading>
 
 <OHeavenlyKingAndTrisagion HeadingKind="HeadingKindEnum.SubHeading" />
 
@@ -33,7 +35,7 @@ else
     <NiceneCreed HeadingKind="HeadingKindEnum.SubHeading" />
 }
 
-@if (!IsBrief)
+@if (HasPrayerToMotherOfGod || !IsBrief)
 {
     <TrulyMeetTheotokos HeadingKind="HeadingKindEnum.SubHeading" />
 }
@@ -51,6 +53,9 @@ else
 
     [Parameter]
     public bool IsBrief { get; set; } = false;
+
+    [Parameter]
+    public bool HasPrayerToMotherOfGod { get; set; } = false;
 
     [Parameter]
     public bool HasNiceneCreed { get; set; } = true;
