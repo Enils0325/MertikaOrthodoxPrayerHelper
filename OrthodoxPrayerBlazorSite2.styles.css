@@ -160,3 +160,15 @@ main[b-stiuq42977] {
         overflow-y: auto;
     }
 }
+/* /Pages/Components/ButtonLink.razor.rz.scp.css */
+a.button-link[b-mbsbv4l5aa] {
+    padding: 4px;
+    margin: 8px 4px 8px 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+    a.button-link:hover[b-mbsbv4l5aa] {
+        font-weight: bolder;
+    }
