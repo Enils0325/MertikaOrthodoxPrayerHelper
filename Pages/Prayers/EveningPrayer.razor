@@ -9,7 +9,6 @@
 }
 else
 {
-
     switch (MainUtil.GetRandomIndex(3))
     {
         case 0:
@@ -25,16 +24,21 @@ else
     }
 }
 
-@if (IsLent)
-{
-    <LentStEphremPrayer HeadingKind="HeadingKindEnum.SubHeading" />
-}
+<Psalm HeadingKind="HeadingKindEnum.SubHeading" IsBrief="IsBrief" />
+
+<GospelReading HeadingKind="HeadingKindEnum.SubHeading" />
 
 @if (HasNiceneCreed)
 {
     <NiceneCreed HeadingKind="HeadingKindEnum.SubHeading" />
 }
 
+@if (IsLent)
+{
+    <LentStEphremPrayer HeadingKind="HeadingKindEnum.SubHeading" />
+}
+
+<ClosingPrayers HeadingKind="HeadingKindEnum.SubHeading" Date="Date" />
 
 @code {
     [Parameter, EditorRequired]

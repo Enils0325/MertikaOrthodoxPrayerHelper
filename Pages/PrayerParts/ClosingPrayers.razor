@@ -1,0 +1,38 @@
+﻿<Heading HeadingKind="HeadingKind">
+    Closing Prayers
+</Heading>
+
+<GloryNowAndForever />
+
+<LordHaveMercy TimesToSay="3" />
+
+<p>
+    O Lord Jesus Christ, the Son of God, through the intercessions of Your most pure Mother
+    <br />
+    and of all Your Saints@(getStaintText()),
+    <br />
+    have mercy on us and save us, for You are good and love mankind.
+    <br />
+    Amen.
+</p>
+
+@code {
+    [Parameter, EditorRequired]
+    public DateTime Date { get; set; }
+    
+    [Parameter, EditorRequired]
+    public HeadingKindEnum HeadingKind { get; set; }
+
+    private string getStaintText()
+    {
+        var saintOfToday = "";
+        if (string.IsNullOrWhiteSpace(saintOfToday))
+        {
+            return string.Empty;
+        }
+        else
+        {
+            return $", especially {saintOfToday} whose memory we commemorate today";
+        }
+    }
+}
