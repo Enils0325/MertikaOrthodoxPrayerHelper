@@ -18,7 +18,7 @@
         case MealKindEnum.Dinner:
         {
             <span>
-                Prayer and Blessing @(getBeforeAfterText()) the Midday Meal
+                Prayer and Blessing @(getBeforeAfterText()) the Evening Meal
             </span>
             break;
         }
@@ -69,7 +69,7 @@
         {
             @if (BeforeAfterKind == BeforeAfterKindEnum.Before)
             {
-                switch (MainUtil.GetRandomIndex(3))
+                switch (MainUtil.GetRandomIndex(4))
                 {
                     case 0:
                         <RichSentAwayHungry />
@@ -80,11 +80,25 @@
                     case 2:
                         <OurFather IncludeHeading="false" />
                         break;
+                    case 3:
+                        <HasShownMercyAndNourishedUs />
+                        break;
                 }
             }
             else
             {
-
+                switch (MainUtil.GetRandomIndex(3))
+                {
+                    case 0:
+                        <MercifulToUsAndFeedsUs />
+                        break;
+                    case 1:
+                        <FilledUsThisDay />
+                        break;
+                    case 2:
+                        <MayTheLordKeepUs />
+                        break;
+                }
             }
             break;
         }
@@ -94,7 +108,7 @@
 
             @if (BeforeAfterKind == BeforeAfterKindEnum.Before)
             {
-                switch (MainUtil.GetRandomIndex(4))
+                switch (MainUtil.GetRandomIndex(5))
                 {
                     case 0:
                         <RichSentAwayHungry />
@@ -108,11 +122,25 @@
                     case 3:
                         <BlessedFiveLoaves />
                         break;
+                    case 4:
+                        <HasShownMercyAndNourishedUs />
+                        break;
                 }
             }
             else
             {
-
+                switch (MainUtil.GetRandomIndex(3))
+                {
+                    case 0:
+                        <MercifulToUsAndFeedsUs />
+                        break;
+                    case 1:
+                        <FilledUsThisDay />
+                        break;
+                    case 2:
+                        <MayTheLordKeepUs />
+                        break;
+                }
             }
             break;
         }

@@ -12,3 +12,9 @@ public enum MainPrayerChoiceKind
     MorningPrayer,
     EveningPrayer,
 }
+
+public enum EnglishKindEnum
+{
+    Contemporary,
+    Old,
+}
