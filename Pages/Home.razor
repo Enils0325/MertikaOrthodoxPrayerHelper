@@ -1,9 +1,25 @@
 ﻿@page "/"
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Orthodox Prayer Helper App</PageTitle>
 
-<h1>Hello, world!</h1>
+<div style="display: flex; gap: 2px; padding: 8px 4px 8px 4px;">
+    <div>
+        <input type="date" @bind-value="@(Date)">
+    </div>
+</div>
 
-Welcome to your new app.
+<div style="display: flex; gap: 2px; padding: 8px 4px 8px 4px;">
+    <div>
+        <ButtonLink OnClick="() => this.MainPrayerChoice = MainPrayerChoiceKind.MorningPrayer">
+            Morning Prayer
+        </ButtonLink>
+    </div>
+    <div></div>
+    <div></div>
+</div>
 
 <OHeavenlyKingAndTrisagion/>
+
+@code {
+    
+}
