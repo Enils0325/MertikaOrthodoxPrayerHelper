@@ -5,12 +5,13 @@ div.meal-kind-container {
     margin: 0.5em 0.2em 0.5em 0.2em;
 }
 
-div.meal-kind-container > div {
-    background-color: red;
-    padding: 0.5em;
-    border-radius: 0.75em;
-    margin: 0.5em 0.2em 0.5em 0.2em;
-}
+    div.meal-kind-container > div {
+        background-color: var(--light-yellow);
+        color: var(--black);
+        padding: 0.5em;
+        border-radius: 0.75em;
+        margin: 0.5em 0.2em 0.5em 0.2em;
+    }
 
 div.before-after-container {
     display: flex;
@@ -18,9 +19,10 @@ div.before-after-container {
     margin: 0.5em 0.2em 0.5em 0.2em;
 }
 
-div.before-after-container > div {
-    background-color: red;
-    padding: 0.5em;
-    border-radius: 0.75em;
-    margin: 0.5em 0.2em 0.5em 0.2em;
-}
+    div.before-after-container > div {
+        background-color: var(--light-yellow);
+        color: var(--black);
+        padding: 0.5em;
+        border-radius: 0.75em;
+        margin: 0.5em 0.2em 0.5em 0.2em;
+    }
