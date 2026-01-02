@@ -14,12 +14,46 @@
             Morning Prayer
         </ButtonLink>
     </div>
-    <div></div>
-    <div></div>
+    <div>
+        <ButtonLink OnClick="() => this.MainPrayerChoice = MainPrayerChoiceKind.EveningPrayer">
+            Evening Prayer
+        </ButtonLink>
+    </div>
+    <div>
+        <ButtonLink OnClick="() => this.MainPrayerChoice = MainPrayerChoiceKind.BeforeMeal">
+            Before Meal
+        </ButtonLink>
+    </div>
+    <div>
+        <ButtonLink OnClick="() => this.MainPrayerChoice = MainPrayerChoiceKind.AfterMeal">
+            After Meal
+        </ButtonLink>
+    </div>
 </div>
 
-<OHeavenlyKingAndTrisagion/>
+<div style="display: flex; gap: 2px; padding: 8px 4px 8px 4px;">
+    @switch (MainPrayerChoice)
+    {
+        case MainPrayerChoiceKind.MorningPrayer:
+            <MorningPrayer Date="Date" />
+            break;
+        case MainPrayerChoiceKind.EveningPrayer:
+            <EveningPrayer Date="Date" />
+            break;
+        case MainPrayerChoiceKind.BeforeMeal:
+            <PreMealPrayer />
+            break;
+        case MainPrayerChoiceKind.AfterMeal:
+            <PostMealPrayer />
+            break;
+        default:
+            <div>Select a prayer.</div>
+            break;
+    }
+    <div>
+    </div>
+</div>
 
 @code {
-    
+
 }

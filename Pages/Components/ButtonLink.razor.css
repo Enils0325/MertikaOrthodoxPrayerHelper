@@ -5,3 +5,7 @@
     cursor: pointer;
     text-decoration: none;
 }
+
+    a.button-link:hover {
+        font-weight: bolder;
+    }

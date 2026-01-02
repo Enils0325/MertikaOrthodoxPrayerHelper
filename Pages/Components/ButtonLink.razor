@@ -1,5 +1,5 @@
 ﻿
-<a class="button-link" style="background-color: @(BackgroundColor); color: @(ForeColor);"
+<a class="button-link" style="@(GetStyle())"
    @onclick="@(OnClick)">
     @ChildContent
 </a>
@@ -12,8 +12,26 @@
     public RenderFragment? ChildContent { get; set; } = null!;
 
     [Parameter]
+    public bool AllowWrap { get; set; } = false;
+
+    [Parameter]
     public string BackgroundColor { get; set; } = StaticColors.DarkRed;
 
     [Parameter]
     public string ForeColor { get; set; } = StaticColors.LightBeige;
+
+    private string GetStyle()
+    {
+        List<string> styles = [
+            $"color: {ForeColor};",
+            $"background-color: {BackgroundColor};",
+        ];
+
+        if (AllowWrap)
+            styles.Add("white-space: normal;");
+        else
+            styles.Add("white-space: nowrap;");
+
+        return string.Join(" ", styles);
+    }
 }

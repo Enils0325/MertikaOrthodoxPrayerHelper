@@ -1,0 +1,113 @@
+﻿<Heading>
+
+    @switch (timeOfDayPrayer)
+    {
+        case MealPrayerKindEnum.Breakfast:
+        {
+            <span>
+                Prayer and Blessing @(getBeforeAfterText()) Breakfast
+            </span>
+            break;
+        }
+        case MealPrayerKindEnum.Lunch:
+        {
+            <span>
+                Prayer and Blessing @(getBeforeAfterText()) the Midday Meal
+            </span>
+            break;
+        }
+        case MealPrayerKindEnum.Dinner:
+        {
+            <span>
+                Prayer and Blessing @(getBeforeAfterText()) the Midday Meal
+            </span>
+            break;
+        }
+        default:
+        {
+            <span>
+                Prayer @(getBeforeAfterText()) a meal
+            </span>
+            break;
+        }
+    }
+</Heading>
+
+<InputRadioGroup @bind-Value="timeOfDayPrayer">
+    <InputRadio Value="MealPrayerKindEnum.Breakfast" /> Morning Prayer
+    <br />
+    <InputRadio Value="MealPrayerKindEnum.Lunch" /> Lunch Prayer
+    <br />
+    <InputRadio Value="MealPrayerKindEnum.Dinner" /> Evening Prayer
+</InputRadioGroup>
+
+<InputRadioGroup @bind-Value="beforeAfterKind">
+    <InputRadio Value="BeforeAfterKindEnum.Before" /> Before
+    <br />
+    <InputRadio Value="BeforeAfterKindEnum.After" /> After
+</InputRadioGroup>
+
+<div>
+    @switch (timeOfDayPrayer)
+    {
+        case MealPrayerKindEnum.Breakfast:
+        {
+            @if (beforeAfterKind == BeforeAfterKindEnum.Before)
+            {
+                switch (MainUtil.GetRandomIndex(3))
+                {
+                    case 0:
+                        <RichSentAwayHungry />
+                        break;
+                    case 1:
+                        <BlessFoodAndDrinkOfYourServants />
+                        break;
+                    case 2:
+                        <OurFather IncludeHeading="false" />
+                        break;
+                }
+            }
+            else
+            {
+
+            }
+            break;
+        }
+        case MealPrayerKindEnum.Lunch:
+        case MealPrayerKindEnum.Dinner:
+        {
+
+            @if (beforeAfterKind == BeforeAfterKindEnum.Before)
+            {
+                switch (MainUtil.GetRandomIndex(4))
+                {
+                    case 0:
+                        <RichSentAwayHungry />
+                        break;
+                    case 1:
+                        <BlessFoodAndDrinkOfYourServants />
+                        break;
+                    case 2:
+                        <OurFather IncludeHeading="false" />
+                        break;
+                    case 3:
+                        <BlessedFiveLoaves />
+                        break;
+                }
+            }
+            else
+            {
+                
+            }
+            break;
+        }
+    }
+</div>
+
+@code {
+    private MealPrayerKindEnum timeOfDayPrayer = MealPrayerKindEnum.Breakfast;
+
+    private BeforeAfterKindEnum beforeAfterKind = BeforeAfterKindEnum.Before;
+
+    private string getBeforeAfterText() => beforeAfterKind == BeforeAfterKindEnum.Before ? "before" : "after";
+}
