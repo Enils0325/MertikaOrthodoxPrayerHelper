@@ -1,6 +1,22 @@
-﻿@if (HeadingKind != HeadingKindEnum.None)
+﻿@if (HeadingKind == HeadingKindEnum.None)
+{
+    
+}
+else if (HeadingKind == HeadingKindEnum.MainHeading)
+{
+    <h1>@(ChildContent)</h1>
+}
+else if (HeadingKind == HeadingKindEnum.Heading)
+{
+    <h2>@(ChildContent)</h2>
+}
+else if (HeadingKind == HeadingKindEnum.SubHeading)
 {
     <h3>@(ChildContent)</h3>
+}
+else if (HeadingKind == HeadingKindEnum.SubHeading2)
+{
+    <h4>@(ChildContent)</h4>
 }
 
 @code {
