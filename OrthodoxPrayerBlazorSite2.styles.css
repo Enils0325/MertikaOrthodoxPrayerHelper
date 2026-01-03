@@ -7,8 +7,13 @@ main[b-stiuq42977] {
 }
 
 article.main-body-container[b-stiuq42977] {
-    margin: 0 auto;
+    min-height: 75vh;
     max-width: 800px;
+    padding: 0.5em;
+    border-radius: 1em;
+    border: 0.4em solid var(--light-beige);
+    margin: 0 auto;
+    background-color: var(--white);
 }
 
 @media (max-width: 640.98px) {
