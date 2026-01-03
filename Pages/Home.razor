@@ -26,6 +26,16 @@
             Meal
         </ButtonLink>
     </div>
+
+    @if (this.MainPrayerChoice != MainPrayerChoiceKind.None)
+    {
+        <div>
+            <ButtonLink OnClick="() => NilsEventService.NotifyRandomClicked()"
+                        BackgroundColor="@(StaticColors.LightBeige)">
+                <DiceIcon />
+            </ButtonLink>
+        </div>
+    }
 </div>
 
 <div style="padding: 8px 4px 8px 4px;">
@@ -47,5 +57,4 @@
 </div>
 
 @code {
-
 }

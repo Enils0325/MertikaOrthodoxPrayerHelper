@@ -14,9 +14,15 @@
     [Parameter]
     public bool AllowWrap { get; set; } = false;
 
+    [Parameter]
+    public string BackgroundColor { get; set; } = string.Empty;
+
     private string GetStyle()
     {
         List<string> styles = [];
+
+        if (!string.IsNullOrWhiteSpace(BackgroundColor))
+            styles.Add($"background-color: {BackgroundColor};");
 
         if (AllowWrap)
             styles.Add("white-space: normal;");

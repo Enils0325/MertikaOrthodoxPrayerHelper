@@ -1,13 +1,12 @@
-﻿
-@{
-    var psalm = psalmGetter.GetRandomPsalm(IsBrief);
+﻿@implements IDisposable
 
+@{
     <Heading HeadingKind="HeadingKind">
-        Psalm @(psalm.Number)
+        Psalm @(selectedPsalm.Number)
     </Heading>
 
     <p>
-        @(psalm.Text)
+        @(selectedPsalm.Text)
     </p>
 }
 
@@ -18,5 +17,34 @@
     [Parameter, EditorRequired]
     public bool IsBrief { get; set; }
 
+    [Inject]
+    public NilsEventService NilsEventService { get; set; } = null!;
+
     private PsalmGetter psalmGetter = new PsalmGetter();
+    private PsalmContainer selectedPsalm = null!;
+
+
+    protected override void OnParametersSet()
+    {
+        if (selectedPsalm == null)
+            selectedPsalm = psalmGetter.GetRandomPsalm(IsBrief);
+
+
+        NilsEventService.OnRandomClicked += OnRandomClicked;
+
+        base.OnParametersSet();
+    }
+
+
+    public async Task OnRandomClicked()
+    {
+        selectedPsalm = psalmGetter.GetRandomPsalm(IsBrief);
+        StateHasChanged();
+    }
+
+
+    public void Dispose()
+    {
+        NilsEventService.OnRandomClicked -= OnRandomClicked;
+    }
 }

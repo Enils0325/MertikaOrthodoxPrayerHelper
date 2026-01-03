@@ -8,6 +8,25 @@ body {
     background-repeat: repeat;
 }
 
+h1 {
+    line-height: 0.5;
+    padding-bottom: 0.4em;
+}
+
+h2 {
+    line-height: 0.5;
+    padding-bottom: 0.4em;
+}
+
+h3 {
+    line-height: 0.5;
+    margin: 0.4em 0 0.5em 0;
+}
+
+div.loading-div-container {
+    background-color: var(--light-beige);
+}
+
 #blazor-error-ui {
     color-scheme: light only;
     background: lightyellow;
@@ -40,6 +59,9 @@ body {
     }
 
 .loading-progress {
+    background-color: var(--light-yellow);
+    padding: 3em;
+    border-radius: 2em;
     position: absolute;
     display: block;
     width: 8rem;
@@ -66,7 +88,7 @@ body {
     position: absolute;
     text-align: center;
     font-weight: bold;
-    inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
+    inset: calc(26vh + 3.25rem) 0 auto 0.2rem;
 }
 
     .loading-progress-text:after {

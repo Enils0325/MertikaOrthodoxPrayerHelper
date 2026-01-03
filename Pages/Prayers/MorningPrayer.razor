@@ -5,7 +5,7 @@
 
 <OHeavenlyKingAndTrisagion HeadingKind="HeadingKindEnum.SubHeading" />
 
-@switch (MainUtil.GetRandomIndex(3))
+@switch (randomMorningPrayerIndex)
 {
     case 0:
         <StBasilMorningPrayer HeadingKind="HeadingKindEnum.SubHeading" />
@@ -53,4 +53,14 @@
     public bool HasNiceneCreed { get; set; } = false;
 
     private bool IsLent => false;
+
+    private int randomMorningPrayerIndex = 0;
+
+    protected override void OnParametersSet()
+    {
+        if (randomMorningPrayerIndex == 0)
+            randomMorningPrayerIndex = MainUtil.GetRandomIndex(3);
+
+        base.OnParametersSet();
+    }
 }
