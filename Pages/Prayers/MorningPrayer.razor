@@ -5,7 +5,7 @@
 
 <OHeavenlyKingAndTrisagion HeadingKind="HeadingKindEnum.SubHeading" />
 
-@switch (randomMorningPrayerIndex)
+@switch (SelectedIndexOutOf3)
 {
     case 0:
         <StBasilMorningPrayer HeadingKind="HeadingKindEnum.SubHeading" />
@@ -52,15 +52,31 @@
     [Parameter]
     public bool HasNiceneCreed { get; set; } = false;
 
+    [Inject]
+    public NilsEventService NilsEventService { get; set; } = null!;
+
     private bool IsLent => false;
 
-    private int randomMorningPrayerIndex = 0;
+    private int SelectedIndexOutOf3 { get; set; } = 0;
 
-    protected override void OnParametersSet()
+
+    protected override async Task OnParametersSetAsync()
     {
-        if (randomMorningPrayerIndex == 0)
-            randomMorningPrayerIndex = MainUtil.GetRandomIndex(3);
-
+        await OnRandomClicked();
+        NilsEventService.OnRandomClicked += OnRandomClicked;
         base.OnParametersSet();
+    }
+
+
+    public async Task OnRandomClicked()
+    {
+        SelectedIndexOutOf3 = MainUtil.GetRandomIndex(3);
+        StateHasChanged();
+    }
+
+
+    public void Dispose()
+    {
+        NilsEventService.OnRandomClicked -= OnRandomClicked;
     }
 }

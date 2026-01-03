@@ -69,7 +69,7 @@
         {
             @if (BeforeAfterKind == BeforeAfterKindEnum.Before)
             {
-                switch (MainUtil.GetRandomIndex(4))
+                switch (SelectedIndexOutOf4)
                 {
                     case 0:
                         <RichSentAwayHungry />
@@ -78,7 +78,7 @@
                         <BlessFoodAndDrinkOfYourServants />
                         break;
                     case 2:
-                        <OurFather IncludeHeading="false" />
+                        <OurFather HeadingKind="HeadingKindEnum.SubHeading" />
                         break;
                     case 3:
                         <HasShownMercyAndNourishedUs />
@@ -87,7 +87,7 @@
             }
             else
             {
-                switch (MainUtil.GetRandomIndex(3))
+                switch (SelectedIndexOutOf3)
                 {
                     case 0:
                         <MercifulToUsAndFeedsUs />
@@ -108,7 +108,7 @@
 
             @if (BeforeAfterKind == BeforeAfterKindEnum.Before)
             {
-                switch (MainUtil.GetRandomIndex(5))
+                switch (SelectedIndexOutOf5)
                 {
                     case 0:
                         <RichSentAwayHungry />
@@ -117,7 +117,7 @@
                         <BlessFoodAndDrinkOfYourServants />
                         break;
                     case 2:
-                        <OurFather IncludeHeading="false" />
+                        <OurFather HeadingKind="HeadingKindEnum.SubHeading" />
                         break;
                     case 3:
                         <BlessedFiveLoaves />
@@ -129,7 +129,7 @@
             }
             else
             {
-                switch (MainUtil.GetRandomIndex(3))
+                switch (SelectedIndexOutOf3)
                 {
                     case 0:
                         <MercifulToUsAndFeedsUs />
@@ -148,11 +148,38 @@
 </div>
 
 @code {
-
     [Parameter]
     public MealKindEnum MealKind { get; set; } = MealKindEnum.Breakfast;
 
     [Parameter]
     public BeforeAfterKindEnum BeforeAfterKind { get; set; } = BeforeAfterKindEnum.Before;
 
+    [Inject]
+    public NilsEventService NilsEventService { get; set; } = null!;
+
+    private int SelectedIndexOutOf3 { get; set; } = 0;
+    private int SelectedIndexOutOf4 { get; set; } = 0;
+    private int SelectedIndexOutOf5 { get; set; } = 0;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await OnRandomClicked();
+        NilsEventService.OnRandomClicked += OnRandomClicked;
+        base.OnParametersSet();
+    }
+
+
+    public async Task OnRandomClicked()
+    {
+        SelectedIndexOutOf3 = MainUtil.GetRandomIndex(3);
+        SelectedIndexOutOf4 = MainUtil.GetRandomIndex(4);
+        SelectedIndexOutOf5 = MainUtil.GetRandomIndex(5);
+        StateHasChanged();
+    }
+
+
+    public void Dispose()
+    {
+        NilsEventService.OnRandomClicked -= OnRandomClicked;
+    }
 }
