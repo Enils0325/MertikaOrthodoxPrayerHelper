@@ -1,5 +1,11 @@
-html, body {
+html {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.3;
+}
+
+body {
+    background-image: url("../img/pattern.png");
+    background-repeat: repeat;
 }
 
 #blazor-error-ui {
@@ -89,7 +95,7 @@ code {
     --brown: #894d20;
     --dark-blue: #161677;
     --light-blue: #3873dd;
-    --light-beige: #cac385;
+    --light-beige: #b98a3f;
     --lighter-beige: #dcd8b5;
     --light-yellow: #eae8cf;
 }
