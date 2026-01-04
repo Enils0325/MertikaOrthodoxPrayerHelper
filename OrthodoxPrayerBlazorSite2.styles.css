@@ -36,15 +36,15 @@ a.button-link[b-mbsbv4l5aa] {
         font-style: italic;
         filter: hue-rotate(260deg);
     }
-/* /Pages/Prayers/MealPrayer.razor.rz.scp.css */
+/* /Pages/MainPrayers/MealPrayer.razor.rz.scp.css */
 
-div.meal-kind-container[b-yeiolk6g72] {
+div.meal-kind-container[b-jwpx5zhjcr] {
     display: flex;
     gap: 0.4em;
     margin: 0.5em 0.2em 0.5em 0.2em;
 }
 
-    div.meal-kind-container > div[b-yeiolk6g72] {
+    div.meal-kind-container > div[b-jwpx5zhjcr] {
         background-color: var(--light-yellow);
         color: var(--black);
         padding: 0.5em;
@@ -52,13 +52,13 @@ div.meal-kind-container[b-yeiolk6g72] {
         margin: 0.5em 0.2em 0.5em 0.2em;
     }
 
-div.before-after-container[b-yeiolk6g72] {
+div.before-after-container[b-jwpx5zhjcr] {
     display: flex;
     gap: 0.4em;
     margin: 0.5em 0.2em 0.5em 0.2em;
 }
 
-    div.before-after-container > div[b-yeiolk6g72] {
+    div.before-after-container > div[b-jwpx5zhjcr] {
         background-color: var(--light-yellow);
         color: var(--black);
         padding: 0.5em;
