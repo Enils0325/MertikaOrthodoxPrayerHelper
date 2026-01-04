@@ -13,6 +13,7 @@ namespace OrthodoxPrayerBlazorSite2
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddScoped<NilsEventService>();
+            builder.Services.AddScoped<NilsAppState>();
 
             await builder.Build().RunAsync();
         }

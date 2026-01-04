@@ -50,8 +50,7 @@
     [Parameter, EditorRequired]
     public HeadingKindEnum HeadingKind { get; set; }
 
-    protected override void OnParametersSet()
-    {
-        base.OnParametersSet();
-    }
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
+
 }

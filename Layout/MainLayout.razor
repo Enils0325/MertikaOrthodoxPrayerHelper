@@ -1,10 +1,32 @@
 ﻿@inherits LayoutComponentBase
+@implements IDisposable
+
 <div class="page">
 
     <main>
         <article class="main-body-container">
-            @Body
+            <CascadingValue Value="NilsAppState.SelectedLanguageKind">
+                @Body
+            </CascadingValue>
         </article>
     </main>
 
 </div>
+
+@code {
+    [Inject]
+    public NilsAppState NilsAppState { get; set; } = null!;
+
+
+    protected override void OnInitialized()
+    {
+        NilsAppState.OnSelectedLanguageKindChanged += StateHasChanged;
+        base.OnInitialized();
+    }
+
+
+    public void Dispose()
+    {
+        NilsAppState.OnSelectedLanguageKindChanged -= StateHasChanged;
+    }
+}
