@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 
-namespace OrthodoxPrayerBlazorSite2.Pages.Prayers;
+namespace OrthodoxPrayerBlazorSite2.Pages.MainPrayers;
 
 public partial class MealPrayer
 {
