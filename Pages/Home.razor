@@ -10,20 +10,31 @@
     </div>
 </div>
 
+<div style="display: flex; gap: 2px; padding: 8px 4px 8px 4px;">
+    <div>
+        <LanguageSelector OnLanguageKindChanged="(languageKind) => { NilsEventService.NotifyLanguageChanged(languageKind); StateHasChanged(); }" />
+    </div>
+</div>
+
 <div style="display: flex; gap: 2px; padding: 8px 4px 8px 4px; margin-top: 20px;">
     <div>
         <ButtonLink OnClick="() => this.MainPrayerChoice = MainPrayerChoiceKind.MorningPrayer">
-            Morning Prayer
+            Morning
         </ButtonLink>
     </div>
     <div>
         <ButtonLink OnClick="() => this.MainPrayerChoice = MainPrayerChoiceKind.EveningPrayer">
-            Evening Prayer
+            Evening
         </ButtonLink>
     </div>
     <div>
         <ButtonLink OnClick="() => this.MainPrayerChoice = MainPrayerChoiceKind.Meal">
             Meal
+        </ButtonLink>
+    </div>
+    <div>
+        <ButtonLink OnClick="() => this.MainPrayerChoice = MainPrayerChoiceKind.PreCommunionPrayer">
+            Pre-Communion
         </ButtonLink>
     </div>
 
@@ -50,6 +61,9 @@
         case MainPrayerChoiceKind.Meal:
             <MealPrayer />
             break;
+        case MainPrayerChoiceKind.PreCommunionPrayer:
+            <PreCommunionPrayers HeadingKind="HeadingKindEnum.MainHeading" />
+            break;
         default:
             <div>Select a prayer.</div>
             break;
@@ -57,4 +71,5 @@
 </div>
 
 @code {
+
 }

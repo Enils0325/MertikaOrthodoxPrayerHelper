@@ -1,21 +1,34 @@
-﻿<p>
-    O Blessed God, who, from our youth, @(EnglishTg.Hast()) shown mercy and @(EnglishTg.Hast()) nourished us, giving food to all flesh: 
-    fill our hearts with joy and gladness, that having every sufficiency, we may become rich in every good deed, in Christ Jesus our Lord, 
-    to @(EnglishTg.Whom()), with @(EnglishTg.Thee(true)) and the Holy Spirit, is due glory, dominion, honor, and worship, unto the ages. 
-    <Amen />
-</p>
+﻿@inherits OrthodoxPrayerBasePage
+
+@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+    {
+        <p>
+            O Blessed God, who, from our youth, hast shown mercy and hast nourished us, giving food to all flesh:
+            fill our hearts with joy and gladness, that having every sufficiency, we may become rich in every good deed, in Christ Jesus our Lord,
+            to whom, with Thee and the Holy Spirit, is due glory, dominion, honor, and worship, unto the ages.
+            <Amen />
+        </p>
+        break;
+    }
+    case LanguageKindEnum.EnglishModern:
+    default:
+    {
+        <p>
+            O Blessed God, who, from our youth, has shown mercy and has nourished us, giving food to all flesh:
+            fill our hearts with joy and gladness, that having every sufficiency, we may become rich in every good deed, in Christ Jesus our Lord,
+            to who, with You and the Holy Spirit, is due glory, dominion, honor, and worship, unto the ages.
+            <Amen />
+        </p>
+        break;
+    }
+}
 
 @code {
-    [Parameter]
-    public EnglishKindEnum EnglishKind { get; set; } = EnglishKindEnum.Contemporary;
-
-    private EnglishTextGetter EnglishTg { get; set; } = null!;
 
     protected override void OnParametersSet()
     {
-        if (EnglishTg == null)
-            EnglishTg = new EnglishTextGetter(EnglishKind);
-
         base.OnParametersSet();
     }
 

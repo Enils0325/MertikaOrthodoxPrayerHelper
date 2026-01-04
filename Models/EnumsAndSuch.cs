@@ -23,12 +23,7 @@ public enum MainPrayerChoiceKind
     Meal,
     MorningPrayer,
     EveningPrayer,
-}
-
-public enum EnglishKindEnum
-{
-    Contemporary,
-    Old,
+    PreCommunionPrayer,
 }
 
 public enum HeadingKindEnum
@@ -39,3 +34,5 @@ public enum HeadingKindEnum
     SubHeading,
     SubHeading2,
 }
+
+public enum LanguageKindEnum { EnglishModern, EnglishOlder, }

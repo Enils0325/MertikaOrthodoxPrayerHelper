@@ -1,0 +1,57 @@
+﻿@inherits OrthodoxPrayerBasePage
+
+<Heading HeadingKind="HeadingKind">
+    @switch (LanguageKind)
+    {
+        case LanguageKindEnum.EnglishModern:
+            <span>Before Receiving Holy Communion</span>
+            break;
+        case LanguageKindEnum.EnglishOlder:
+        default:
+            <span>Before Receiving Holy Communion</span>
+            break;
+    }
+</Heading>
+
+@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+        <p>
+            I believe, O Lord, and I confess that Thou art truly the Christ, the Son of the Living God, Who camest into the world to save sinners, of whom I am first. I believe also that this is truly Thine own pure Body, and that this is truly Thine own precious Blood. Therefore I pray Thee: have mercy upon me and forgive my transgressions both voluntary and involuntary, of word and of deed, of knowledge and of ignorance. And make me worthy to partake without condemnation of Thy most pure Mysteries, for the remission of my sins, and unto life everlasting. Amen.
+        </p>
+
+        <p>
+            Of Thy Mystical Supper, O Son of God, accept me today as a communicant; for I will not speak of Thy Mystery to Thine enemies, neither like Judas will I give Thee a kiss; but like the thief will I confess Thee: Remember me, O Lord in Thy Kingdom.
+        </p>
+
+        <p>
+            May the communion of Thy Holy Mysteries be neither to my judgment, nor to my condemnation, O Lord, but to the healing of soul and body.
+            <Amen />
+        </p>
+        break;
+    case LanguageKindEnum.EnglishModern:
+    default:
+        <p>
+            I believe, O Lord, and I confess that You are truly the Christ, the Son of the Living God, Who came into the world to save sinners, of whom I am first. I believe also that this is truly Your own pure Body, and that this is truly Your own precious Blood. Therefore I pray to You: have mercy on me and forgive my transgressions both voluntary and involuntary, of word and of deed, of knowledge and of ignorance. And make me worthy to partake without condemnation of Your most pure Mysteries, for the remission of my sins, and unto life everlasting. Amen.
+        </p>
+
+        <p>
+            Of Your Mystical Supper, O Son of God, accept me today as a communicant; for I will not speak of Your Mystery to Your enemies, neither like Judas will I give You a kiss; but like the thief will I confess to You: Remember me, O Lord in Your Kingdom.
+        </p>
+
+        <p>
+            May the communion of Your Holy Mysteries be neither to my judgment, nor to my condemnation, O Lord, but to the healing of soul and body.
+            <Amen />
+        </p>
+        break;
+}
+
+@code {
+    [Parameter, EditorRequired]
+    public HeadingKindEnum HeadingKind { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+    }
+}
