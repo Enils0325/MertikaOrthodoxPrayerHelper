@@ -1,31 +1,75 @@
 ﻿<Heading HeadingKind="HeadingKind">
-    Morning Prayer of Metropolitan Philaret of Moscow
+    @switch (LanguageKind)
+    {
+        case LanguageKindEnum.EnglishOlder:
+        case LanguageKindEnum.EnglishModern:
+        case LanguageKindEnum.EnglishMixed:
+        default:
+            <span>
+                Morning Prayer of Metropolitan Philaret of Moscow
+            </span>
+            break;
+    }
 </Heading>
 
-<p>
-    O Lord, grant me to greet the coming day in peace.
-    <br/>
-    Help me in all things to rely on Your Holy will.
-    <br />
-    In every hour of the day reveal Your will to me.
-    <br />
-    Bless my dealings with all who surround me.
-    <br />
-    Teach me to treat all that comes to me throughout the day with peace of soul, and with the firm conviction that Your will governs all.
-    <br />
-    In all my deeds and words, guide my thoughts and feelings.
-    <br />
-    In unforeseen events let me not forget that all are sent by You.
-    <br />
-    Teach me to act firmly and wisely, without embittering and embarrassing others.
-    <br />
-    Give me strength to bear the fatigue of this coming day with all that it shall bring.
-    <br />
-    Direct my will, teach me to pray, pray You Yourself in me.
-    <Amen/>
-</p>
+@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+        <p>
+            O Lord, grant me to greet the coming day in peace.
+            <br />
+            Help me in all things to rely upon Thy holy will.
+            <br />
+            In every hour of the day reveal Thy will to me.
+            <br />
+            Bless my dealings with all who surround me.
+            <br />
+            Teach me to treat all that comes to me throughout the day with peace of soul and with the firm conviction that Thy will governs all.
+            <br />
+            In all my deeds and words guide my thoughts and feelings.
+            <br />
+            In unforeseen events, let me not forget that all are sent by Thee.
+            <br />
+            Teach me to act firmly and wisely, without embittering or embarrassing others.
+            <br />
+            Give me strength to bear the fatigue of the coming day with all that it shall bring.
+            <br />
+            Direct my will, teach me to pray, and do Thou, Thyself, pray in me.
+            <Amen />
+        </p>
+        break;
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+        <p>
+            O Lord, grant me to greet the coming day in peace.
+            <br />
+            Help me in all things to rely on Your Holy will.
+            <br />
+            In every hour of the day reveal Your will to me.
+            <br />
+            Bless my dealings with all who surround me.
+            <br />
+            Teach me to treat all that comes to me throughout the day with peace of soul, and with the firm conviction that Your will governs all.
+            <br />
+            In all my deeds and words, guide my thoughts and feelings.
+            <br />
+            In unforeseen events let me not forget that all are sent by You.
+            <br />
+            Teach me to act firmly and wisely, without embittering and embarrassing others.
+            <br />
+            Give me strength to bear the fatigue of this coming day with all that it shall bring.
+            <br />
+            Direct my will, teach me to pray, pray You Yourself in me.
+            <Amen />
+        </p>
+        break;
+}
 
 @code {
     [Parameter]
     public HeadingKindEnum HeadingKind { get; set; } = HeadingKindEnum.None;
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
 }

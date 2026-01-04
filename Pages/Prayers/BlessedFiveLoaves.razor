@@ -1,18 +1,49 @@
-﻿<p>
-    O Lord Jesus Christ our God,
-    Who blessed the five loaves in the wilderness and from them fed five thousand,
-    bless these gifts also, and multiply them in this household and for all Your world;
-</p>
+﻿
+@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+        <Heading HeadingKind="HeadingKind">Prayer of the Artoklasia (the Blessing of the Loaves)</Heading>
+        <p>
+            "O Lord Jesus Christ our God, 
+            Who didst bless the five loaves in the wilderness and from them didst feed five thousand: 
+            Do Thou Thyself, O Lord, bless these loaves, this wheat, wine, and oil; and multiply them in this holy habitation and in all the world; 
+            and sanctify all the faithful who partake of them.
+        </p>
 
-<p>
-    For You are the One who blesses and sanctifies all things,
-    O Christ our God, and to You we give glory,
-    together with Your Eternal Father,
-    and Your All-holy, Good, and Life-giving Spirit,
-    now and ever, and unto the ages of ages.
-    <Amen />
-</p>
+        <p>
+            For it is Thou Who dost bless and sanctify all things, 
+            O Christ our God, and unto Thee do we send up glory, 
+            together with Thine Eternal Father, 
+            and Thine all-holy, good, and life-creating Spirit, 
+            now and ever, and unto ages of ages.
+            <Amen />
+        </p>
+        break;
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+        <Heading HeadingKind="HeadingKind">Prayer of the Artoklasia (the Blessing of the Loaves)</Heading>
+        <p>
+            O Lord Jesus Christ our God,
+            Who blessed the five loaves in the wilderness and from them fed five thousand,
+            bless these gifts also, and multiply them in this household and for all Your world;
+        </p>
+
+        <p>
+            For You are the One who blesses and sanctifies all things,
+            O Christ our God, and to You we give glory,
+            together with Your Eternal Father,
+            and Your All-holy, Good, and Life-giving Spirit,
+            now and ever, and unto the ages of ages.
+            <Amen />
+        </p>
+        break;
+}
 
 @code {
+    [Parameter]
+    public HeadingKindEnum HeadingKind { get; set; } = HeadingKindEnum.None;
 
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
 }

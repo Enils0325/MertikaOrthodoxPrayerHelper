@@ -1,50 +1,114 @@
 ﻿<Heading HeadingKind="HeadingKind">
-    O Heavenly King and Trisagion Prayers
+    @switch (LanguageKind)
+    {
+        case LanguageKindEnum.EnglishOlder:
+        case LanguageKindEnum.EnglishModern:
+        case LanguageKindEnum.EnglishMixed:
+        default:
+            <span>
+                O Heavenly King and Trisagion Prayers
+            </span>
+            break;
+    }
 </Heading>
 
-<InTheNameOfTheTrinity />
+@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+        <InTheNameOfTheTrinity />
 
-<p>
-    Glory to Thee, our God, glory to Thee!
-    <br />
-    O Heavenly King, Comforter, Spirit of Truth, everywhere present and filling all things; 
-    <br />
-    Treasury of Blessings, and Giver of Life - come and abide in us, and cleanse us from every stain and inequity, and save our souls, O Good One.
-</p>
+        <p>
+            Glory to Thee, our God, glory to Thee!
+            <br />
+            O Heavenly King, Comforter, Spirit of Truth, everywhere present and fillest all things;
+            <br />
+            Treasury of Blessings, and Giver of Life - come and abide in us, and cleanse us from every impurity, and save our souls, O Good One.
+        </p>
 
-<p>
-    Holy God! Holy Mighty! Holy Immortal! Have mercy on us. (3x)
-</p>
+        <p>
+            Holy God! Holy Mighty! Holy Immortal! Have mercy on us. (3x)
+        </p>
 
-<GloryNowAndForever/>
+        <GloryNowAndForever />
 
-<p>
-    O most Holy Trinity, have mercy on us.  
-    <br/>
-    O Lord, cleanse us from our sins. 
-    <br/>
-    O Master, pardon our transgressions.  
-    <br/>
-    O Holy One, visit and heal our infirmities, for Your name’s sake.
-</p>
+        <p>
+            O most Holy Trinity, have mercy on us.
+            <br />
+            O Lord, cleanse us from our sins.
+            <br />
+            O Master, pardon our transgressions.
+            <br />
+            O Holy One, visit and heal our infirmities, for Thy name’s sake.
+        </p>
 
-<LordHaveMercy TimesToSay="3" />
+        <LordHaveMercy TimesToSay="3" />
 
-<GloryNowAndForever/>
+        <GloryNowAndForever />
 
-<OurFather HeadingKind="HeadingKindEnum.None"/>
+        <OurFather HeadingKind="HeadingKindEnum.None" />
 
-<LordHaveMercy TimesToSay="12"/>
+        <LordHaveMercy TimesToSay="12" />
 
-<p>
-    Come! Let us worship God, our King!
-    <br />
-    Come! Let us worship and fall down before Christ, our King and our God!
-    <br />
-    Come! Let us worship and fall down before Christ Himself, our King and our God!
-</p>
+        <p>
+            Come! Let us worship God, our King!
+            <br />
+            Come! Let us worship and fall down before Christ, our King and our God!
+            <br />
+            Come! Let us worship and fall down before Christ Himself, our King and our God!
+        </p>
+        break;
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+        <InTheNameOfTheTrinity />
+
+        <p>
+            Glory to You, our God, glory to You!
+            <br />
+            O Heavenly King, Comforter, Spirit of Truth, everywhere present and filling all things;
+            <br />
+            Treasury of Blessings, and Giver of Life - come and abide in us, and cleanse us from every impurity, and save our souls, O Good One.
+        </p>
+
+        <p>
+            Holy God! Holy Mighty! Holy Immortal! Have mercy on us. (3x)
+        </p>
+
+        <GloryNowAndForever />
+
+        <p>
+            O most Holy Trinity, have mercy on us.
+            <br />
+            O Lord, cleanse us from our sins.
+            <br />
+            O Master, pardon our transgressions.
+            <br />
+            O Holy One, visit and heal our infirmities, for Your name’s sake.
+        </p>
+
+        <LordHaveMercy TimesToSay="3" />
+
+        <GloryNowAndForever />
+
+        <OurFather HeadingKind="HeadingKindEnum.None" />
+
+        <LordHaveMercy TimesToSay="12" />
+
+        <p>
+            Come! Let us worship God, our King!
+            <br />
+            Come! Let us worship and fall down before Christ, our King and our God!
+            <br />
+            Come! Let us worship and fall down before Christ Himself, our King and our God!
+        </p>
+        break;
+}
+
 
 @code {
     [Parameter, EditorRequired]
     public HeadingKindEnum HeadingKind { get; set; }
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
 }

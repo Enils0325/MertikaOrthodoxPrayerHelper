@@ -1,19 +1,35 @@
-﻿<Heading HeadingKind="HeadingKind">
-    Prayer of Saint Ephrem the Syrian for Great Lent
-</Heading>
-
-<p>
-    O Lord and Master of my life, give me not a spirit of sloth, idle curiosity, love of power, and useless chatter. 
-    Rather, according to me Your servant a spirit of chastity, humility, patience, and love. 
-    Yes, Lord and King, grant that I may see my own faults and not condemn my brother, for blessed are You forever and ever.
-    <Amen/>
-
-</p>
+﻿
+@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+        <Heading HeadingKind="HeadingKind">Prayer of Saint Ephrem the Syrian for Great Lent</Heading>
+        <p>
+            O Lord and Master of my life, give me not a spirit of sloth, despair, lust of power, and idle talk.<br/>
+            But give rather a spirit of chastity, humility, patience, and love to thy servant.
+            Yes, O Lord and King, grant me to see my own transgressions, and not to judge my brother: for blessed art thou unto ages of ages.
+            <Amen />
+        </p>
+        break;
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+        <Heading HeadingKind="HeadingKind">Prayer of Saint Ephrem the Syrian for Great Lent</Heading>
+        <p>
+            O Lord and Master of my life, give me not a spirit of sloth, idle curiosity, love of power, and useless chatter.
+            Rather, according to me Your servant a spirit of chastity, humility, patience, and love.
+            Yes, Lord and King, grant that I may see my own faults and not condemn my brother, for blessed are You forever and ever.
+            <Amen />
+        </p>
+        break;
+}
 
 
 @code {
     [Parameter, EditorRequired]
     public HeadingKindEnum HeadingKind { get; set; }
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
 
 }
 

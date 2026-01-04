@@ -1,39 +1,62 @@
 ﻿
 <Heading HeadingKind="HeadingKind">
-    Nicene Creed
+    @switch (LanguageKind)
+    {
+        case LanguageKindEnum.EnglishOlder:
+        case LanguageKindEnum.EnglishModern:
+        case LanguageKindEnum.EnglishMixed:
+        default:
+            <span>
+                Nicene Creed
+            </span>
+            break;
+    }
 </Heading>
 
-<p>
-    I believe in one God, the Father Almighty, <br />
-    Maker of Heaven and Earth and of all things visible and invisible. <br /> <br />
-</p>
 
-<p>
-    And in one Lord Jesus Christ, the Son of God, the only-begotten, begotten of the Father before all ages. <br />
-    Light of light; true God of true God;  <br />
-    begotten, not made; of one essence with the Father; by Whom all things were made;  <br />
-    Who for us men and for our salvation came down from Heaven,  <br />
-    and was incarnate of the Holy Spirit and the Virgin Mary, and became man.  <br />
-    And He was crucified for us under Pontius Pilate, and suffered, and was buried.  <br />
-    And the third day He arose again, according to the Scriptures,  <br />
-    and ascended into Heaven, and sits at the right hand of the Father;  <br />
-    and He shall come again with glory to judge the living and the dead; Whose Kingdom shall have no end. <br /> <br />
-</p>
+@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishOlder:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+        <p>
+            I believe in one God, the Father Almighty, <br />
+            Maker of Heaven and Earth and of all things visible and invisible. <br /> <br />
+        </p>
 
-<p>
-    And in the Holy Spirit, the Lord, the Giver of Life, Who proceeds from the Father;  <br />
-    Who with the Father and the Son together is worshipped and glorified; Who spoke by the prophets.
-</p>
+        <p>
+            And in one Lord Jesus Christ, the Son of God, the only-begotten, begotten of the Father before all ages. <br />
+            Light of light; true God of true God;  <br />
+            begotten, not made; of one essence with the Father; by Whom all things were made;  <br />
+            Who for us men and for our salvation came down from Heaven,  <br />
+            and was incarnate of the Holy Spirit and the Virgin Mary, and became man.  <br />
+            And He was crucified for us under Pontius Pilate, and suffered, and was buried.  <br />
+            And the third day He arose again, according to the Scriptures,  <br />
+            and ascended into Heaven, and sits at the right hand of the Father;  <br />
+            and He shall come again with glory to judge the living and the dead; Whose Kingdom shall have no end. <br /> <br />
+        </p>
 
-<p>
-    In one Holy, Catholic, and Apostolic Church.  <br />
-    I acknowledge one baptism for the remission of sins.  <br />
-    I look for the resurrection of the dead and the life of the world to come.
-    <Amen />
-</p>
+        <p>
+            And in the Holy Spirit, the Lord, the Giver of Life, Who proceeds from the Father;  <br />
+            Who with the Father and the Son together is worshipped and glorified; Who spoke by the prophets.
+        </p>
+
+        <p>
+            In one Holy, Catholic, and Apostolic Church.  <br />
+            I acknowledge one baptism for the remission of sins.  <br />
+            I look for the resurrection of the dead and the life of the world to come.
+            <Amen />
+        </p>
+
+        break;
+}
 
 
 @code {
     [Parameter, EditorRequired]
     public HeadingKindEnum HeadingKind { get; set; }
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
 }

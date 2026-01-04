@@ -1,9 +1,19 @@
-﻿<p>
-    Blessed is God, who is merciful to us and feeds us with His bountiful gifts by His divine grace and love for mankind,
-    always, now and forever, and to the ages of ages.
-    <Amen />
-</p>
+﻿@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+        <p>
+            Blessed is God, who is merciful to us and feeds us with His bountiful gifts by His divine grace and love for mankind,
+            always, now and forever, and to the ages of ages.
+            <Amen />
+        </p>
+        break;
+}
+
 
 @code {
-
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
 }

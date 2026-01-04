@@ -1,20 +1,45 @@
-﻿<Heading HeadingKind="HeadingKind">
-    Closing Prayers
-</Heading>
+﻿
+@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+        <Heading HeadingKind="HeadingKind">
+            Closing Prayers
+        </Heading>
 
-<GloryNowAndForever />
+        <GloryNowAndForever />
 
-<LordHaveMercy TimesToSay="3" />
+        <LordHaveMercy TimesToSay="3" />
 
-<p>
-    O Lord Jesus Christ, the Son of God, through the intercessions of Your most pure Mother
-    <br />
-    and of all Your Saints@(getStaintText()),
-    <br />
-    have mercy on us and save us, for You are good and love mankind.
-    <br />
-    Amen.
-</p>
+        <p>
+            O Lord Jesus Christ, the Son of God, through the intercessions of Thy most pure Mother
+            <br />
+            and of all Thy Saints@(getStaintText()),
+            <br />
+            have mercy on us and save us, forasmuch as Thou art good and lovest mankind.
+            <Amen/>
+        </p>
+        break;
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+        <Heading HeadingKind="HeadingKind">
+            Closing Prayers
+        </Heading>
+
+        <GloryNowAndForever />
+
+        <LordHaveMercy TimesToSay="3" />
+
+        <p>
+            O Lord Jesus Christ, the Son of God, through the intercessions of Your most pure Mother
+            <br />
+            and of all Your Saints@(getStaintText()),
+            <br />
+            have mercy on us and save us, for You are good and love mankind.
+            <Amen />
+        </p>
+        break;
+}
 
 @code {
     [Parameter, EditorRequired]
@@ -22,6 +47,9 @@
     
     [Parameter, EditorRequired]
     public HeadingKindEnum HeadingKind { get; set; }
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
 
     private string getStaintText()
     {

@@ -1,6 +1,18 @@
-﻿<p>
-    The rich have been sent away poor and hungry, while those who seek the Lord will not be deprived of any good thing.
-</p>
+﻿@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+        <p>
+            The rich have become poor and hungry; but they that seek the Lord shall not be deprived of any good thing.
+        </p>
+        break;
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+        <p>
+            The rich have been sent away poor and hungry, while those who seek the Lord will not be deprived of any good thing.
+        </p>
+        break;
+}
 
 <GloryNowAndForever />
 
@@ -9,5 +21,6 @@
 <BlessFoodAndDrinkOfYourServants />
 
 @code {
-
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
 }

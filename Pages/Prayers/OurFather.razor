@@ -1,25 +1,62 @@
 ﻿<Heading HeadingKind="HeadingKind">
-    The Lord's Prayer
+    @switch (LanguageKind)
+    {
+        case LanguageKindEnum.EnglishOlder:
+        case LanguageKindEnum.EnglishModern:
+        case LanguageKindEnum.EnglishMixed:
+        default:
+            <span>
+                The Lord's Prayer
+            </span>
+            break;
+    }
 </Heading>
 
-<p>
-    Our Father, Who art in Heaven,
-    <br />
-    hallowed be Thy name.
-    <br />
-    Thy Kingdom come;
-    <br />
-    Thy will be done, on earth as it is in Heaven.
-    <br />
-    Give us this day our daily bread;
-    <br />
-    and forgive us our trespasses, as we forgive those who trespass against us;
-    <br />
-    and lead us not into temptation, but deliver us from the evil one.
-    <br />
-</p>
+
+@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishModern:
+        <p>
+            Our Father in heaven, 
+            <br />
+            hallowed be Your name. 
+            <br />
+            Your kingdom come, 
+            <br />
+            Your will be done, on earth as it is in heaven. 
+            <br />
+            Give us this day our daily bread. 
+            <br />
+            And forgive us our debts, as we also have forgiven our debtors. 
+            <br />
+            And lead us not into temptation, but deliver us from the evil one.
+        </p>
+        break;
+    case LanguageKindEnum.EnglishMixed:
+    case LanguageKindEnum.EnglishOlder:
+    default:
+        <p>
+            Our Father, Who art in Heaven,
+            <br />
+            hallowed be Thy name.
+            <br />
+            Thy Kingdom come;
+            <br />
+            Thy will be done, on earth as it is in Heaven.
+            <br />
+            Give us this day our daily bread;
+            <br />
+            and forgive us our trespasses, as we forgive those who trespass against us;
+            <br />
+            and lead us not into temptation, but deliver us from the evil one.
+        </p>
+        break;
+}
 
 @code {
     [Parameter]
     public HeadingKindEnum HeadingKind { get; set; } = HeadingKindEnum.None;
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
 }

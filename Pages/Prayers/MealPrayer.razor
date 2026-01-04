@@ -87,16 +87,13 @@
             }
             else
             {
-                switch (SelectedIndexOutOf3)
+                switch (SelectedIndexOutOf2)
                 {
                     case 0:
-                        <MercifulToUsAndFeedsUs />
+                        <MayTheLordKeepUs />
                         break;
                     case 1:
                         <FilledUsThisDay />
-                        break;
-                    case 2:
-                        <MayTheLordKeepUs />
                         break;
                 }
             }
@@ -129,16 +126,13 @@
             }
             else
             {
-                switch (SelectedIndexOutOf3)
+                switch (SelectedIndexOutOf2)
                 {
                     case 0:
-                        <MercifulToUsAndFeedsUs />
+                        <MayTheLordKeepUs />
                         break;
                     case 1:
                         <FilledUsThisDay />
-                        break;
-                    case 2:
-                        <MayTheLordKeepUs />
                         break;
                 }
             }
@@ -157,6 +151,7 @@
     [Inject]
     public NilsEventService NilsEventService { get; set; } = null!;
 
+    private int SelectedIndexOutOf2 { get; set; } = 0;
     private int SelectedIndexOutOf3 { get; set; } = 0;
     private int SelectedIndexOutOf4 { get; set; } = 0;
     private int SelectedIndexOutOf5 { get; set; } = 0;
@@ -171,6 +166,7 @@
 
     public async Task OnRandomClicked()
     {
+        SelectedIndexOutOf2 = MainUtil.GetRandomIndex(2);
         SelectedIndexOutOf3 = MainUtil.GetRandomIndex(3);
         SelectedIndexOutOf4 = MainUtil.GetRandomIndex(4);
         SelectedIndexOutOf5 = MainUtil.GetRandomIndex(5);

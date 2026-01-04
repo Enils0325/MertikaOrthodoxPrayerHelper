@@ -1,9 +1,19 @@
-﻿<p>
-    May the Lord keep us all by His grace and love for mankind,
-    always, now and forever, and to the ages of ages.
-    <Amen />
-</p>
+﻿
+@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+        <p>
+            May the Lord keep us all by His grace and love for mankind,
+            always, now and forever, and to the ages of ages.
+            <Amen />
+        </p>
+        break;
+}
 
 @code {
-
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
 }

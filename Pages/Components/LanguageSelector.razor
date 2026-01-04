@@ -13,16 +13,12 @@
     [Inject]
     public NilsAppState NilsAppState { get; set; } = null!;
 
-    // [Parameter]
-    // public EventCallback<LanguageKindEnum> OnLanguageKindChanged { get; set; }
-
-    private LanguageKindEnum SelectedLanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
+    private LanguageKindEnum SelectedLanguageKind { get; set; } = LanguageKindEnum.EnglishMixed;
 
 
     private async Task OnChanged(LanguageKindEnum selectedLanguageKind)
     {
         SelectedLanguageKind = selectedLanguageKind;
         NilsAppState.SelectedLanguageKind = selectedLanguageKind;
-        // await OnLanguageKindChanged.InvokeAsync(selectedLanguageKind);
     }
 }

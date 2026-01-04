@@ -1,10 +1,27 @@
-﻿
-<p>
-    We thank you, O Christ our God, for You have filled us this day with Your earthly gifts. Deprive us not of Your heavenly kingdom, but as You came among Your disciples and gave them peace, come among us also, O Savior, and save us.
-    <Amen />
-</p>
+﻿@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+    {
+        <p>
+            We thank Thee, O Christ our God, for Thou hast satisfied us with Thy terrestrial gifts; deprive us not of Thy Heavenly Kingdom, but as Thou camest into the midst of Thy disciples, O Saviour, and gavest them peace, come also unto us and save us.
+            <Amen />
+        </p>
+        break;
+    }
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+    {
+        <p>
+            We thank you, O Christ our God, for You have filled us this day with Your earthly gifts. Deprive us not of Your heavenly kingdom, but as You came among Your disciples and gave them peace, come among us also, O Savior, and save us.
+            <Amen />
+        </p>
+        break;
+    }
+}
 
 
 @code {
-
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
 }
