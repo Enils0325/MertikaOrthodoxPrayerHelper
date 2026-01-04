@@ -35,4 +35,4 @@ public enum HeadingKindEnum
     SubHeading2,
 }
 
-public enum LanguageKindEnum { EnglishModern, EnglishOlder, }
+public enum LanguageKindEnum { EnglishModern, EnglishMixed, EnglishOlder, }

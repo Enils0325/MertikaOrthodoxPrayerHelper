@@ -1,8 +1,22 @@
-﻿<p>
-    O Christ our God, bless the food and drink of Your servants, for You are holy always, now and ever and unto ages of ages.
-    <Amen />
-</p>
+﻿@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishModern:
+        <p>
+            O Christ our God, bless the food and drink of Your servants, for You are holy always, now and ever and unto ages of ages.
+            <Amen />
+        </p>
+        break;
+    case LanguageKindEnum.EnglishOlder:
+    default:
+        <p>
+            O Christ our God, bless the food and drink of Thy servants: for Thou art holy, always, now and ever, and unto ages of ages.
+            <Amen />
+        </p>
+        break;
+}
+
 
 @code {
-
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
 }

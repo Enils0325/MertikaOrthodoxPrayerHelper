@@ -1,28 +1,63 @@
-﻿<Heading HeadingKind="HeadingKind">
-    Morning Prayer to the Holy Trinity
+﻿
+<Heading HeadingKind="HeadingKind">
+    @switch (LanguageKind)
+    {
+        case LanguageKindEnum.EnglishModern:
+        case LanguageKindEnum.EnglishMixed:
+        case LanguageKindEnum.EnglishOlder:
+        default:
+            <span>Morning Prayer to the Holy Trinity</span>
+            break;
+    }
 </Heading>
 
-<p>
-    As we rise from sleep, we fall down before You, our good God, and sing to You the Angels' Hymn: 
-    Holy, Holy, Holy are you, O God. Through the prayers of the Mother of God, have mercy on us.
-</p>
+@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishModern:
+        <p>
+            Having arisen from sleep, we fall down before Thee, O Blessed One, and sing to Thee, O Mighty One, the angelic hymn:
+            Holy, Holy, Holy art Thou, O God; through the Theotokos, have mercy on us.
+        </p>
 
-<GloryNowAndForever />
+        <GloryNowAndForever />
 
-<p>
-    Now and ever and unto ages of ages.
-    <Amen/>
-</p>
+        <p>
+            Suddenly the Judge shall come, and the deeds of each shall be revealed;
+            but with fear we cry out in the middle of the night:
+            Holy, Holy, Holy art Thou, O God;
+            through the Theotokos, have mercy on us.
+        </p>
 
-<p>
-    The Judge will come down suddenly and what everyone has done will be revealed.
-    Therefore, with fear we cry out in the early morning:
-    Holy, Holy, Holy are You, o God.
-    Through the prayers of the Mother of God, have mercy on us. 
-</p>
+        break;
+    case LanguageKindEnum.EnglishMixed:
+    case LanguageKindEnum.EnglishOlder:
+    default:
+        <p>
+            As we rise from sleep, we fall down before You, our good God, and sing to You the Angels' Hymn:
+            Holy, Holy, Holy are you, O God. Through the prayers of the Mother of God, have mercy on us.
+        </p>
+
+        <GloryNowAndForever />
+
+        <p>
+            Now and ever and unto ages of ages.
+            <Amen />
+        </p>
+
+        <p>
+            The Judge will come down suddenly and what everyone has done will be revealed.
+            Therefore, with fear we cry out in the early morning:
+            Holy, Holy, Holy are You, o God.
+            Through the prayers of the Mother of God, have mercy on us.
+        </p>
+
+        break;
+}
 
 @code {
     [Parameter]
     public HeadingKindEnum HeadingKind { get; set; } = HeadingKindEnum.None;
 
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
 }

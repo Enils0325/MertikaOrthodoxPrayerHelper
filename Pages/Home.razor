@@ -3,20 +3,20 @@
 <PageTitle>Orthodox Prayer Helper App</PageTitle>
 
 <div style="display: none;">
-    <div style="display: flex; gap: 2px; padding: 8px 4px 8px 4px;">
+    <div style="display: flex; gap: 16px 4px; padding: 8px 4px 8px 4px;">
         <div>
             <input type="date" @bind-value="@(Date)">
         </div>
     </div>
 </div>
 
-<div style="display: flex; gap: 2px; padding: 8px 4px 8px 4px;">
+<div style="display: flex; gap: 16px 4px; padding: 8px 4px 8px 4px;">
     <div>
         <LanguageSelector />
     </div>
 </div>
 
-<div style="display: flex; gap: 2px; padding: 8px 4px 8px 4px; margin-top: 20px;">
+<div style="display: flex; gap: 16px 4px; padding: 8px 4px 8px 4px; margin-top: 20px; flex-wrap: wrap;">
     <div>
         <ButtonLink OnClick="() => this.MainPrayerChoice = MainPrayerChoiceKind.MorningPrayer">
             Morning

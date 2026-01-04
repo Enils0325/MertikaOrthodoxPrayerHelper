@@ -1,22 +1,49 @@
 ﻿<Heading HeadingKind="HeadingKind">
-    Morning Prayer by St. Basil the Great
+    @switch (LanguageKind)
+    {
+        case LanguageKindEnum.EnglishModern:
+        case LanguageKindEnum.EnglishMixed:
+        case LanguageKindEnum.EnglishOlder:
+        default:
+            <span>Morning Prayer by St. Basil the Great</span>
+            break;
+    }
 </Heading>
 
-<p>
-    As I rise from sleep, I thank You, Holy Trinity, for Your loving-kindness and patience. 
-    You were not angry with me, even though I am lazy and full of sin.
-    You have not destroyed me for the wrongs I have done.
-    Rather, You have shown unchanging love for me.
-    When I was bowed low in dark despair,
-    You raised me up to sing the morning hymn and glorify Your Lordship. 
-    Now give light to the eye of my mind, and open up my ears to hear Your words and learn Your commandments.
-    Help me to obey Your will, sing to You with all my heart, and give praise to Your Holy Name,
-    the Father, and the Son and the Holy Spirit, now and ever and unto the ages of ages.
-    <Amen/>
-</p>
+@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+        <p>
+            Arising from sleep, I thank Thee, O Holy Trinity, because of the abundance of Thy goodness and long-suffering Thou wast not wroth with me, slothful and sinful as I am; neither hast Thou destroyed me in my transgressions, but in Thy compassion raised me up as I lay in despair, that at dawn I might sing the glories of Thy dominion.
+
+            Do Thou now enlighten the eyes of my understanding; open my mouth to receive Thy words, teach me Thy commandments, help me to do Thy will, confessing Thee from my heart, singing and praising Thine all-honorable and majestic name: of the Father, and of the Son, and of the Holy Spirit, now and ever, and unto ages of ages.
+            <Amen />
+        </p>
+        break;
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+        <p>
+            As I rise from sleep, I thank You, Holy Trinity, for Your loving-kindness and patience.
+            You were not angry with me, even though I am lazy and full of sin.
+            You have not destroyed me for the wrongs I have done.
+            Rather, You have shown unchanging love for me.
+            When I was bowed low in dark despair,
+            You raised me up to sing the morning hymn and glorify Your Lordship.
+            Now give light to the eye of my mind, and open up my ears to hear Your words and learn Your commandments.
+            Help me to obey Your will, sing to You with all my heart, and give praise to Your Holy Name,
+            the Father, and the Son and the Holy Spirit, now and ever and unto the ages of ages.
+            <Amen />
+        </p>
+        break;
+}
+
 
 @code {
     [Parameter]
     public HeadingKindEnum HeadingKind { get; set; } = HeadingKindEnum.None;
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
 
 }
