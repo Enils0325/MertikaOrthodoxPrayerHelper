@@ -1,0 +1,28 @@
+﻿@inherits OrthodoxPrayerBasePage
+
+@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+        <p>
+
+        </p>
+        break;
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+        <Heading HeadingKind="HeadingKind">
+            Psalm 134
+        </Heading>
+        <p>
+            Come, bless the Lord, all you servants of the Lord, who stand by night in the house of the Lord! Lift up your hands to the holy place and bless the Lord! May the Lord bless you from Zion, He who made heaven and earth!
+        </p>
+        break;
+}
+
+@code {
+    [Parameter, EditorRequired]
+    public HeadingKindEnum HeadingKind { get; set; }
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; }
+}

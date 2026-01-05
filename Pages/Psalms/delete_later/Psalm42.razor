@@ -1,0 +1,29 @@
+﻿@inherits OrthodoxPrayerBasePage
+
+@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+        <p>
+
+        </p>
+        break;
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+        <Heading HeadingKind="HeadingKind">
+            Psalm 42
+        </Heading>
+        <p>
+            As a heart longs for flowing streams, so longs my soul for Thee, O God. My soul thirsts for God, for the living God. When shall I come and behold the face of God? My tears have been my food day and night, while men say to me continually, “Where is your God?” These things I remember, as I pour out my soul: how I went with the throng and led them in procession to the House of God, with glad shouts and songs of thanksgiving, a multitude keeping festival. Why are you cast down, O my soul, and why are you disquieted within me? Hope in God; for I shall again praise Him, my help and my God! My soul is cast down within me; therefore I remember Thee from the land of Jordan and of Hermon, from Mount Mizar. Deep calls to deep at the thunder of Thy cataracts; all Thy waves and billows have gone over me. By day the Lord commands His steadfast love; and at night His song is with me, a prayer to the God of my life. I say to God my rock: “Why hast Thou forgotten me? Why go I mourning because of the oppression of the enemy?” As with a deadly wound to my body, my adversaries taunt me, while they say to me continually, “Where is your God?” Why are you cast down, O my soul, and why are you disquieted within me? Hope in God; for I shall again praise Him, my help and my God!
+        </p>
+        break;
+}
+
+@code {
+    [Parameter, EditorRequired]
+    public HeadingKindEnum HeadingKind { get; set; }
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; }
+}
+

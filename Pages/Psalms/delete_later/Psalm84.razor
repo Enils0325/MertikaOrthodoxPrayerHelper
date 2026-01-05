@@ -1,0 +1,28 @@
+﻿@inherits OrthodoxPrayerBasePage
+
+@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+        <p>
+
+        </p>
+        break;
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+        <Heading HeadingKind="HeadingKind">
+            Psalm 84
+        </Heading>
+        <p>
+            How lovely is Thy dwelling place, O Lord of Hosts! My soul longs, yea, faints for the courts, of the Lord! My heart and flesh sing for joy to the living God! Even the sparrow finds a home, and the swallow a nest for herself, where she may lay her young, at Thy altars, O Lord of Hosts, my King and my God! Blessed are those who dwell in Thy house, ever singing Thy praise! Blessed are the men whose strength is in Thee, in whose heart are the highways to Zion. As they go through the valleys of Baca they make it a place of springs; the early rain also covers it with pools. They go from strength to strength; the God of gods will be seen in Zion. O Lord God of Hosts, hear my prayer; give ear, O God of Jacob! Behold our shield, O God; look upon the face of Thine anointed! For a day in Thy courts is better than a thousand elsewhere. I would rather be a doorkeeper in the house of my God than dwell in the tents of wickedness. For the Lord God is a sun and shield; He bestows favor and honor. No good thing does the Lord withhold from those who walk uprightly. O Lord of Hosts, blessed is the man who trusts in Thee!
+        </p>
+        break;
+}
+
+@code {
+    [Parameter, EditorRequired]
+    public HeadingKindEnum HeadingKind { get; set; }
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; }
+}

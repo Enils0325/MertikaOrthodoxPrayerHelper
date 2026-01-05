@@ -1,0 +1,24 @@
+﻿@inherits OrthodoxPrayerBasePage
+
+@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+        <Heading HeadingKind="HeadingKind">
+            Psalm 90
+        </Heading>
+        <p>
+
+        </p>
+        break;
+}
+
+@code {
+    [Parameter, EditorRequired]
+    public HeadingKindEnum HeadingKind { get; set; }
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
+}

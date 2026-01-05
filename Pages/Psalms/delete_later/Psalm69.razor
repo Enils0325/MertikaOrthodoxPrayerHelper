@@ -1,0 +1,31 @@
+﻿@inherits OrthodoxPrayerBasePage
+
+@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+        <Heading HeadingKind="HeadingKind">
+            Psalm 69
+        </Heading>
+        <p>
+            O God, be attentive unto helping me; O Lord, make haste to help me.<br/>
+            Let them be shamed and confounded that seek after my soul.<br/>
+            Let them be turned back and brought to shame that desire evils against me.<br/>
+            Let them be turned back straightway in shame that say unto me: Well done! Well done!<br/>
+            Let them be glad and rejoice in Thee all that seek after Thee, O God, and let them that love Thy salvation say continually: The Lord be magnified.<br/>
+            But as for me, I am poor and needy; O God, come unto mine aid.<br/>
+            My helper and my deliverer art Thou, O Lord; make no long tarrying.<br/>
+        </p>
+        break;
+}
+
+@code {
+    [Parameter, EditorRequired]
+    public HeadingKindEnum HeadingKind { get; set; }
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; }
+}
+

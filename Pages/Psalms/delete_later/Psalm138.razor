@@ -1,0 +1,28 @@
+﻿@inherits OrthodoxPrayerBasePage
+
+@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+        <p>
+
+        </p>
+        break;
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+        <Heading HeadingKind="HeadingKind">
+            Psalm 138
+        </Heading>
+        <p>
+            I give Thee thanks, O Lord, with my whole heart; before the gods I sing Thy praise! I bow down toward Thy holy temple and give thanks to Thy name for Thy steadfast love and Thy faithfulness! For Thou hast exalted above everything Thy name and Thy word. On the day I called, Thou didst answer me, my strength of soul Thou didst increase. All the kings of the earth shall praise Thee, O Lord, for they have heard the words of Thy mouth; and they shall sing of the ways of the Lord, for great is the glory of the Lord. For though the Lord is high, He regards the lowly; but the haughty He knows from afar. Though I walk in the midst of trouble, Thou dost preserve my life; Thou dost stretch out Thy hand against the wrath of my enemies, and Thy right hand delivers me. The Lord will fulfill His purpose for me; Thy steadfast love, O Lord, endures forever. Do not forsake the work of Thy hands.
+        </p>
+        break;
+}
+
+@code {
+    [Parameter, EditorRequired]
+    public HeadingKindEnum HeadingKind { get; set; }
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; }
+}

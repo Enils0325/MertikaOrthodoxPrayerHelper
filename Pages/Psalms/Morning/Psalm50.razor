@@ -1,0 +1,44 @@
+﻿@inherits OrthodoxPrayerBasePage
+
+@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+        <Heading HeadingKind="HeadingKind">
+            Psalm 50
+        </Heading>
+        <p>
+            Have mercy on me, O God, according to Thy great mercy; and according to the multitude of Thy compassions blot out my transgression.<br/>
+            Wash me thoroughly from mine iniquity, and cleanse me from my sin.<br/>
+            For I know mine iniquity, and my sin is ever before me.<br/>
+            Against Thee only have I sinned and done this evil before Thee, that Thou mightest be justified in Thy words, and prevail when Thou art judged.<br/>
+            For behold, I was conceived in iniquities, and in sins did my mother bear me.<br/>
+            For behold, Thou hast loved truth; the hidden and secret things of Thy wisdom hast Thou made manifest unto me.<br/>
+            Thou shalt sprinkle me with hyssop, and I shall be made clean; Thou shalt wash me, and I shall be made whiter than snow.<br/>
+            Thou shalt make me to hear joy and gladness; the bones that be humbled, they shall rejoice.<br/>
+            Turn Thy face away from my sins, and blot out all mine iniquities.<br/>
+            Create in me a clean heart, O God, and renew a right spirit within me.<br/>
+            Cast me not away from Thy presence, and take not Thy Holy Spirit from me.<br/>
+            Restore unto me the joy of Thy salvation, and with Thy governing Spirit establish me.<br/>
+            I shall teach transgressors Thy ways, and the ungodly shall turn back unto Thee.<br/>
+            Deliver me from blood-guiltiness, O God, Thou God of my salvation; my tongue shall rejoice in Thy righteousness.<br/>
+            O Lord, Thou shalt open my lips, and my mouth shall declare Thy praise.<br/>
+            For if Thou hadst desired sacrifice, I had given it; with whole-burnt offerings Thou shalt not be pleased.<br/>
+            A sacrifice unto God is a broken spirit; a heart that is broken and humbled God will not despise.<br/>
+            Do good, O Lord, in Thy good pleasure unto Sion, and let the walls of Jerusalem be builded.<br/>
+            Then shalt Thou be pleased with a sacrifice of righteousness, with oblation and whole-burnt offerings.<br/>
+            Then shall they offer bullocks upon Thine altar.<br/>
+        </p>
+        break;
+}
+
+@code {
+    [Parameter, EditorRequired]
+    public HeadingKindEnum HeadingKind { get; set; }
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; }
+}
+
