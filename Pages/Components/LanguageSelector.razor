@@ -16,6 +16,12 @@
     private LanguageKindEnum SelectedLanguageKind { get; set; } = LanguageKindEnum.EnglishMixed;
 
 
+    protected override async Task OnInitializedAsync()
+    {
+        await OnChanged(LanguageKindEnum.EnglishMixed);
+        await base.OnInitializedAsync();
+    }
+
     private async Task OnChanged(LanguageKindEnum selectedLanguageKind)
     {
         SelectedLanguageKind = selectedLanguageKind;
