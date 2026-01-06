@@ -3,6 +3,12 @@
     Evening Prayer
 </Heading>
 
+
+<div class="options-container">
+    <InputCheckbox id="checkboxIsBrief" @bind-Value="IsBrief" />
+    <label for="checkboxIsBrief">Brief?</label>
+</div>
+
 <OHeavenlyKingAndTrisagion HeadingKind="HeadingKindEnum.SubHeading" />
 
 @if (IsBrief)
@@ -11,16 +17,12 @@
 }
 else
 {
-    switch (SelectedIndexOutOf3)
+    switch (SelectedIndexOutOf2)
     {
         case 0:
             <APrayerForForgiveness HeadingKind="HeadingKindEnum.SubHeading" />
             break;
         case 1:
-            <EveningIntercession HeadingKind="HeadingKindEnum.SubHeading" />
-            break;
-        case 2:
-            <APrayerForForgiveness HeadingKind="HeadingKindEnum.SubHeading" />
             <EveningIntercession HeadingKind="HeadingKindEnum.SubHeading" />
             break;
     }
@@ -30,7 +32,7 @@ else
 
 <GospelReading HeadingKind="HeadingKindEnum.SubHeading" />
 
-@if (HasNiceneCreed)
+@if (HasNiceneCreed && !IsBrief)
 {
     <NiceneCreed HeadingKind="HeadingKindEnum.SubHeading" />
 }
@@ -52,9 +54,6 @@ else
     public DateTime Date { get; set; }
 
     [Parameter]
-    public bool IsBrief { get; set; } = false;
-
-    [Parameter]
     public bool HasPrayerToMotherOfGod { get; set; } = false;
 
     [Parameter]
@@ -63,8 +62,10 @@ else
     [Inject]
     public NilsEventService NilsEventService { get; set; } = null!;
 
+    private bool IsBrief { get; set; } = false;
     private bool IsLent => false;
 
+    private int SelectedIndexOutOf2 { get; set; } = 0;
     private int SelectedIndexOutOf3 { get; set; } = 0;
 
 
@@ -78,6 +79,7 @@ else
 
     public async Task OnRandomClicked()
     {
+        SelectedIndexOutOf2 = MainUtil.GetRandomIndex(2);
         SelectedIndexOutOf3 = MainUtil.GetRandomIndex(3);
         StateHasChanged();
     }

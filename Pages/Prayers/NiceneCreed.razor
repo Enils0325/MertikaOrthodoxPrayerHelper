@@ -1,18 +1,4 @@
 ﻿
-<Heading HeadingKind="HeadingKind">
-    @switch (LanguageKind)
-    {
-        case LanguageKindEnum.EnglishOlder:
-        case LanguageKindEnum.EnglishModern:
-        case LanguageKindEnum.EnglishMixed:
-        default:
-            <span>
-                Nicene Creed
-            </span>
-            break;
-    }
-</Heading>
-
 
 @switch (LanguageKind)
 {
@@ -20,6 +6,10 @@
     case LanguageKindEnum.EnglishOlder:
     case LanguageKindEnum.EnglishMixed:
     default:
+        <Heading HeadingKind="HeadingKind">
+            Nicene Creed
+        </Heading>
+
         <p>
             I believe in one God, the Father Almighty, <br />
             Maker of Heaven and Earth and of all things visible and invisible. <br /> <br />
