@@ -3,6 +3,11 @@
     Morning Prayer
 </Heading>
 
+<div class="options-container">
+    <InputCheckbox id="checkboxIsBrief" @bind-Value="IsBrief" />
+    <label for="checkboxIsBrief">Brief?</label>
+</div>
+
 <OHeavenlyKingAndTrisagion HeadingKind="HeadingKindEnum.SubHeading" />
 
 @switch (SelectedIndexOutOf3)
@@ -44,9 +49,6 @@
     public DateTime Date { get; set; }
 
     [Parameter]
-    public bool IsBrief { get; set; } = false;
-
-    [Parameter]
     public bool HasPrayerToMotherOfGod { get; set; } = false;
 
     [Parameter]
@@ -54,6 +56,8 @@
 
     [Inject]
     public NilsEventService NilsEventService { get; set; } = null!;
+
+    private bool IsBrief { get; set; } = false;
 
     private bool IsLent => false;
 
