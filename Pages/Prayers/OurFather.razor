@@ -1,21 +1,11 @@
-﻿<Heading HeadingKind="HeadingKind">
-    @switch (LanguageKind)
-    {
-        case LanguageKindEnum.EnglishOlder:
-        case LanguageKindEnum.EnglishModern:
-        case LanguageKindEnum.EnglishMixed:
-        default:
-            <span>
-                The Lord's Prayer
-            </span>
-            break;
-    }
-</Heading>
-
-
+﻿
 @switch (LanguageKind)
 {
     case LanguageKindEnum.EnglishModern:
+        <Heading HeadingKind="HeadingKind">
+            The Lord's Prayer
+        </Heading>
+
         <p>
             Our Father in heaven, 
             <br />
@@ -35,6 +25,9 @@
     case LanguageKindEnum.EnglishMixed:
     case LanguageKindEnum.EnglishOlder:
     default:
+        <Heading HeadingKind="HeadingKind">
+            The Lord's Prayer
+        </Heading>
         <p>
             Our Father, Who art in Heaven,
             <br />
