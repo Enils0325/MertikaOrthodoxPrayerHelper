@@ -1,53 +1,8 @@
 ﻿<Heading HeadingKind="HeadingKindEnum.MainHeading">
-    @switch (MealKind)
-    {
-        case MealKindEnum.Breakfast:
-        {
-            <span>
-                Prayer and Blessing @(getBeforeAfterText()) Breakfast
-            </span>
-            break;
-        }
-        case MealKindEnum.Lunch:
-        {
-            <span>
-                Prayer and Blessing @(getBeforeAfterText()) the Midday Meal
-            </span>
-            break;
-        }
-        case MealKindEnum.Dinner:
-        {
-            <span>
-                Prayer and Blessing @(getBeforeAfterText()) the Evening Meal
-            </span>
-            break;
-        }
-        default:
-        {
-            <span>
-                Prayer @(getBeforeAfterText()) a meal
-            </span>
-            break;
-        }
-    }
+    <span>
+        Prayer and Blessing @(getBeforeAfterText()) a Meal
+    </span>
 </Heading>
-
-<div class="options-container">
-    <InputRadioGroup @bind-Value="MealKind">
-        <div>
-            <InputRadio Value="MealKindEnum.Breakfast" id="radioOptionBreakfast" />
-            <label for="radioOptionBreakfast">Morning Prayer</label>
-        </div>
-        <div>
-            <InputRadio Value="MealKindEnum.Lunch" id="radioOptionLunch" />
-            <label for="radioOptionLunch">Lunch Prayer</label>
-        </div>
-        <div>
-            <InputRadio Value="MealKindEnum.Dinner" id="radioOptionDinner" />
-            <label for="radioOptionDinner">Evening Prayer</label>
-        </div>
-    </InputRadioGroup>
-</div>
 
 <div class="options-container">
     <InputRadioGroup @bind-Value="BeforeAfterKind">
@@ -63,88 +18,43 @@
 </div>
 
 <div>
-    @switch (MealKind)
+    @if (BeforeAfterKind == BeforeAfterKindEnum.Before)
     {
-        case MealKindEnum.Breakfast:
-        {
-            @if (BeforeAfterKind == BeforeAfterKindEnum.Before)
-            {
-                switch (SelectedIndexOutOf4)
-                {
-                    case 0:
-                        <RichSentAwayHungry />
-                        break;
-                    case 1:
-                        <BlessFoodAndDrinkOfYourServants />
-                        break;
-                    case 2:
-                        <OurFather HeadingKind="HeadingKindEnum.SubHeading" />
-                        break;
-                    case 3:
-                        <HasShownMercyAndNourishedUs />
-                        break;
-                }
-            }
-            else
-            {
-                switch (SelectedIndexOutOf2)
-                {
-                    case 0:
-                        <MayTheLordKeepUs />
-                        break;
-                    case 1:
-                        <FilledUsThisDay />
-                        break;
-                }
-            }
-            break;
-        }
-        case MealKindEnum.Lunch:
-        case MealKindEnum.Dinner:
-        {
 
-            @if (BeforeAfterKind == BeforeAfterKindEnum.Before)
-            {
-                switch (SelectedIndexOutOf5)
-                {
-                    case 0:
-                        <RichSentAwayHungry />
-                        break;
-                    case 1:
-                        <BlessFoodAndDrinkOfYourServants />
-                        break;
-                    case 2:
-                        <OurFather HeadingKind="HeadingKindEnum.SubHeading" />
-                        break;
-                    case 3:
-                        <BlessedFiveLoaves />
-                        break;
-                    case 4:
-                        <HasShownMercyAndNourishedUs />
-                        break;
-                }
-            }
-            else
-            {
-                switch (SelectedIndexOutOf2)
-                {
-                    case 0:
-                        <MayTheLordKeepUs />
-                        break;
-                    case 1:
-                        <FilledUsThisDay />
-                        break;
-                }
-            }
-            break;
+        switch (SelectedIndexOutOf5)
+        {
+            case 0:
+                <RichSentAwayHungry />
+                break;
+            case 1:
+                <BlessFoodAndDrinkOfYourServants />
+                break;
+            case 2:
+                <OurFather HeadingKind="HeadingKindEnum.SubHeading" />
+                break;
+            case 3:
+                <BlessedFiveLoaves />
+                break;
+            case 4:
+                <HasShownMercyAndNourishedUs />
+                break;
+        }
+    }
+    else
+    {
+        switch (SelectedIndexOutOf2)
+        {
+            case 0:
+                <MayTheLordKeepUs />
+                break;
+            case 1:
+                <FilledUsThisDay />
+                break;
         }
     }
 </div>
 
 @code {
-    [Parameter]
-    public MealKindEnum MealKind { get; set; } = MealKindEnum.Breakfast;
-
     [Parameter]
     public BeforeAfterKindEnum BeforeAfterKind { get; set; } = BeforeAfterKindEnum.Before;
 
