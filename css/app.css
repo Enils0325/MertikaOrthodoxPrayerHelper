@@ -113,13 +113,14 @@ code {
 
 :root {
     --black: #000;
-    --white: #fff;
-    --dark-red: #8B0000;
     --brown: #894d20;
     --dark-blue: #161677;
+    --dark-grey: #3d3d3d;
+    --dark-red: #8B0000;
     --light-blue: #3873dd;
     --light-beige: #b98a3f;
     --lighter-beige: #dcd8b5;
+    --white: #fff;
     --light-yellow: #eae8cf;
 }
 
