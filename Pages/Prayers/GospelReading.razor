@@ -2,13 +2,16 @@
     Gospel Reading
 </Heading>
 
-<i>
-    (Work in Progress)
-</i>
+<p>
+    Navigate to <a href="https://www.oca.org/readings/daily/@(Date.Year)/@(Date.Month)/@(Date.Day)">this page</a> for today's scripture reading.
+</p>
 
 @code {
     [Parameter, EditorRequired]
     public HeadingKindEnum HeadingKind { get; set; }
+
+    [Parameter, EditorRequired]
+    public DateTime Date { get; set; }
 
     [CascadingParameter]
     public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;

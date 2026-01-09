@@ -2,11 +2,9 @@
 
 <PageTitle>Orthodox Prayer Helper App</PageTitle>
 
-<div style="display: none;">
-    <div style="display: flex; gap: 16px 4px; padding: 8px 4px 8px 4px;">
-        <div>
-            <input type="date" @bind-value="@(Date)">
-        </div>
+<div style="display: flex; gap: 16px 4px; padding: 8px 4px 8px 4px;">
+    <div>
+        <input type="date" @bind-value="@(Date)">
     </div>
 </div>
 
@@ -30,11 +28,6 @@
     <div>
         <ButtonLink OnClick="() => this.MainPrayerChoice = MainPrayerChoiceKind.Meal">
             Meal
-        </ButtonLink>
-    </div>
-    <div>
-        <ButtonLink OnClick="() => this.MainPrayerChoice = MainPrayerChoiceKind.PreCommunionPrayer">
-            Pre-Communion
         </ButtonLink>
     </div>
 
