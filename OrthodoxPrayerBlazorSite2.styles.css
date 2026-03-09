@@ -36,6 +36,31 @@ a.button-link[b-mbsbv4l5aa] {
         font-style: italic;
         filter: hue-rotate(260deg);
     }
+/* /Pages/Components/LoadingContainer.razor.rz.scp.css */
+.loading-span[b-l69ejlmxxv] {
+    background-color: #808080;
+    padding: 4px 8px 4px 8px;
+    border-radius: 6px;
+    animation: pulse-b-l69ejlmxxv 1.2s infinite ease-in-out;
+}
+
+/* Animation keyframes */
+@keyframes pulse-b-l69ejlmxxv {
+    0% {
+        transform: scale(1);
+        background-color: #808080;
+    }
+
+    50% {
+        transform: scale(1.3);
+        background-color: #d9cece;
+    }
+
+    100% {
+        transform: scale(1);
+        background-color: #808080;
+    }
+}
 /* /Pages/MainPrayers/MealPrayer.razor.rz.scp.css */
 
 /* /Pages/Prayers/GospelReading.razor.rz.scp.css */
