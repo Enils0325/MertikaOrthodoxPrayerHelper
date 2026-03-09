@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Components;
-using System.Text.RegularExpressions;
+using static System.Net.WebRequestMethods;
 
 namespace OrthodoxPrayerBlazorSite2.Pages.PrayerParts;
 
-public partial class ClosingPrayers
+public partial class ClosingPrayers(HttpClient httpClient)
 {
     [Parameter, EditorRequired]
     public DateTime Date { get; set; }
@@ -32,30 +32,29 @@ public partial class ClosingPrayers
             IsLoading = true;
             StateHasChanged();
 
+            var htmlContent = await httpClient.GetStringAsync(ocaSaintLink);
 
-            using HttpClient client = new HttpClient();
-            var htmlContent = await client.GetStringAsync(ocaSaintLink);
-
-            var regexMatches = Regex.Matches(htmlContent, @"<h2 class=""name"">[\w\d\s:<>!\-,'\(\)\[\]“”]+</h2>", RegexOptions.IgnoreCase);
+            Console.WriteLine(1);
+            //var regexMatches = Regex.Matches(htmlContent, @"<h2 class=""name"">[\w\d\s:<>!\-,'\(\)\[\]“”]+</h2>", RegexOptions.IgnoreCase);
             var saintOfToday = "";
-            foreach (Match regexMatch in regexMatches)
-            {
-                var matchText = regexMatch.Value.Replace("<h2 class=\"name\">", "").Replace("</h2>", "").Trim();
-                if (ShouldSkipFoundSaintText(matchText))
-                    continue;
+            //foreach (Match regexMatch in regexMatches)
+            //{
+            //    var matchText = regexMatch.Value.Replace("<h2 class=\"name\">", "").Replace("</h2>", "").Trim();
+            //    if (ShouldSkipFoundSaintText(matchText))
+            //        continue;
 
-                if (matchText.StartsWith("Repose of "))
-                    matchText = matchText.Replace("Repose of ", "");
+            //    if (matchText.StartsWith("Repose of "))
+            //        matchText = matchText.Replace("Repose of ", "");
 
-                if (matchText.StartsWith("Dormition of "))
-                    matchText = matchText.Replace("Dormition of ", "");
+            //    if (matchText.StartsWith("Dormition of "))
+            //        matchText = matchText.Replace("Dormition of ", "");
 
-                if (matchText.StartsWith("Commemoration of the"))
-                    matchText = matchText.Replace("Commemoration of the", "The");
+            //    if (matchText.StartsWith("Commemoration of the"))
+            //        matchText = matchText.Replace("Commemoration of the", "The");
 
-                saintOfToday = matchText;
-                continue;
-            }
+            //    saintOfToday = matchText;
+            //    continue;
+            //}
 
             saintText = saintOfToday;
         }
@@ -123,5 +122,6 @@ public partial class ClosingPrayers
 
     private const StringComparison stringComparison = StringComparison.InvariantCultureIgnoreCase;
 
-    private string ocaSaintLink => $"https://www.oca.org/saints/lives/{Date:yyyy/MM/dd}";
+    //private string ocaSaintLink => $"https://www.oca.org/saints/lives/{Date:yyyy/MM/dd}";
+    private string ocaSaintLink => $"https://cors-anywhere.herokuapp.com/https://www.bbc.com/news/live/cz0g2yg3579t";
 }
