@@ -1,5 +1,4 @@
-﻿
-@switch (LanguageKind)
+﻿@switch (LanguageKind)
 {
     case LanguageKindEnum.EnglishOlder:
         <Heading HeadingKind="HeadingKind">
@@ -13,10 +12,19 @@
         <p>
             O Lord Jesus Christ, the Son of God, through the intercessions of Thy most pure Mother
             <br />
-            and of all Thy Saints@(getStaintText()),
+            and of all Thy Saints@(SaintText == string.Empty ? "" : ", ")
+            <LoadingContainer IsLoading="IsLoading">
+                @if (SaintText != string.Empty)
+                {
+                    <span>
+                        especially <a href="@(ocaSaintLink)">@SaintText</a> whose memory we commemorate today
+                    </span>
+                }
+            </LoadingContainer>
+            ,
             <br />
             have mercy on us and save us, forasmuch as Thou art good and lovest mankind.
-            <Amen/>
+            <Amen />
         </p>
         break;
     case LanguageKindEnum.EnglishModern:
@@ -33,7 +41,16 @@
         <p>
             O Lord Jesus Christ, the Son of God, through the intercessions of Your most pure Mother
             <br />
-            and of all Your Saints@(getStaintText()),
+            and of all Your Saints@(SaintText == string.Empty ? "" : ", ")
+            <LoadingContainer IsLoading="IsLoading" IsInline="true">
+                @if (SaintText != string.Empty)
+                {
+                    <span>
+                        especially <a href="@(ocaSaintLink)">@SaintText</a> whose memory we commemorate today
+                    </span>
+                }
+            </LoadingContainer>
+            ,
             <br />
             have mercy on us and save us, for You are good and love mankind.
             <Amen />
@@ -42,25 +59,4 @@
 }
 
 @code {
-    [Parameter, EditorRequired]
-    public DateTime Date { get; set; }
-    
-    [Parameter, EditorRequired]
-    public HeadingKindEnum HeadingKind { get; set; }
-
-    [CascadingParameter]
-    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
-
-    private string getStaintText()
-    {
-        var saintOfToday = "";
-        if (string.IsNullOrWhiteSpace(saintOfToday))
-        {
-            return string.Empty;
-        }
-        else
-        {
-            return $", especially {saintOfToday} whose memory we commemorate today";
-        }
-    }
 }
