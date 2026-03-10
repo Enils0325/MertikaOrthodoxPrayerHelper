@@ -12,7 +12,7 @@ public static class ResourceReaderUtility
         try
         {
             Assembly assembly = Assembly.GetExecutingAssembly();
-            var resourceName = $"{assembly.FullName}.{fileName}";
+            var resourceName = $"{typeof(Nothing).Namespace}.{fileName}";
 
             using Stream stream = assembly.GetManifestResourceStream(resourceName)!;
             using StreamReader reader = new StreamReader(stream);
@@ -24,3 +24,5 @@ public static class ResourceReaderUtility
         return resourceText;
     }
 }
+
+public class Nothing { }
