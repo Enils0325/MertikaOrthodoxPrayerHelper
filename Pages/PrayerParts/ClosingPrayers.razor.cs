@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
+using OrthodoxPrayerBlazorSite2.Resources;
+using System.Text.Json;
 using static System.Net.WebRequestMethods;
 
 namespace OrthodoxPrayerBlazorSite2.Pages.PrayerParts;
@@ -32,31 +34,11 @@ public partial class ClosingPrayers(HttpClient httpClient)
             IsLoading = true;
             StateHasChanged();
 
-            var htmlContent = await httpClient.GetStringAsync(ocaSaintLink);
+            var saintsJson = ResourceReaderUtility.GetResourceText($"SaintDays.json");
+            var saintDaysJsonItems = JsonSerializer.Deserialize<List<OrthodoxSaintDaysJsonItem>>(saintsJson) ?? [];
+            var saintDayItem = saintDaysJsonItems.FirstOrDefault(s => s.Date.Month == Date.Date.Month && s.Date.Day == Date.Day);
 
-            Console.WriteLine(1);
-            //var regexMatches = Regex.Matches(htmlContent, @"<h2 class=""name"">[\w\d\s:<>!\-,'\(\)\[\]“”]+</h2>", RegexOptions.IgnoreCase);
-            var saintOfToday = "";
-            //foreach (Match regexMatch in regexMatches)
-            //{
-            //    var matchText = regexMatch.Value.Replace("<h2 class=\"name\">", "").Replace("</h2>", "").Trim();
-            //    if (ShouldSkipFoundSaintText(matchText))
-            //        continue;
-
-            //    if (matchText.StartsWith("Repose of "))
-            //        matchText = matchText.Replace("Repose of ", "");
-
-            //    if (matchText.StartsWith("Dormition of "))
-            //        matchText = matchText.Replace("Dormition of ", "");
-
-            //    if (matchText.StartsWith("Commemoration of the"))
-            //        matchText = matchText.Replace("Commemoration of the", "The");
-
-            //    saintOfToday = matchText;
-            //    continue;
-            //}
-
-            saintText = saintOfToday;
+            saintText = saintDayItem?.SaintOfTheDay ?? string.Empty;
         }
         catch
         {
