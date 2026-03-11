@@ -61,8 +61,42 @@ a.button-link[b-mbsbv4l5aa] {
         background-color: #808080;
     }
 }
+/* /Pages/Components/Note.razor.rz.scp.css */
+span.note-container[b-32tw2udlrv] {
+    color: #902b2b;
+    font-style: italic;
+    padding: 0 8px 0 8px;
+}
+/* /Pages/Home.razor.rz.scp.css */
+div.top-controls[b-mqxlcqlz8l] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 8px 4px 8px 4px;
+}
+
+div.main-prayer-buttons[b-mqxlcqlz8l] {
+    display: flex;
+    gap: 16px 4px;
+    padding: 8px 4px 8px 4px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+div.main-prayer-container[b-mqxlcqlz8l] {
+    padding: 8px 4px 8px 4px;
+}
 /* /Pages/MainPrayers/MealPrayer.razor.rz.scp.css */
 
+/* /Pages/MainPrayers/OtherPrayers.razor.rz.scp.css */
+
+div.main-prayer-buttons[b-35nwn8ksa0] {
+    display: flex;
+    gap: 16px 4px;
+    padding: 8px 4px 8px 4px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
 /* /Pages/Prayers/GospelReading.razor.rz.scp.css */
 body[b-qvszgwv3uy] {
 }
