@@ -24,6 +24,27 @@ public enum MainPrayerChoiceKind
     Other,
 }
 
+public enum OtherPrayerChoiceKind
+{
+    None,
+    AfterSickness,
+    ForDeparted,
+    ForOthersWhoAreSick,
+    ForPriests,
+    ForSoldiers,
+    ForThoseWithDepression,
+    FromChildrenForParents,
+    FromParentsForChildren,
+    FromSinglePersons,
+    NiceneCreed,
+    OfHusbandAndWife,
+    Repentance,
+    StrugglingWithAddiction,
+    TimeOfSickness,
+    TimeOfTrouble,
+    ToFindASpouse,
+}
+
 public enum HeadingKindEnum
 {
     None,

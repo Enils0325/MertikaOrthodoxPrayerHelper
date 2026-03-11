@@ -4,3 +4,15 @@
     gap: 8px;
     padding: 8px 4px 8px 4px;
 }
+
+div.main-prayer-buttons {
+    display: flex;
+    gap: 16px 4px;
+    padding: 8px 4px 8px 4px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+div.main-prayer-container {
+    padding: 8px 4px 8px 4px;
+}
