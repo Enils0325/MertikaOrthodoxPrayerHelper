@@ -2,16 +2,21 @@
 
 <PageTitle>Orthodox Prayer Helper App</PageTitle>
 
-<div style="display: flex; gap: 16px 4px; padding: 8px 4px 8px 4px;">
+<div class="top-controls">
     <div>
         <input type="date" @bind-value="@(Date)">
     </div>
-</div>
-
-<div style="display: flex; gap: 16px 4px; padding: 8px 4px 8px 4px;">
     <div>
         <LanguageSelector />
     </div>
+    @if (HolidayCalculator.IsLent(DateOnly.FromDateTime(Date)))
+    {
+        <Note>It is Paschal Season (@(HolidayCalculator.GetPascha(Date.Year).ToShortDateString()))</Note>
+    }
+    else if (HolidayCalculator.IsNativityFast(DateOnly.FromDateTime(Date)))
+    {
+        <Note>It is Nativity Season (@(new DateOnly(Date.Year, 12, 25).ToShortDateString()))</Note>
+    }
 </div>
 
 <div style="display: flex; gap: 16px 4px; padding: 8px 4px 8px 4px; margin-top: 20px; flex-wrap: wrap;">
@@ -28,6 +33,11 @@
     <div>
         <ButtonLink OnClick="() => this.MainPrayerChoice = MainPrayerChoiceKind.Meal">
             Meal
+        </ButtonLink>
+    </div>
+    <div>
+        <ButtonLink OnClick="() => this.MainPrayerChoice = MainPrayerChoiceKind.Meal">
+            Other
         </ButtonLink>
     </div>
 
@@ -54,7 +64,7 @@
         case MainPrayerChoiceKind.Meal:
             <MealPrayer />
             break;
-        case MainPrayerChoiceKind.PreCommunionPrayer:
+        case MainPrayerChoiceKind.Other:
             <PreCommunionPrayers HeadingKind="HeadingKindEnum.MainHeading" />
             break;
         default:
@@ -65,7 +75,7 @@
 
 @code {
     private IEnumerable<MainPrayerChoiceKind> choiceKindsWithNoRandom = [
-        MainPrayerChoiceKind.PreCommunionPrayer,
+        MainPrayerChoiceKind.Other,
         MainPrayerChoiceKind.None,
     ];
 }

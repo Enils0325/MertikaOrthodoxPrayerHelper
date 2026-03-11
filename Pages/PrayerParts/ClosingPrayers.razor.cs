@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Components;
 using OrthodoxPrayerBlazorSite2.Resources;
 using System.Text.Json;
-using static System.Net.WebRequestMethods;
 
 namespace OrthodoxPrayerBlazorSite2.Pages.PrayerParts;
 
-public partial class ClosingPrayers(HttpClient httpClient)
+public partial class ClosingPrayers()
 {
     [Parameter, EditorRequired]
     public DateTime Date { get; set; }

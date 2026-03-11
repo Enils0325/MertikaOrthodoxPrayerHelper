@@ -1,0 +1,33 @@
+﻿<Heading HeadingKind="HeadingKind">
+    @switch (LanguageKind)
+    {
+        case LanguageKindEnum.EnglishModern:
+        case LanguageKindEnum.EnglishMixed:
+        case LanguageKindEnum.EnglishOlder:
+        default:
+            <span>Paschal Troparion</span>
+            break;
+    }
+</Heading>
+
+@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+        <p>
+            Christ is risen from the dead, trampling down death by death, and upon those in the tombs bestowing life!
+        </p>
+        break;
+}
+
+
+@code {
+    [Parameter]
+    public HeadingKindEnum HeadingKind { get; set; } = HeadingKindEnum.None;
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
+
+}

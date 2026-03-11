@@ -1,0 +1,8 @@
+﻿<span class="note-container">
+    @(ChildContent)
+</span>
+
+@code {
+    [Parameter, EditorRequired]
+    public RenderFragment? ChildContent { get; set; }
+}

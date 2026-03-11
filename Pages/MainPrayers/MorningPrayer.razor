@@ -8,7 +8,15 @@
     <label for="checkboxIsBrief">Brief?</label>
 </div>
 
-<OHeavenlyKingAndTrisagion HeadingKind="HeadingKindEnum.SubHeading" />
+@if (HolidayCalculator.IsLent(DateOnly.FromDateTime(Date)))
+{
+    <ChristIsRisen HeadingKind="HeadingKindEnum.SubHeading"/>
+}
+else
+{
+    <InTheNameOfTheTrinity />
+    <OHeavenlyKingAndTrisagion HeadingKind="HeadingKindEnum.SubHeading" />
+}
 
 @switch (SelectedIndexOutOf3)
 {

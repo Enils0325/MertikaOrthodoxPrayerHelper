@@ -21,7 +21,7 @@ public enum MainPrayerChoiceKind
     Meal,
     MorningPrayer,
     EveningPrayer,
-    PreCommunionPrayer,
+    Other,
 }
 
 public enum HeadingKindEnum
