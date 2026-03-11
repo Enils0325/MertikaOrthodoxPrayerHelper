@@ -1,0 +1,27 @@
+@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishModern:
+        <Heading HeadingKind="HeadingKind">
+            Prayer of Husband and Wife
+        </Heading>
+        <p>
+            A prayer for married couples seeking God's blessing and guidance in their life together.
+        </p>
+        break;
+    default:
+        <Heading HeadingKind="HeadingKind">
+            Prayer of Husband and Wife
+        </Heading>
+        <p>
+            A prayer for married couples seeking God's blessing and guidance in their life together.
+        </p>
+        break;
+}
+
+@code {
+    [Parameter]
+    public HeadingKindEnum HeadingKind { get; set; } = HeadingKindEnum.None;
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; }
+}

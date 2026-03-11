@@ -1,0 +1,27 @@
+@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishModern:
+        <Heading HeadingKind="HeadingKind">
+            Prayer from Parents for Children
+        </Heading>
+        <p>
+            A prayer offered by parents for the protection and guidance of their children.
+        </p>
+        break;
+    default:
+        <Heading HeadingKind="HeadingKind">
+            Prayer from Parents for Children
+        </Heading>
+        <p>
+            A prayer offered by parents for the protection and guidance of their children.
+        </p>
+        break;
+}
+
+@code {
+    [Parameter]
+    public HeadingKindEnum HeadingKind { get; set; } = HeadingKindEnum.None;
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; }
+}
