@@ -1,0 +1,36 @@
+﻿
+<Heading HeadingKind="HeadingKind">
+
+    @switch (LanguageKind)
+    {
+        case LanguageKindEnum.EnglishModern:
+        case LanguageKindEnum.EnglishMixed:
+        case LanguageKindEnum.EnglishOlder:
+        default:
+            <span>The Jesus Prayer</span>
+            break;
+    }
+
+</Heading>
+
+@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    case LanguageKindEnum.EnglishOlder:
+    default:
+        <p>
+            Lord Jesus Christ, Son of God<br />
+            have mercy on me, a sinner!
+        </p>
+        break;
+}
+
+@code {
+    [Parameter, EditorRequired]
+    public HeadingKindEnum HeadingKind { get; set; }
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; }
+
+}

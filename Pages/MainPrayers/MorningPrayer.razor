@@ -8,15 +8,37 @@
     <label for="checkboxIsBrief">Brief?</label>
 </div>
 
+@if (!IsBrief)
+{
+    <JesusPrayer HeadingKind="HeadingKindEnum.None" />
+}
+
+<InTheNameOfTheTrinity />
+
 @if (HolidayCalculator.IsLent(DateOnly.FromDateTime(Date)))
 {
     <ChristIsRisen HeadingKind="HeadingKindEnum.SubHeading"/>
 }
 else
 {
-    <InTheNameOfTheTrinity />
     <OHeavenlyKingAndTrisagion HeadingKind="HeadingKindEnum.SubHeading" />
 }
+
+<HolyGodHolyMightyHolyImmortal />
+
+<GloryNowAndForever />
+
+<OhMostHolyTrinity />
+
+<LordHaveMercy TimesToSay="3" />
+
+<GloryNowAndForever />
+
+<OurFather HeadingKind="HeadingKindEnum.None" />
+
+<LordHaveMercy TimesToSay="12" />
+
+<ComeLetUsWorshipGodOurKing />
 
 @switch (SelectedIndexOutOf3)
 {
