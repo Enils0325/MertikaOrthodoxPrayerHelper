@@ -11,7 +11,8 @@
     </div>
     @if (HolidayCalculator.IsLent(DateOnly.FromDateTime(Date)))
     {
-        <Note>It is Paschal Season (@(HolidayCalculator.GetPascha(Date.Year).ToShortDateString()))</Note>
+        var paschaDate = HolidayCalculator.GetPascha(Date.Year);
+        <Note>It is Pascha Season (Pascha is in @(paschaDate.ToDateOnlyAtTime0().Subtract(Date.Date).TotalDays) days on @(paschaDate.ToString("MM/dd")))</Note>
     }
     else if (HolidayCalculator.IsNativityFast(DateOnly.FromDateTime(Date)))
     {
@@ -52,26 +53,28 @@
     }
 </div>
 
-<div class="main-prayer-container">
-    @switch (MainPrayerChoice)
-    {
-        case MainPrayerChoiceKind.MorningPrayer:
-            <MorningPrayer Date="Date" />
-            break;
-        case MainPrayerChoiceKind.EveningPrayer:
-            <EveningPrayer Date="Date" />
-            break;
-        case MainPrayerChoiceKind.Meal:
-            <MealPrayer />
-            break;
-        case MainPrayerChoiceKind.Other:
-            <OtherPrayers Date="Date" />
-            break;
-        default:
-            <div>Select a prayer.</div>
-            break;
-    }
-</div>
+<LoadingContainer IsLoading="IsLoading" Style="width: 100%; min-height: 400px;">
+    <div class="main-prayer-container">
+        @switch (MainPrayerChoice)
+        {
+            case MainPrayerChoiceKind.MorningPrayer:
+                <MorningPrayer Date="Date" />
+                break;
+            case MainPrayerChoiceKind.EveningPrayer:
+                <EveningPrayer Date="Date" />
+                break;
+            case MainPrayerChoiceKind.Meal:
+                <MealPrayer />
+                break;
+            case MainPrayerChoiceKind.Other:
+                <OtherPrayers Date="Date" />
+                break;
+            default:
+                <div>Select a prayer.</div>
+                break;
+        }
+    </div>
+</LoadingContainer>
 
 @code {
 }

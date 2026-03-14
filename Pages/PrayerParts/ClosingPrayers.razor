@@ -13,14 +13,14 @@
             O Lord Jesus Christ, the Son of God, through the intercessions of Thy most pure Mother
             <br />
             and of all Thy Saints@(SaintText == string.Empty ? "" : ", ")
-            <LoadingContainer IsLoading="IsLoading">
+            <LoadingTextContainer IsLoading="IsLoading">
                 @if (SaintText != string.Empty)
                 {
                     <span>
                         especially <a href="@(ocaSaintLink)">@SaintText</a> whose memory we commemorate today
                     </span>
                 }
-            </LoadingContainer>
+            </LoadingTextContainer>
             ,
             <br />
             have mercy on us and save us, forasmuch as Thou art good and lovest mankind.
@@ -42,14 +42,14 @@
             O Lord Jesus Christ, the Son of God, through the intercessions of Your most pure Mother
             <br />
             and of all Your Saints@(SaintText == string.Empty ? "" : ", ")
-            <LoadingContainer IsLoading="IsLoading" IsInline="true">
+            <LoadingTextContainer IsLoading="IsLoading" IsInline="true">
                 @if (SaintText != string.Empty)
                 {
                     <span>
                         especially <a href="@(ocaSaintLink)">@SaintText</a> whose memory we commemorate today
                     </span>
                 }
-            </LoadingContainer>
+            </LoadingTextContainer>
             ,
             <br />
             have mercy on us and save us, for You are good and love mankind.

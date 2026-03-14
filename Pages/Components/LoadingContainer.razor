@@ -1,32 +1,23 @@
-﻿<div style="@(GetLoadingDivStyle())">
-    @if (IsLoading)
-    {
-        <span class="loading-span">Loading...</span>
-    }
-    else
-    {
-        @ChildContent
-    }
+﻿<div class="loading-container" style="@GetLoadingContainerStyle()">
+
+    @ChildContent
+
 </div>
 
 @code {
+
     [Parameter, EditorRequired]
     public bool IsLoading { get; set; } = true;
-
-    [Parameter]
-    public bool IsInline { get; set; } = true;
 
     [Parameter, EditorRequired]
     public RenderFragment? ChildContent { get; set; } = null!;
 
-    private string GetLoadingDivStyle()
-    {
-        var styles = new List<string>();
+    [Parameter]
+    public string ContainerStyle { get; set; } = string.Empty;
 
-        if (IsInline)
-            styles.Add("display: inline;");
-        else
-            styles.Add("display: block;");
+    private string GetLoadingContainerStyle()
+    {
+        List<string> styles = [ContainerStyle,];
 
         return string.Join(" ", styles);
     }
