@@ -1,11 +1,16 @@
-﻿<div class="loading-container" style="@GetLoadingContainerStyle()">
-
-    @ChildContent
-
+﻿
+<div class="loading-container" style="@GetLoadingContainerStyle()">
+    @if (IsLoading)
+    {
+        
+    }
+    else
+    {
+        @ChildContent
+    }
 </div>
 
 @code {
-
     [Parameter, EditorRequired]
     public bool IsLoading { get; set; } = true;
 
