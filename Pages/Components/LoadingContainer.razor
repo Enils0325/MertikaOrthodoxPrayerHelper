@@ -1,14 +1,13 @@
-﻿
-<div class="loading-container" style="@GetLoadingContainerStyle()">
-    @if (IsLoading)
-    {
-        
-    }
-    else
-    {
-        @ChildContent
-    }
-</div>
+﻿@if (IsLoading)
+{
+    <div style="padding: 8px;">
+        <div class="loading-container" style="@GetLoadingContainerStyle()"></div>
+    </div>
+}
+else
+{
+    @ChildContent
+}
 
 @code {
     [Parameter, EditorRequired]
