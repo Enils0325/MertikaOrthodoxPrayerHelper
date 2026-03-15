@@ -32,25 +32,28 @@ public partial class HolidayBanner
 
     private HolidaySeasonKind GetHolidaySeasonKind()
     {
-        if (HolidayCalculator.IsGreatLent(DateOnly))            
+        var dateApproachingNativityFast = firstDayOfNativityFastDt.AddDays(-1 * HolidayCalculator.ApproachingThresholdDays);
+        var dateApproachingGreatLent = cleanMonday.AddDays(-1 * HolidayCalculator.ApproachingThresholdDays);
+
+        if (HolidayCalculator.IsGreatLent(DateOnly))
             return HolidaySeasonKind.GreatLent;
 
-        else if (HolidayCalculator.IsPascha(DateOnly))          
+        else if (HolidayCalculator.IsPascha(DateOnly))
             return HolidaySeasonKind.Pascha;
 
-        else if (HolidayCalculator.IsNativityFast(DateOnly))    
+        else if (HolidayCalculator.IsNativityFast(DateOnly))
             return HolidaySeasonKind.NativityFast;
 
-        else if (HolidayCalculator.IsNativity(DateOnly))        
+        else if (HolidayCalculator.IsNativity(DateOnly))
             return HolidaySeasonKind.Nativity;
 
-        else if (HolidayCalculator.IsNativityFast(DateOnly))    
+        else if (HolidayCalculator.IsNativityFast(DateOnly))
             return HolidaySeasonKind.NativityFast;
 
-        else if ((firstDayOfNativityFastDt - Date).TotalDays <= HolidayCalculator.ApproachingThresholdDays)
+        else if (Date >= dateApproachingNativityFast && Date < firstDayOfNativityFastDt)
             return HolidaySeasonKind.ApproachingNativityFast;
 
-        else if ((cleanMondayDt - Date).TotalDays <= HolidayCalculator.ApproachingThresholdDays)
+        else if (DateOnly >= dateApproachingGreatLent && Date < cleanMondayDt)
             return HolidaySeasonKind.ApproachingGreatLent;
 
         else if (DateOnly > nativity && (Date - nativityDt).TotalDays <= HolidayCalculator.WasRecentThresholdDays)
