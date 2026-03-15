@@ -12,7 +12,7 @@
     @if (HolidayCalculator.IsLent(DateOnly.FromDateTime(Date)))
     {
         var paschaDate = HolidayCalculator.GetPascha(Date.Year);
-        <Note>It is Pascha Season (Pascha is in @(paschaDate.ToDateOnlyAtTime0().Subtract(Date.Date).TotalDays) days on @(paschaDate.ToString("MM/dd")))</Note>
+        <Note>It is Pascha Season (Pascha is in @(paschaDate.ToDateOnlyAtTime0().Subtract(Date.Date).TotalDays) days on @(paschaDate.ToString("MMMM dd")))</Note>
     }
     else if (HolidayCalculator.IsNativityFast(DateOnly.FromDateTime(Date)))
     {
