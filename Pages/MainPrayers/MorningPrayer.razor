@@ -34,9 +34,11 @@ else
 
 <OurFather HeadingKind="HeadingKindEnum.None" />
 
+<!-- The Morning Prayer to the Holy Trinity may be inserted here -->
+
 <LordHaveMercy TimesToSay="12" />
 
-<ComeLetUsWorshipGodOurKing />
+<!-- The Morning Prayer by St Basil the Great may be inserted here -->
 
 @switch (SelectedIndexOutOf3)
 {
@@ -51,7 +53,18 @@ else
         break;
 }
 
-<Psalm HeadingKind="HeadingKindEnum.SubHeading" IsBrief="IsBrief" />
+<ComeLetUsWorshipGodOurKing />
+
+@if (MainUtil.IsDebug)
+{
+    <Psalm HeadingKind="HeadingKindEnum.SubHeading" IsBrief="IsBrief" />
+}
+else
+{
+    <Note>
+        Psalm Reading is not yet implemented on website.
+    </Note>
+}
 
 <GospelReading HeadingKind="HeadingKindEnum.SubHeading" Date="Date" />
 
