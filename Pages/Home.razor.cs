@@ -42,6 +42,7 @@ public partial class Home : IDisposable
         this.MainPrayerChoice = choiceKind;
 
         IsLoading = false;
+        StateHasChanged();
     }
 
     public void Dispose()
