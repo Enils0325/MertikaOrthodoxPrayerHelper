@@ -31,6 +31,7 @@ public partial class Home : IDisposable
         await Task.Delay(500);
 
         IsLoading = false;
+        StateHasChanged();
     }
 
     private async Task SetMainPrayerKind(MainPrayerChoiceKind choiceKind)
