@@ -37,15 +37,42 @@ a.button-link[b-mbsbv4l5aa] {
         filter: hue-rotate(260deg);
     }
 /* /Pages/Components/LoadingContainer.razor.rz.scp.css */
-.loading-span[b-l69ejlmxxv] {
+.loading-container[b-l69ejlmxxv] {
+    width: 97.5%;
+    min-height: 400px;
+    padding: 8px;
     background-color: #808080;
-    padding: 4px 8px 4px 8px;
     border-radius: 6px;
     animation: pulse-b-l69ejlmxxv 1.2s infinite ease-in-out;
 }
 
 /* Animation keyframes */
 @keyframes pulse-b-l69ejlmxxv {
+    0% {
+        transform: scale(1);
+        background-color: #808080;
+    }
+
+    50% {
+        transform: scale(1);
+        background-color: #d9cece;
+    }
+
+    100% {
+        transform: scale(1);
+        background-color: #808080;
+    }
+}
+/* /Pages/Components/LoadingTextContainer.razor.rz.scp.css */
+.loading-span[b-73s8ut5wpk] {
+    background-color: #808080;
+    padding: 4px 8px 4px 8px;
+    border-radius: 6px;
+    animation: pulse-b-73s8ut5wpk 1.2s infinite ease-in-out;
+}
+
+/* Animation keyframes */
+@keyframes pulse-b-73s8ut5wpk {
     0% {
         transform: scale(1);
         background-color: #808080;
