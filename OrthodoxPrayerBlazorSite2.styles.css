@@ -113,6 +113,21 @@ div.main-prayer-buttons[b-mqxlcqlz8l] {
 div.main-prayer-container[b-mqxlcqlz8l] {
     padding: 8px 4px 8px 4px;
 }
+
+div.notification-bar[b-mqxlcqlz8l] {
+    position: fixed; /* Sticks to top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffcc00; /* Yellow background */
+    color: #000;
+    text-align: center;
+    padding: 10px 40px;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 1000; /* Stay above other elements */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
 /* /Pages/MainPrayers/MealPrayer.razor.rz.scp.css */
 
 /* /Pages/MainPrayers/OtherPrayers.razor.rz.scp.css */
