@@ -1,6 +1,33 @@
-﻿<p>
-    Holy God, Holy Mighty, Holy Immortal: have mercy on us. (3x)
-</p>
+﻿<Heading HeadingKind="HeadingKind">
+    @switch (LanguageKind)
+    {
+        case LanguageKindEnum.EnglishOlder:
+        case LanguageKindEnum.EnglishModern:
+        case LanguageKindEnum.EnglishMixed:
+        default:
+            <span>
+                The Trisagion Prayers
+            </span>
+            break;
+    }
+</Heading>
+
+@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+        <p>
+            Holy God, Holy Mighty, Holy Immortal: have mercy on us. (3x)
+        </p>
+        break;
+}
 
 @code {
+    [Parameter, EditorRequired]
+    public HeadingKindEnum HeadingKind { get; set; }
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
 }
