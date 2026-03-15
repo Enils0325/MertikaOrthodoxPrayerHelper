@@ -5,33 +5,37 @@ namespace OrthodoxPrayerBlazorSite2.Utils;
 
 public static class HolidayCalculator
 {
-    /// <summary>Returns true if the provided date is within Eastern Orthodox Great Lent (from Clean Monday through Holy Saturday).</summary>
-    public static bool IsLent(DateOnly date)
+    public const int ApproachingThresholdDays = 21;
+    public const int WasRecentThresholdDays = 14;
+
+
+    public static DateOnly GetStartOfNativityFast(int year) => new DateOnly(year, 11, 15);
+
+    public static bool IsNativityFast(DateOnly date)
+    {
+        var start = GetStartOfNativityFast(date.Year);
+        var end = GetNativity(date.Year);
+        return date >= start && date < end.AddDays(1);
+    }
+
+
+    public static bool IsNativity(DateOnly date) => date == GetNativity(date.Year);
+    public static DateOnly GetNativity(int year) => new DateOnly(year, 12, 25);
+
+
+
+    public static DateOnly GetCleanMonday(DateOnly date) => GetPascha(date.Year).AddDays(-48);
+
+    public static bool IsGreatLent(DateOnly date)
     {
         var easter = GetPascha(date.Year);
-        var cleanMonday = easter.AddDays(-48);
+        var cleanMonday = GetCleanMonday(date);
         var holySaturday = easter.AddDays(-1);
 
         return date >= cleanMonday && date <= holySaturday;
     }
 
-
-    /// <summary>Returns true if the provided date is within the Nativity Fast (the 40 days before Nativity: Nov 15 through Dec 24 inclusive).</summary>
-    public static bool IsNativityFast(DateOnly date)
-    {
-        var start = new DateOnly(date.Year, 11, 15);
-        var end = new DateOnly(date.Year, 12, 24);
-
-        return date >= start && date <= end;
-    }
-
-
-    public static bool IsPascha(DateOnly date)
-    {
-        return date == GetPascha(date.Year);
-    }
-
-
+    public static bool IsPascha(DateOnly date) => date == GetPascha(date.Year);
     public static DateOnly GetPascha(int year)
     {
         // Algorithm based on the Meeus/Jones/Butcher method for the Julian calendar

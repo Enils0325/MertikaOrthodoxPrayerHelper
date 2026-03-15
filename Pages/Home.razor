@@ -9,6 +9,7 @@
 </div>
 <div style="padding: 20px;"></div>
 
+<HolidayBanner Date="Date" />
 
 <div class="top-controls">
     <div>
@@ -17,15 +18,6 @@
     <div>
         <LanguageSelector />
     </div>
-    @if (HolidayCalculator.IsLent(DateOnly.FromDateTime(Date)))
-    {
-        var paschaDate = HolidayCalculator.GetPascha(Date.Year);
-        <Note>It is Pascha Season (Pascha is in @(paschaDate.ToDateOnlyAtTime0().Subtract(Date.Date).TotalDays) days on @(paschaDate.ToString("MMMM dd")))</Note>
-    }
-    else if (HolidayCalculator.IsNativityFast(DateOnly.FromDateTime(Date)))
-    {
-        <Note>It is Nativity Season (@(new DateOnly(Date.Year, 12, 25).ToShortDateString()))</Note>
-    }
 </div>
 
 <div class="main-prayer-buttons">

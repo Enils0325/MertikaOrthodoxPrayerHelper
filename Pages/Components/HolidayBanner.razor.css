@@ -1,0 +1,15 @@
+﻿div.holiday-banner {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #ffd800;
+    margin: 8px 2px 8px 2px;
+    padding: 4px;
+    border-radius: 8px;
+}
+
+    div.holiday-banner > div {
+        background-color: lightblue;
+        margin: 2px 4px 2px 4px;
+        padding: 4px;
+        border-radius: 8px;
+    }

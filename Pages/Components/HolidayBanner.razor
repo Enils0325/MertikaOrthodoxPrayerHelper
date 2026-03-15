@@ -1,0 +1,70 @@
+﻿
+@{
+    var holidayKind = GetHolidaySeasonKind();
+
+    if (holidayKind == HolidaySeasonKind.None)
+    {
+        return;
+    }
+    else if (holidayKind == HolidaySeasonKind.ApproachingNativityFast)
+    {
+        <div class="holiday-banner">
+            <div>Nativity fast begins in @(getDaysText((Date - firstDayOfNativityFastDt).TotalDays))</div>
+        </div>
+    }
+    else if (holidayKind == HolidaySeasonKind.NativityFast)
+    {
+        <div class="holiday-banner">
+            <div>Nativity Fast</div>
+            <div>Nativity is in @(getDaysText(paschaDt.Subtract(Date.Date).TotalDays))</div>
+        </div>
+    }
+    else if (holidayKind == HolidaySeasonKind.Nativity)
+    {
+        <div class="holiday-banner">
+            <div>Today is Nativity!</div>
+        </div>
+    }
+    else if (holidayKind == HolidaySeasonKind.RecentlyWasNativity)
+    {
+        <div class="holiday-banner">
+            <div>Nativity was @(getDaysText((Date - nativityDt).TotalDays)) ago</div>
+        </div>
+    }
+    else if (holidayKind == HolidaySeasonKind.ApproachingNativityFast)
+    {
+        <div class="holiday-banner">
+            <div>Great Lent begins in @(getDaysText((Date - cleanMondayDt).TotalDays)) (Clean Monday)</div>
+        </div>
+    }
+    else if (holidayKind == HolidaySeasonKind.GreatLent)
+    {
+        <div class="holiday-banner">
+            <div>Great Lent</div>
+            <div>Pascha is in @(getDaysText(paschaDt.Subtract(Date.Date).TotalDays))</div>
+        </div>
+    }
+    else if (holidayKind == HolidaySeasonKind.Pascha)
+    {
+        <div class="holiday-banner">
+            <div>Today is Pascha!</div>
+        </div>
+    }
+    else if (holidayKind == HolidaySeasonKind.RecentlyWasPascha)
+    {
+        <div class="holiday-banner">
+            <div>Pascha was @(getDaysText((Date - paschaDt).TotalDays)) ago</div>
+        </div>
+    }
+}
+
+<span>@(paschaDt)</span>
+
+@code {
+
+    private string getDaysText(double days)
+    {
+        var intDays = (int)days;
+        return $"{intDays:N0} day{(intDays == 1 ? "" : "s")}";
+    }
+}
