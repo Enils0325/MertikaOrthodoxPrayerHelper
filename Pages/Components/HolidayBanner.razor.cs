@@ -9,23 +9,22 @@ public partial class HolidayBanner
     private DateOnly firstDayOfNativityFast;
     private DateOnly nativity;
 
-    private DateTime cleanMondayDt => cleanMonday.ToDateTimeAtTime0();
-    private DateTime paschaDt => pascha.ToDateTimeAtTime0();
-    private DateTime firstDayOfNativityFastDt => firstDayOfNativityFast.ToDateTimeAtTime0();
-    private DateTime nativityDt => nativity.ToDateTimeAtTime0();
+    private DateTime cleanMondayDt => cleanMonday.Dt();
+    private DateTime paschaDt => pascha.Dt();
+    private DateTime firstDayOfNativityFastDt => firstDayOfNativityFast.Dt();
+    private DateTime nativityDt => nativity.Dt();
 
     [Parameter, EditorRequired]
     public DateTime Date { get; set; }
 
     private DateOnly DateOnly => DateOnly.FromDateTime(Date);
 
-
-    protected override void OnInitialized()
+    protected override void OnParametersSet()
     {
         cleanMonday = HolidayCalculator.GetCleanMonday(DateOnly);
-        pascha = HolidayCalculator.GetPascha(Date.Year);
-        firstDayOfNativityFast = HolidayCalculator.GetStartOfNativityFast(Date.Year);
-        nativity = new DateOnly(Date.Year, 12, 25);
+        pascha = HolidayCalculator.GetPascha(Date.Do());
+        firstDayOfNativityFast = HolidayCalculator.GetStartOfNativityFast(DateOnly);
+        nativity = HolidayCalculator.GetNativity(DateOnly);
 
         base.OnInitialized();
     }
@@ -48,10 +47,10 @@ public partial class HolidayBanner
         else if (HolidayCalculator.IsNativityFast(DateOnly))    
             return HolidaySeasonKind.NativityFast;
 
-        else if ((Date - firstDayOfNativityFastDt).TotalDays <= HolidayCalculator.ApproachingThresholdDays)
+        else if ((firstDayOfNativityFastDt - Date).TotalDays <= HolidayCalculator.ApproachingThresholdDays)
             return HolidaySeasonKind.ApproachingNativityFast;
 
-        else if ((Date - cleanMondayDt).TotalDays <= HolidayCalculator.ApproachingThresholdDays)
+        else if ((cleanMondayDt - Date).TotalDays <= HolidayCalculator.ApproachingThresholdDays)
             return HolidaySeasonKind.ApproachingGreatLent;
 
         else if (DateOnly > nativity && (Date - nativityDt).TotalDays <= HolidayCalculator.WasRecentThresholdDays)

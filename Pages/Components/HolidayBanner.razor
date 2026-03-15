@@ -1,4 +1,12 @@
 ﻿
+
+<div style="display: flex; gap: 4px; ">
+    <div>Pascha: @(pascha)</div>
+    <div>Clean Monday: @(cleanMonday)</div>
+    <div>FirstDayOfNativityFast: @(firstDayOfNativityFast)</div>
+    <div>Nativity: @(nativity)</div>
+</div>
+
 @{
     var holidayKind = GetHolidaySeasonKind();
 
@@ -57,8 +65,6 @@
         </div>
     }
 }
-
-<span>@(paschaDt)</span>
 
 @code {
 
