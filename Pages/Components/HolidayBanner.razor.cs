@@ -21,10 +21,10 @@ public partial class HolidayBanner
 
     protected override void OnParametersSet()
     {
-        cleanMonday = HolidayCalculator.GetCleanMonday(DateOnly);
-        pascha = HolidayCalculator.GetPascha(Date.Do());
+        cleanMonday = HolidayCalculator.GetNextCleanMonday(DateOnly);
+        pascha = HolidayCalculator.GetNextPascha(Date.Do());
         firstDayOfNativityFast = HolidayCalculator.GetStartOfNativityFast(DateOnly);
-        nativity = HolidayCalculator.GetNativity(DateOnly);
+        nativity = HolidayCalculator.GetNextNativity(DateOnly);
 
         base.OnInitialized();
     }

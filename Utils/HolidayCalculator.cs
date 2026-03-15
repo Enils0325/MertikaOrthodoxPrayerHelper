@@ -9,38 +9,39 @@ public static class HolidayCalculator
     public const int WasRecentThresholdDays = 14;
 
 
-    public static DateOnly GetStartOfNativityFast(DateOnly date) => GetNativity(date).AddDays(-40);
+    public static DateOnly GetStartOfNativityFast(DateOnly date) => GetNextNativity(date).AddDays(-40);
 
     public static bool IsNativityFast(DateOnly date)
     {
         var start = GetStartOfNativityFast(date);
-        var end = GetNativity(date);
+        var end = GetNextNativity(date);
         return date >= start && date < end.AddDays(1);
     }
 
 
-    public static bool IsNativity(DateOnly date) => date == GetNativity(date);
-    public static DateOnly GetNativity(DateOnly date)
+    public static bool IsNativity(DateOnly date) => date == GetNativity(date.Year);
+    public static DateOnly GetNativity(int year) => new DateOnly(year, 12, 25);
+    public static DateOnly GetNextNativity(DateOnly date)
     {
-        var nativityThisYear = new DateOnly(date.Year, 12, 25);
+        var nativityThisYear = GetNativity(date.Year);
         if (date > nativityThisYear)
-            return new DateOnly(date.Year + 1, 12, 25);
+            return GetNativity(date.Year + 1);
         else
             return nativityThisYear;
     }
 
-    public static DateOnly GetCleanMonday(DateOnly date) => GetPascha(date).AddDays(-48);
+    public static DateOnly GetNextCleanMonday(DateOnly date) => GetNextPascha(date).AddDays(-48);
 
     public static bool IsGreatLent(DateOnly date)
     {
-        var pascha = GetPascha(date);
-        var cleanMonday = GetCleanMonday(date);
+        var pascha = GetNextPascha(date);
+        var cleanMonday = GetNextCleanMonday(date);
 
         return date >= cleanMonday && date < pascha.AddDays(1);
     }
 
     public static bool IsPascha(DateOnly date) => date == GetPascha(date.Year);
-    public static DateOnly GetPascha(DateOnly date)
+    public static DateOnly GetNextPascha(DateOnly date)
     {
         var paschaThisYear = GetPascha(date.Year);
         if (date > paschaThisYear)
