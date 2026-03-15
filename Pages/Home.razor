@@ -22,25 +22,28 @@
 
 <div class="main-prayer-buttons">
     <div>
-        <ButtonLink OnClick="() => this.MainPrayerChoice = MainPrayerChoiceKind.MorningPrayer">
+        <ButtonLink OnClick="() => SetMainPrayerKind(MainPrayerChoiceKind.MorningPrayer)">
             Morning
         </ButtonLink>
     </div>
     <div>
-        <ButtonLink OnClick="() => this.MainPrayerChoice = MainPrayerChoiceKind.EveningPrayer">
+        <ButtonLink OnClick="() => SetMainPrayerKind(MainPrayerChoiceKind.EveningPrayer)">
             Evening
         </ButtonLink>
     </div>
     <div>
-        <ButtonLink OnClick="() => this.MainPrayerChoice = MainPrayerChoiceKind.Meal">
+        <ButtonLink OnClick="() => SetMainPrayerKind(MainPrayerChoiceKind.Meal)">
             Meal
         </ButtonLink>
     </div>
-    <div>
-        <ButtonLink OnClick="() => this.MainPrayerChoice = MainPrayerChoiceKind.Other">
-            Other
-        </ButtonLink>
-    </div>
+    @if (MainUtil.IsDebug)
+    {
+        <div>
+            <ButtonLink OnClick="() => SetMainPrayerKind(MainPrayerChoiceKind.Other)">
+                Other
+            </ButtonLink>
+        </div>
+    }
 
     @if (!choiceKindsWithNoRandom.Contains(MainPrayerChoice))
     {
