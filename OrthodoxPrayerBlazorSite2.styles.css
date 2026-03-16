@@ -36,6 +36,22 @@ a.button-link[b-mbsbv4l5aa] {
         font-style: italic;
         filter: hue-rotate(260deg);
     }
+/* /Pages/Components/HolidayBanner.razor.rz.scp.css */
+div.holiday-banner[b-g4uy1fk3iy] {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #ffd800;
+    margin: 8px 2px 8px 2px;
+    padding: 4px;
+    border-radius: 8px;
+}
+
+    div.holiday-banner > div[b-g4uy1fk3iy] {
+        background-color: lightblue;
+        margin: 2px 4px 2px 4px;
+        padding: 4px;
+        border-radius: 8px;
+    }
 /* /Pages/Components/LoadingContainer.razor.rz.scp.css */
 .loading-container[b-l69ejlmxxv] {
     width: 97.5%;
