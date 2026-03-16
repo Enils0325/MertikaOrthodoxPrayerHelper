@@ -154,10 +154,8 @@ div.notification-bar[b-mqxlcqlz8l] {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #ffcc00; /* Yellow background */
-    color: #000;
+    background-color: #faa5a5; 
     text-align: center;
-    padding: 10px 40px;
     font-size: 16px;
     font-weight: bold;
     z-index: 1000; /* Stay above other elements */
