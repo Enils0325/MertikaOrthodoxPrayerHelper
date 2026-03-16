@@ -1,15 +1,34 @@
 ﻿div.holiday-banner {
     display: flex;
     flex-wrap: wrap;
-    background-color: #ffd800;
-    margin: 8px 2px 8px 2px;
-    padding: 4px;
-    border-radius: 8px;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(90deg, #fff9d6 0%, #ffd800 100%);
+    color: #222;
+    margin: 4px 2px;
+    padding: 4px 8px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    font-weight: 600;
+    font-size: 1rem;
 }
 
-    div.holiday-banner > div {
-        background-color: lightblue;
-        margin: 2px 4px 2px 4px;
-        padding: 4px;
-        border-radius: 8px;
-    }
+div.holiday-fast {
+    background: #fff3cd;
+    color: #8a3b00;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: 700;
+    margin-right: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+div.begins-in-or-was-recent {
+    color: #333;
+    font-style: italic;
+    font-weight: 500;
+    margin-left: 8px;
+    opacity: 0.95;
+    font-size: 0.95rem;
+}
