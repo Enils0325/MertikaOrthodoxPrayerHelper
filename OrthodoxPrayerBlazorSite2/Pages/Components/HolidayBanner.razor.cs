@@ -46,13 +46,13 @@ public partial class HolidayBanner
 
     private HolidaySeasonKind GetHolidaySeasonKind()
     {
-        else if (HolidayCalculator.IsNativity(DateOnly))
+        if (HolidayCalculator.IsNativity(DateOnly))
             return HolidaySeasonKind.Nativity;
 
         else if (HolidayCalculator.IsPascha(DateOnly))
             return HolidaySeasonKind.Pascha;
 
-        if (HolidayCalculator.IsGreatLent(DateOnly))
+        else if (HolidayCalculator.IsGreatLent(DateOnly))
             return HolidaySeasonKind.GreatLent;
 
         else if (HolidayCalculator.IsNativityFast(DateOnly))
