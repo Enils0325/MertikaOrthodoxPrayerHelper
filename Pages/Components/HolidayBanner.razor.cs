@@ -5,14 +5,23 @@ namespace OrthodoxPrayerBlazorSite2.Pages.Components;
 public partial class HolidayBanner
 {
     private DateOnly cleanMonday;
-    private DateOnly pascha;
-    private DateOnly firstDayOfNativityFast;
-    private DateOnly nativity;
-
     private DateTime cleanMondayDt => cleanMonday.Dt();
+
+    private DateOnly pascha;
     private DateTime paschaDt => pascha.Dt();
+
+    private DateOnly firstDayOfNativityFast;
     private DateTime firstDayOfNativityFastDt => firstDayOfNativityFast.Dt();
+
+    private DateOnly nativity;
     private DateTime nativityDt => nativity.Dt();
+
+    private DateOnly dateApproachingNativityFast;
+    private DateOnly dateApproachingGreatLent;
+
+    private DateOnly dateToHideRecentNativity;
+    private DateOnly dateToHideRecentPascha;
+
 
     [Parameter, EditorRequired]
     public DateTime Date { get; set; }
@@ -23,8 +32,13 @@ public partial class HolidayBanner
     {
         cleanMonday = HolidayCalculator.GetNextCleanMonday(DateOnly);
         pascha = HolidayCalculator.GetNextPascha(Date.Do());
-        firstDayOfNativityFast = HolidayCalculator.GetStartOfNativityFast(DateOnly);
+        firstDayOfNativityFast = HolidayCalculator.GetNextStartOfNativityFast(DateOnly);
         nativity = HolidayCalculator.GetNextNativity(DateOnly);
+        dateApproachingNativityFast = firstDayOfNativityFast.AddDays(-1 * HolidayCalculator.ApproachingThresholdDays);
+        dateApproachingGreatLent = cleanMonday.AddDays(-1 * HolidayCalculator.ApproachingThresholdDays);
+
+        dateToHideRecentNativity = HolidayCalculator.GetLastNativity(DateOnly).AddDays(HolidayCalculator.WasRecentThresholdDays);
+        dateToHideRecentPascha = HolidayCalculator.GetLastPascha(DateOnly).AddDays(HolidayCalculator.WasRecentThresholdDays);
 
         base.OnInitialized();
     }
@@ -32,9 +46,6 @@ public partial class HolidayBanner
 
     private HolidaySeasonKind GetHolidaySeasonKind()
     {
-        var dateApproachingNativityFast = firstDayOfNativityFastDt.AddDays(-1 * HolidayCalculator.ApproachingThresholdDays);
-        var dateApproachingGreatLent = cleanMonday.AddDays(-1 * HolidayCalculator.ApproachingThresholdDays);
-
         if (HolidayCalculator.IsGreatLent(DateOnly))
             return HolidaySeasonKind.GreatLent;
 
@@ -50,16 +61,16 @@ public partial class HolidayBanner
         else if (HolidayCalculator.IsNativityFast(DateOnly))
             return HolidaySeasonKind.NativityFast;
 
-        else if (Date >= dateApproachingNativityFast && Date < firstDayOfNativityFastDt)
+        else if (DateOnly >= dateApproachingNativityFast && DateOnly < firstDayOfNativityFast)
             return HolidaySeasonKind.ApproachingNativityFast;
 
-        else if (DateOnly >= dateApproachingGreatLent && Date < cleanMondayDt)
+        else if (DateOnly >= dateApproachingGreatLent && DateOnly < cleanMonday)
             return HolidaySeasonKind.ApproachingGreatLent;
 
-        else if (DateOnly > nativity && (Date - nativityDt).TotalDays <= HolidayCalculator.WasRecentThresholdDays)
+        else if (DateOnly <= dateToHideRecentNativity && DateOnly > HolidayCalculator.GetLastNativity(DateOnly))
             return HolidaySeasonKind.RecentlyWasNativity;
 
-        else if (DateOnly > pascha && (Date - paschaDt).TotalDays <= HolidayCalculator.WasRecentThresholdDays)
+        else if (DateOnly <= dateToHideRecentPascha && DateOnly > HolidayCalculator.GetLastPascha(DateOnly))
             return HolidaySeasonKind.RecentlyWasPascha;
 
         return HolidaySeasonKind.None;

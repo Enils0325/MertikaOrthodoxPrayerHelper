@@ -1,11 +1,42 @@
 ﻿
+<table>
+    <tr>
+        <td>Approaching Pascha</td>
+        <td>@(dateApproachingGreatLent)</td>
+    </tr>
+    <tr>
+        <td>Clean Monday</td>
+        <td>@(cleanMonday)</td>
+    </tr>
+    <tr>
+        <td>Pascha</td>
+        <td>@(pascha)</td>
+    </tr>
+    <tr>
+        <td>After Pascha</td>
+        <td>@(dateToHideRecentPascha)</td>
+    </tr>
+    <tr>
+        <td colspan="2"></td>
+    </tr>
+    <tr>
+        <td>Approaching Nativity</td>
+        <td>@(dateApproachingNativityFast)</td>
+    </tr>
+    <tr>
+        <td>Nativity Fast Start</td>
+        <td>@(firstDayOfNativityFast)</td>
+    </tr>
+    <tr>
+        <td>Nativity</td>
+        <td>@(nativity)</td>
+    </tr>
+    <tr>
+        <td>After Nativity</td>
+        <td>@(dateToHideRecentNativity)</td>
+    </tr>
+</table>
 
-<div style="display: flex; gap: 4px; ">
-    <div>Pascha: @(pascha)</div>
-    <div>Clean Monday: @(cleanMonday)</div>
-    <div>FirstDayOfNativityFast: @(firstDayOfNativityFast)</div>
-    <div>Nativity: @(nativity)</div>
-</div>
 
 @{
     var holidayKind = GetHolidaySeasonKind();
@@ -14,35 +45,41 @@
     {
         return;
     }
-    else if (holidayKind == HolidaySeasonKind.ApproachingNativityFast)
-    {
-        <div class="holiday-banner">
-            <div>Nativity fast begins in @(getDaysText((Date - firstDayOfNativityFastDt).TotalDays))</div>
-        </div>
-    }
-    else if (holidayKind == HolidaySeasonKind.NativityFast)
-    {
-        <div class="holiday-banner">
-            <div>Nativity Fast</div>
-            <div>Nativity is in @(getDaysText(paschaDt.Subtract(Date.Date).TotalDays))</div>
-        </div>
-    }
     else if (holidayKind == HolidaySeasonKind.Nativity)
     {
         <div class="holiday-banner">
             <div>Today is Nativity!</div>
         </div>
     }
-    else if (holidayKind == HolidaySeasonKind.RecentlyWasNativity)
-    {
-        <div class="holiday-banner">
-            <div>Nativity was @(getDaysText((Date - nativityDt).TotalDays)) ago</div>
-        </div>
-    }
     else if (holidayKind == HolidaySeasonKind.ApproachingNativityFast)
     {
         <div class="holiday-banner">
-            <div>Great Lent begins in @(getDaysText((Date - cleanMondayDt).TotalDays)) (Clean Monday)</div>
+            <div>Nativity fast begins in @(getDaysText((firstDayOfNativityFastDt - Date).TotalDays))</div>
+        </div>
+    }
+    else if (holidayKind == HolidaySeasonKind.NativityFast)
+    {
+        <div class="holiday-banner">
+            <div>Nativity Fast</div>
+            <div>Nativity is in @(getDaysText(nativityDt.Subtract(Date.Date).TotalDays))</div>
+        </div>
+    }
+    else if (holidayKind == HolidaySeasonKind.RecentlyWasNativity)
+    {
+        <div class="holiday-banner">
+            <div>Nativity was @(getDaysText((Date - HolidayCalculator.GetLastNativity(DateOnly).Dt()).TotalDays)) ago</div>
+        </div>
+    }
+    else if (holidayKind == HolidaySeasonKind.Pascha)
+    {
+        <div class="holiday-banner">
+            <div>Today is Pascha!</div>
+        </div>
+    }
+    else if (holidayKind == HolidaySeasonKind.ApproachingGreatLent)
+    {
+        <div class="holiday-banner">
+            <div>Great Lent begins in @(getDaysText((cleanMondayDt - Date).TotalDays))</div>
         </div>
     }
     else if (holidayKind == HolidaySeasonKind.GreatLent)
@@ -52,16 +89,10 @@
             <div>Pascha is in @(getDaysText(paschaDt.Subtract(Date.Date).TotalDays))</div>
         </div>
     }
-    else if (holidayKind == HolidaySeasonKind.Pascha)
-    {
-        <div class="holiday-banner">
-            <div>Today is Pascha!</div>
-        </div>
-    }
     else if (holidayKind == HolidaySeasonKind.RecentlyWasPascha)
     {
         <div class="holiday-banner">
-            <div>Pascha was @(getDaysText((Date - paschaDt).TotalDays)) ago</div>
+            <div>Pascha was @(getDaysText((Date - HolidayCalculator.GetLastPascha(DateOnly).Dt()).TotalDays)) ago</div>
         </div>
     }
 }

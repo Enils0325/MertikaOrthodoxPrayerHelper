@@ -9,11 +9,12 @@ public static class HolidayCalculator
     public const int WasRecentThresholdDays = 14;
 
 
-    public static DateOnly GetStartOfNativityFast(DateOnly date) => GetNextNativity(date).AddDays(-40);
+    public static DateOnly GetLastStartOfNativityFast(DateOnly date) => GetLastNativity(date).AddDays(-40);
+    public static DateOnly GetNextStartOfNativityFast(DateOnly date) => GetNextNativity(date).AddDays(-40);
 
     public static bool IsNativityFast(DateOnly date)
     {
-        var start = GetStartOfNativityFast(date);
+        var start = GetNextStartOfNativityFast(date);
         var end = GetNextNativity(date);
         return date >= start && date < end.AddDays(1);
     }
@@ -29,6 +30,17 @@ public static class HolidayCalculator
         else
             return nativityThisYear;
     }
+
+    public static DateOnly GetLastNativity(DateOnly date)
+    {
+        var nativityThisYear = GetNativity(date.Year);
+        if (date < nativityThisYear)
+            return GetNativity(date.Year - 1);
+
+        return nativityThisYear;
+    }
+
+
 
     public static DateOnly GetNextCleanMonday(DateOnly date) => GetNextPascha(date).AddDays(-48);
 
@@ -48,6 +60,15 @@ public static class HolidayCalculator
             return GetPascha(date.Year + 1);
         else
             return paschaThisYear;
+    }
+
+    public static DateOnly GetLastPascha(DateOnly date)
+    {
+        var nativityThisYear = GetPascha(date.Year);
+        if (date < nativityThisYear)
+            return GetNativity(date.Year - 1);
+
+        return nativityThisYear;
     }
 
     public static DateOnly GetPascha(int year)
