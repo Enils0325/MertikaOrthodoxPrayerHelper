@@ -1,14 +1,62 @@
 ﻿@implements IDisposable
 
-@{
-    <Heading HeadingKind="HeadingKind">
-        Psalm @(selectedPsalm.Number)
-    </Heading>
+@if (PsalmTimeOfDayKind == PsalmTimeOfDayKindEnum.Morning)
+{
+    if (IsBrief)
+    {
+        if (MainUtil.IsDebug)
+        {
+            var randomIndex = randomInt % 10;
 
-    <p>
-        @(selectedPsalm.Text)
-    </p>
+            if (randomIndex == 0)
+            {
+                <Psalm120 HeadingKind="HeadingKindEnum.SubHeading" />
+            }
+            else if (randomIndex == 1)
+            {
+                <Psalm121 HeadingKind="HeadingKindEnum.SubHeading" />
+            }
+            else if (randomIndex == 2)
+            {
+                <Psalm122 HeadingKind="HeadingKindEnum.SubHeading" />
+            }
+            else if (randomIndex == 3)
+            {
+                <Psalm123 HeadingKind="HeadingKindEnum.SubHeading" />
+            }
+            else if (randomIndex == 4)
+            {
+                <Psalm124 HeadingKind="HeadingKindEnum.SubHeading" />
+            }
+            else if (randomIndex == 5)
+            {
+                <Psalm125 HeadingKind="HeadingKindEnum.SubHeading" />
+            }
+            else if (randomIndex == 6)
+            {
+                <Psalm126 HeadingKind="HeadingKindEnum.SubHeading" />
+            }
+            else if (randomIndex == 7)
+            {
+                <Psalm127 HeadingKind="HeadingKindEnum.SubHeading" />
+            }
+            else if (randomIndex == 8)
+            {
+                <Psalm128 HeadingKind="HeadingKindEnum.SubHeading" />
+            }
+            else
+            {
+                <Psalm129 HeadingKind="HeadingKindEnum.SubHeading" />
+            }
+        }
+        else
+        {
+            <Psalm120 HeadingKind="HeadingKindEnum.SubHeading" />
+        }
+    }
 }
+
+
 
 @code {
     [Parameter, EditorRequired]
@@ -17,27 +65,23 @@
     [Parameter, EditorRequired]
     public bool IsBrief { get; set; }
 
+    [Parameter, EditorRequired]
+    public PsalmTimeOfDayKindEnum PsalmTimeOfDayKind { get; set; }
+
     [Inject]
     public NilsEventService NilsEventService { get; set; } = null!;
 
-    private PsalmGetter psalmGetter = new PsalmGetter();
-    private PsalmContainer selectedPsalm = null!;
-
-
     protected override void OnParametersSet()
     {
-        if (selectedPsalm == null)
-            selectedPsalm = psalmGetter.GetRandomPsalm(IsBrief);
-
         NilsEventService.OnRandomClicked += OnRandomClicked;
-
         base.OnParametersSet();
     }
 
+    private int randomInt = MainUtil.GetRandomInt(1000, 9999);
 
     public async Task OnRandomClicked()
     {
-        selectedPsalm = psalmGetter.GetRandomPsalm(IsBrief);
+        randomInt = MainUtil.GetRandomInt(1000, 9999);
         StateHasChanged();
     }
 
