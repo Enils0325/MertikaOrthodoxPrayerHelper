@@ -49,28 +49,28 @@ public partial class HolidayBanner
         if (HolidayCalculator.IsNativity(DateOnly))
             return HolidaySeasonKind.Nativity;
 
-        else if (HolidayCalculator.IsPascha(DateOnly))
+        if (HolidayCalculator.IsPascha(DateOnly))
             return HolidaySeasonKind.Pascha;
 
-        else if (HolidayCalculator.IsGreatLent(DateOnly))
+        if (HolidayCalculator.IsGreatLent(DateOnly))
             return HolidaySeasonKind.GreatLent;
 
-        else if (HolidayCalculator.IsNativityFast(DateOnly))
+        if (HolidayCalculator.IsNativityFast(DateOnly))
             return HolidaySeasonKind.NativityFast;
 
-        else if (HolidayCalculator.IsNativityFast(DateOnly))
+        if (HolidayCalculator.IsNativityFast(DateOnly))
             return HolidaySeasonKind.NativityFast;
 
-        else if (DateOnly >= dateApproachingNativityFast && DateOnly < firstDayOfNativityFast)
+        if (DateOnly >= dateApproachingNativityFast && DateOnly < firstDayOfNativityFast)
             return HolidaySeasonKind.ApproachingNativityFast;
 
-        else if (DateOnly >= dateApproachingGreatLent && DateOnly < cleanMonday)
+        if (DateOnly >= dateApproachingGreatLent && DateOnly < cleanMonday)
             return HolidaySeasonKind.ApproachingGreatLent;
 
-        else if (DateOnly <= dateToHideRecentNativity && DateOnly > HolidayCalculator.GetLastNativity(DateOnly))
+        if (DateOnly <= dateToHideRecentNativity && DateOnly > HolidayCalculator.GetLastNativity(DateOnly))
             return HolidaySeasonKind.RecentlyWasNativity;
 
-        else if (DateOnly <= dateToHideRecentPascha && DateOnly > HolidayCalculator.GetLastPascha(DateOnly))
+        if (DateOnly <= dateToHideRecentPascha && DateOnly > HolidayCalculator.GetLastPascha(DateOnly))
             return HolidaySeasonKind.RecentlyWasPascha;
 
         return HolidaySeasonKind.None;
