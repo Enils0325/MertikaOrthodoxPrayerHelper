@@ -3,9 +3,6 @@
 @switch (LanguageKind)
 {
     case LanguageKindEnum.EnglishOlder:
-        <Heading HeadingKind="HeadingKind">
-            Psalm 133
-        </Heading>
         <p>
             Behold now, bless ye the Lord, all ye servants of the Lord, which stand in the house of the Lord, in the courts of the house of our God.
             <br />
@@ -17,9 +14,6 @@
     case LanguageKindEnum.EnglishModern:
     case LanguageKindEnum.EnglishMixed:
     default:
-        <Heading HeadingKind="HeadingKind">
-            Psalm 133
-        </Heading>
         <p>
             Come, bless the LORD, all you servants of the LORD who serve by night in the house of the LORD!
             <br />
@@ -31,9 +25,6 @@
 }
 
 @code {
-    [Parameter, EditorRequired]
-    public HeadingKindEnum HeadingKind { get; set; }
-
     [CascadingParameter]
     public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
 }

@@ -55,16 +55,7 @@ else
     }
 }
 
-@if (MainUtil.IsDebug)
-{
-    <Psalm HeadingKind="HeadingKindEnum.SubHeading" IsBrief="IsBrief" />
-}
-else
-{
-    <Note>
-        Psalm Reading is not yet implemented on website.
-    </Note>
-}
+<Psalm HeadingKind="HeadingKindEnum.SubHeading" PsalmTimeOfDayKind="PsalmTimeOfDayKindEnum.Evening" IsBrief="IsBrief" />
 
 <GospelReading Date=Date HeadingKind="HeadingKindEnum.SubHeading" />
 

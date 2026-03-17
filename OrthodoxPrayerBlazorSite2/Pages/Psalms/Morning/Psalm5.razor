@@ -3,9 +3,6 @@
 @switch (LanguageKind)
 {
     case LanguageKindEnum.EnglishOlder:
-        <Heading HeadingKind="HeadingKind">
-            Psalm 5
-        </Heading>
         <p>
             Unto my words, give ear, O Lord;
             hear my cry.
@@ -44,9 +41,6 @@
     case LanguageKindEnum.EnglishModern:
     case LanguageKindEnum.EnglishMixed:
     default:
-        <Heading HeadingKind="HeadingKind">
-            Psalm 5
-        </Heading>
         <p>
             Give ear to my words, O LORD; consider my groaning.
             <br />
@@ -76,9 +70,6 @@
 }
 
 @code {
-    [Parameter, EditorRequired]
-    public HeadingKindEnum HeadingKind { get; set; }
-
     [CascadingParameter]
     public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
 }

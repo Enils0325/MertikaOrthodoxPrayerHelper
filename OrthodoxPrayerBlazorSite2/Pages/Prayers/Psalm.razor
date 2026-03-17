@@ -1,93 +1,49 @@
-﻿@implements IDisposable
+﻿@page "/prayers/psalm"
+@using Microsoft.AspNetCore.Components
+@implements IDisposable
 
-@if (PsalmTimeOfDayKind == PsalmTimeOfDayKindEnum.Morning)
+@switch (selectedPsalm)
 {
-    if (IsBrief)
-    {
-        if (MainUtil.IsDebug)
-        {
-            var randomIndex = randomInt % 10;
-
-            if (randomIndex == 0)
-            {
-                <Psalm120 HeadingKind="HeadingKindEnum.SubHeading" />
-            }
-            else if (randomIndex == 1)
-            {
-                <Psalm121 HeadingKind="HeadingKindEnum.SubHeading" />
-            }
-            else if (randomIndex == 2)
-            {
-                <Psalm122 HeadingKind="HeadingKindEnum.SubHeading" />
-            }
-            else if (randomIndex == 3)
-            {
-                <Psalm123 HeadingKind="HeadingKindEnum.SubHeading" />
-            }
-            else if (randomIndex == 4)
-            {
-                <Psalm124 HeadingKind="HeadingKindEnum.SubHeading" />
-            }
-            else if (randomIndex == 5)
-            {
-                <Psalm125 HeadingKind="HeadingKindEnum.SubHeading" />
-            }
-            else if (randomIndex == 6)
-            {
-                <Psalm126 HeadingKind="HeadingKindEnum.SubHeading" />
-            }
-            else if (randomIndex == 7)
-            {
-                <Psalm127 HeadingKind="HeadingKindEnum.SubHeading" />
-            }
-            else if (randomIndex == 8)
-            {
-                <Psalm128 HeadingKind="HeadingKindEnum.SubHeading" />
-            }
-            else
-            {
-                <Psalm129 HeadingKind="HeadingKindEnum.SubHeading" />
-            }
-        }
-        else
-        {
-            <Psalm120 HeadingKind="HeadingKindEnum.SubHeading" />
-        }
-    }
+    case 4:
+        <Psalm4 HeadingKind="HeadingKind" />
+        break;
+    case 5:
+        <Psalm5 HeadingKind="HeadingKind" />
+        break;
+    case 50:
+        <Psalm50 HeadingKind="HeadingKind" />
+        break;
+    case 62:
+        <Psalm62 HeadingKind="HeadingKind" />
+        break;
+    case 90:
+        <Psalm90 HeadingKind="HeadingKind" />
+        break;
+    case 102:
+        <Psalm102 HeadingKind="HeadingKind" />
+        break;
+    case 133:
+        <Psalm133 HeadingKind="HeadingKind" />
+        break;
+    case 140:
+        <Psalm140 HeadingKind="HeadingKind" />
+        break;
+    case 142:
+        <Psalm142 HeadingKind="HeadingKind" />
+        break;
+    case 120: // randomly selected as default
+    default:
+        <Psalm120 HeadingKind="HeadingKind" />
+        break;
 }
-
-
 
 @code {
     [Parameter, EditorRequired]
     public HeadingKindEnum HeadingKind { get; set; }
 
     [Parameter, EditorRequired]
-    public bool IsBrief { get; set; }
+    public bool IsBrief { get; set; } = false;
 
     [Parameter, EditorRequired]
-    public PsalmTimeOfDayKindEnum PsalmTimeOfDayKind { get; set; }
-
-    [Inject]
-    public NilsEventService NilsEventService { get; set; } = null!;
-
-    protected override void OnParametersSet()
-    {
-        NilsEventService.OnRandomClicked += OnRandomClicked;
-        base.OnParametersSet();
-    }
-
-    private int randomInt = MainUtil.GetRandomInt(1000, 9999);
-
-    public async Task OnRandomClicked()
-    {
-        randomInt = MainUtil.GetRandomInt(1000, 9999);
-        StateHasChanged();
-    }
-
-
-    public void Dispose()
-    {
-        NilsEventService.OnRandomClicked -= OnRandomClicked;
-    }
+    public PsalmTimeOfDayKindEnum PsalmTimeOfDayKind { get; set; } = PsalmTimeOfDayKindEnum.Morning;
 }

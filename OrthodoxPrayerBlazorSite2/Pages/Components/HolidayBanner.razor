@@ -76,7 +76,7 @@
     {
         <div class="holiday-banner">
             <div class="begins-in-or-was-recent">
-                Nativity was @(getDaysText((Date - HolidayCalculator.GetLastNativity(DateOnly).Dt()).TotalDays)) ago
+                Nativity was @(getDaysText((Date - HolidayCalculator.GetLastNativity(DateOnly).ToDateTime()).TotalDays)) ago
             </div>
         </div>
     }
@@ -109,7 +109,7 @@
     {
         <div class="holiday-banner">
             <div class="begins-in-or-was-recent">
-                Pascha was @(getDaysText((Date - HolidayCalculator.GetLastPascha(DateOnly).Dt()).TotalDays)) ago
+                Pascha was @(getDaysText((Date - HolidayCalculator.GetLastPascha(DateOnly).ToDateTime()).TotalDays)) ago
             </div>
         </div>
     }

@@ -5,16 +5,16 @@ namespace OrthodoxPrayerBlazorSite2.Pages.Components;
 public partial class HolidayBanner
 {
     private DateOnly cleanMonday;
-    private DateTime cleanMondayDt => cleanMonday.Dt();
+    private DateTime cleanMondayDt => cleanMonday.ToDateTime();
 
     private DateOnly pascha;
-    private DateTime paschaDt => pascha.Dt();
+    private DateTime paschaDt => pascha.ToDateTime();
 
     private DateOnly firstDayOfNativityFast;
-    private DateTime firstDayOfNativityFastDt => firstDayOfNativityFast.Dt();
+    private DateTime firstDayOfNativityFastDt => firstDayOfNativityFast.ToDateTime();
 
     private DateOnly nativity;
-    private DateTime nativityDt => nativity.Dt();
+    private DateTime nativityDt => nativity.ToDateTime();
 
     private DateOnly dateApproachingNativityFast;
     private DateOnly dateApproachingGreatLent;
@@ -31,7 +31,7 @@ public partial class HolidayBanner
     protected override void OnParametersSet()
     {
         cleanMonday = HolidayCalculator.GetNextCleanMonday(DateOnly);
-        pascha = HolidayCalculator.GetNextPascha(Date.Do());
+        pascha = HolidayCalculator.GetNextPascha(Date.ToDateOnly());
         firstDayOfNativityFast = HolidayCalculator.GetNextStartOfNativityFast(DateOnly);
         nativity = HolidayCalculator.GetNextNativity(DateOnly);
         dateApproachingNativityFast = firstDayOfNativityFast.AddDays(-1 * HolidayCalculator.ApproachingThresholdDays);

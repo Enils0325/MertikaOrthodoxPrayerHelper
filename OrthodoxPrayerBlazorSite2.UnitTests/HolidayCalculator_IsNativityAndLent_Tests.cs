@@ -22,7 +22,7 @@ public class HolidayCalculator_IsNativityAndLent_Tests
     [Fact]
     public void IsNativity_FromExtension()
     {
-        var date = (new DateTime(2026, 12, 25, 12, 30, 30, DateTimeKind.Local)).Do();
+        var date = (new DateTime(2026, 12, 25, 12, 30, 30, DateTimeKind.Local)).ToDateOnly();
         var isNativity = HolidayCalculator.IsNativity(date);
         Assert.True(isNativity);
     }
