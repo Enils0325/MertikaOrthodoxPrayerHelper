@@ -8,11 +8,6 @@
     <label for="checkboxIsBrief">Brief?</label>
 </div>
 
-@if (!IsBrief)
-{
-    <JesusPrayer HeadingKind="HeadingKindEnum.None" />
-}
-
 <InTheNameOfTheTrinity />
 
 @if (HolidayCalculator.IsGreatLent(DateOnly.FromDateTime(Date)))
