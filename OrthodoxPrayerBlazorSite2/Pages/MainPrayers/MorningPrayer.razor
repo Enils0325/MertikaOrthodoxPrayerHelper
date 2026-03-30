@@ -10,6 +10,11 @@
 
 <InTheNameOfTheTrinity />
 
+@if (!IsBrief)
+{
+    <StSeraphimOfSarovPrayer/>
+}
+
 @if (HolidayCalculator.IsGreatLent(DateOnly.FromDateTime(Date)))
 {
     <ChristIsRisen HeadingKind="HeadingKindEnum.None" />

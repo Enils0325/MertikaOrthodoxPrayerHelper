@@ -1,0 +1,22 @@
+﻿@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+        <p>
+            Lord, cleanse me of my sins and have mercy on me.
+            You have created me; have mercy on me.
+            There is no way to measure my sin; have mercy on me.
+            Lord, forgive the many times I disobey You.
+            Master, I bow down before Your cross and glorify Your resurrection.
+            Lord, when I sin in what I say and do, have mercy on me because of Your great compassion.
+        </p>
+        break;
+}
+
+
+@code {
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
+}
