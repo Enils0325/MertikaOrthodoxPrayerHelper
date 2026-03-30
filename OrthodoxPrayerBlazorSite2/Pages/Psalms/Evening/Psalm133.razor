@@ -1,5 +1,9 @@
 ﻿@inherits OrthodoxPrayerBasePage
 
+<Heading HeadingKind="HeadingKind">
+    Psalm 133
+</Heading>
+
 @switch (LanguageKind)
 {
     case LanguageKindEnum.EnglishOlder:
@@ -25,6 +29,9 @@
 }
 
 @code {
+    [Parameter, EditorRequired]
+    public HeadingKindEnum HeadingKind { get; set; }
+
     [CascadingParameter]
     public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
 }
