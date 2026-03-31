@@ -76,4 +76,7 @@
 @code {
     [CascadingParameter]
     public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
+    
+    [Parameter, EditorRequired]
+    public HeadingKindEnum HeadingKind { get; set; }
 }
