@@ -4,7 +4,7 @@
     [Inject]
     public NilsEventService NilsEventService { get; set; } = null!;
 
-    private bool IsBrief { get; set; } = false;
+    private RangeValue<decimal> BriefnessRangeValue { get; set; } = new (2.5m, 0.0m, 5.0m);
 
     private int SelectedIndexOutOf3 { get; set; } = 0;
 
