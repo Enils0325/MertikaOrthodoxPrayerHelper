@@ -1,0 +1,31 @@
+﻿<h3>PrecommunionPrayers</h3>
+
+@code {
+    [Inject]
+    public NilsEventService NilsEventService { get; set; } = null!;
+
+    private bool IsBrief { get; set; } = false;
+
+    private int SelectedIndexOutOf3 { get; set; } = 0;
+
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await OnRandomClicked();
+        NilsEventService.OnRandomClicked += OnRandomClicked;
+        base.OnParametersSet();
+    }
+
+
+    public async Task OnRandomClicked()
+    {
+        SelectedIndexOutOf3 = MainUtil.GetRandomIndex(3);
+        StateHasChanged();
+    }
+
+
+    public void Dispose()
+    {
+        NilsEventService.OnRandomClicked -= OnRandomClicked;
+    }
+}

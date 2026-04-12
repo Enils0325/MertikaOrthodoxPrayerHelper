@@ -69,7 +69,7 @@ else
     <TrulyMeetTheotokos HeadingKind="HeadingKindEnum.SubHeading" />
 }
 
-@if (IsLent && !IsBrief)
+@if (HolidayCalculator.IsGreatLent(Date.ToDateOnly()) && !IsBrief)
 {
     <LentStEphremPrayer HeadingKind="HeadingKindEnum.SubHeading" />
 }
@@ -90,8 +90,6 @@ else
     public NilsEventService NilsEventService { get; set; } = null!;
 
     private bool IsBrief { get; set; } = false;
-
-    private bool IsLent => false;
 
     private int SelectedIndexOutOf3 { get; set; } = 0;
 
