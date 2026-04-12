@@ -2,16 +2,16 @@
 
 namespace OrthodoxPrayerBlazorSite2.Models;
 
-public class ValueInRange<T>
+public class RangeValue<T>
 {
     public required T Value { get; set; }
     public required T Min { get; set; }
     public required T Max { get; set; }
 
-    public ValueInRange() { }
+    public RangeValue() { }
 
     [SetsRequiredMembers]
-    public ValueInRange(T value, T min, T max)
+    public RangeValue(T value, T min, T max)
     {
         Value = value;
         Min = min;
@@ -32,7 +32,7 @@ public class ValueInRange<T>
 
     public override bool Equals(object? obj)
     {
-        if (obj is ValueInRange<T> other)
+        if (obj is RangeValue<T> other)
             return EqualityComparer<T>.Default.Equals(Value, other.Value) &&
                    EqualityComparer<T>.Default.Equals(Min, other.Min) &&
                    EqualityComparer<T>.Default.Equals(Max, other.Max);
