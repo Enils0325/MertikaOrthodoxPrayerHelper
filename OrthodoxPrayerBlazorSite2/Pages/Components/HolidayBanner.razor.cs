@@ -70,8 +70,8 @@ public partial class HolidayBanner
         if (DateOnly <= dateToHideRecentNativity && DateOnly > HolidayCalculator.GetLastNativity(DateOnly))
             return HolidaySeasonKind.RecentlyWasNativity;
 
-        if (DateOnly <= dateToHideRecentPascha && DateOnly > HolidayCalculator.GetLastPascha(DateOnly))
-            return HolidaySeasonKind.RecentlyWasPascha;
+        if (HolidayCalculator.IsPaschaltide(DateOnly))
+            return HolidaySeasonKind.Paschaltide;
 
         return HolidaySeasonKind.None;
     }
@@ -84,7 +84,7 @@ public partial class HolidayBanner
         ApproachingGreatLent,
         GreatLent,
         Pascha,
-        RecentlyWasPascha,
+        Paschaltide,
         
         ApproachingNativityFast,
         NativityFast,
