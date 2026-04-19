@@ -14,71 +14,76 @@
 <div class="top-controls">
     <div>
         <input type="date" @bind-value="@(Date)">
-    </div>
-    <div>
-        <LanguageSelector />
-    </div>
-</div>
-
-<div class="main-prayer-buttons">
-    <div>
-        <ButtonLink OnClick="() => SetMainPrayerKind(MainPrayerChoiceKind.MorningPrayer)">
-            Morning
-        </ButtonLink>
-    </div>
-    <div>
-        <ButtonLink OnClick="() => SetMainPrayerKind(MainPrayerChoiceKind.EveningPrayer)">
-            Evening
-        </ButtonLink>
-    </div>
-    <div>
-        <ButtonLink OnClick="() => SetMainPrayerKind(MainPrayerChoiceKind.Meal)">
-            Meal
-        </ButtonLink>
-    </div>
-
-    @if (MainUtil.IsDebug)
-    {
+        </div>
         <div>
-            <ButtonLink OnClick="() => SetMainPrayerKind(MainPrayerChoiceKind.Other)">
-                Other
+            <LanguageSelector />
+        </div>
+    </div>
+
+    <div class="main-prayer-buttons">
+        <div>
+            <ButtonLink OnClick="() => SetMainPrayerKind(MainPrayerChoiceKind.MorningPrayer)">
+                Morning
             </ButtonLink>
         </div>
-    }
-
-    @if (!choiceKindsWithNoRandom.Contains(MainPrayerChoice))
-    {
         <div>
-            <ButtonLink OnClick="() => NilsEventService.NotifyRandomClicked()"
-                        BackgroundColor="@(StaticColors.LightBeige)">
-                <DiceIcon />
+            <ButtonLink OnClick="() => SetMainPrayerKind(MainPrayerChoiceKind.EveningPrayer)">
+                Evening
             </ButtonLink>
         </div>
-    }
-</div>
+        <div>
+            <ButtonLink OnClick="() => SetMainPrayerKind(MainPrayerChoiceKind.PrecommunionPrayers)">
+                Precommunion
+            </ButtonLink>
+        </div>
+        <div>
+            <ButtonLink OnClick="() => SetMainPrayerKind(MainPrayerChoiceKind.Meal)">
+                Meal
+            </ButtonLink>
+        </div>
 
-<LoadingContainer IsLoading="IsLoading" ContainerStyle="">
-    <div class="main-prayer-container">
-        @switch (MainPrayerChoice)
+        @if (MainUtil.IsDebug)
         {
-            case MainPrayerChoiceKind.MorningPrayer:
-                <MorningPrayer Date="Date" />
-                break;
-            case MainPrayerChoiceKind.EveningPrayer:
-                <EveningPrayer Date="Date" />
-                break;
-            case MainPrayerChoiceKind.Meal:
-                <MealPrayer />
-                break;
-            case MainPrayerChoiceKind.Other:
-                <OtherPrayers Date="Date" />
-                break;
-            default:
-                <div>Select a prayer.</div>
-                break;
+            <div>
+                <ButtonLink OnClick="() => SetMainPrayerKind(MainPrayerChoiceKind.Other)">
+                    Other
+                </ButtonLink>
+            </div>
+        }
+
+        @if (!choiceKindsWithNoRandom.Contains(MainPrayerChoice))
+        {
+            <div>
+                <ButtonLink OnClick="() => NilsEventService.NotifyRandomClicked()"
+                            BackgroundColor="@(StaticColors.LightBeige)">
+                    <DiceIcon />
+                </ButtonLink>
+            </div>
         }
     </div>
-</LoadingContainer>
+
+    <LoadingContainer IsLoading="IsLoading" ContainerStyle="">
+        <div class="main-prayer-container">
+            @switch (MainPrayerChoice)
+            {
+                case MainPrayerChoiceKind.MorningPrayer:
+                    <MorningPrayer Date="Date" />
+                    break;
+                case MainPrayerChoiceKind.EveningPrayer:
+                    <EveningPrayer Date="Date" />
+                    break;
+                case MainPrayerChoiceKind.Meal:
+                    <MealPrayer />
+                    break;
+                case MainPrayerChoiceKind.Other:
+                    <OtherPrayers Date="Date" />
+                    break;
+                default:
+                    <div>Select a prayer.</div>
+                    break;
+            }
+        </div>
+    </LoadingContainer>
 
 @code {
 }
