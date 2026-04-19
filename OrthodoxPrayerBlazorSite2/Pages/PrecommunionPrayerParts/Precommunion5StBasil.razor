@@ -1,0 +1,22 @@
+﻿@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+    {
+        <Heading HeadingKind="HeadingKind">5th Prayer, of St. Basil the Great</Heading>
+        <PrayerLine>
+            I know, O Lord, that I have Communion unworthily of Thy Most Pure Body and Thy Most Precious Blood, that I am guilty and drink condemnation to myself not discerning Thy Body and Blood, O my Christ and God. But daring upon Thy generous loving-kindness I come to Thee Who hast said: “He who eats My Flesh and drinks My Blood abides in Me and I in him.” Be merciful, therefore, O Lord, and do not rebuke me a sinner, but deal with me according to Thy mercy, and let Thy Holy Things be for my purification and healing, for enlightenment and protection, for the repulsion of every tempting thought and action of the devil which works spiritually in my fleshly members. Let them be for boldness and love for Thee, for the correction and grounding of my life, for the increase of virtue and perfection, for the fulfillment of Thy commandments, for the Communion of the Holy Spirit, for the journey of eternal life, for a good and acceptable answer at Thy dread judgment, but not for judgment or condemnation. Amen.
+        </PrayerLine>
+        break;
+    }
+}
+
+@code {
+    [Parameter]
+    public HeadingKindEnum HeadingKind { get; set; } = HeadingKindEnum.None;
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
+}

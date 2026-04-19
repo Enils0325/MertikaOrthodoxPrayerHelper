@@ -1,4 +1,5 @@
-﻿@using OrthodoxPrayerBlazorSite2.Pages.Psalms
+﻿@using OrthodoxPrayerBlazorSite2.Pages.PrecommunionPrayerParts
+@using OrthodoxPrayerBlazorSite2.Pages.Psalms
 <h3>Precommunion Prayers</h3>
 
 @switch (LanguageKind)
@@ -19,7 +20,7 @@
 
         <OHeavenlyKingAndTrisagion HeadingKind="HeadingKindEnum.None" />
 
-        <HolyGodHolyMightyHolyImmortal HeadingKind="HeadingKindEnum.None"/>
+        <HolyGodHolyMightyHolyImmortal HeadingKind="HeadingKindEnum.None" />
 
         <GloryNowAndForever />
 
@@ -35,7 +36,60 @@
 
         <ComeLetUsWorshipGodOurKing />
 
+        <div class="options-container">
+            <InputCheckbox id="includePsalm21" @bind-Value="includePsalm21" />
+            <label for="includePsalm21">Include Psalm 21?</label>
+        </div>
+
+        @if (includePsalm21)
+        {
+            <Psalm21 HeadingKind="HeadingKindEnum.SubHeading2" />
+        }
+
         <Psalm22 HeadingKind="HeadingKindEnum.SubHeading2" />
+
+        <Psalm23 HeadingKind="HeadingKindEnum.SubHeading2" />
+
+        <Psalm115 HeadingKind="HeadingKindEnum.SubHeading2" />
+
+        <GloryNowAndForever />
+
+        <PrayerLine>
+            Alleluia, Alleluia, Alleluia. Glory to thee, O God. (3x)
+        </PrayerLine>
+
+        <LordHaveMercy TimesToSay="3"/>
+
+        <PrayerLine>
+            Disregard my iniquities, O Lord, Who wast born of a Virgin! Cleanse my heart and make it a temple of Thy Most Pure Body and Blood! Turn me not away from Thy countenance, for Thy great mercy is immeasurable!
+        </PrayerLine>
+
+        <GloryNowAndForever />
+
+        <PrayerLine>
+            How dare I partake of Thy Holiness in my unworthiness? Even if I dare to approach Thee with the worthy, my garment accuses me, for it is not a wedding-garment, and I secure the condemnation of my most sinful soul. Cleanse, O Lord, the defilement of my soul and save me, for Thou lovest mankind!
+        </PrayerLine>
+        
+        <GloryNowAndForever />
+
+        <PrayerLine>
+            Great is the multitude of my sins, O Theotokos! I come to thee, O Pure One, in need of salvation! Visit my ailing soul, O thou who alone art Blesséd, and pray to thy Son and our God that He absolve the evil I have done!
+        </PrayerLine>
+
+        <LordHaveMercy TimesToSay="40" />
+        <Note>With as many prostrations as desired</Note>
+
+        <Precommunion1StBasil />
+        <Precommunion2Chrysostom />
+        <Precommunion3Symeon />
+        <Precommunion4StJohnOfDamascus />
+        <Precommunion5StBasil />
+        <Precommunion6Symeon />
+        <Precommunion7Chrysostom />
+        <Precommunion8Chrysostom />
+        <Precommunion9Chrysostom />
+        <Precommunion10JohnOfDamascus />
+        <Precommunion11Chrysostom />
 
         break;
     }
@@ -49,7 +103,8 @@
     
     [CascadingParameter]
     public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
-
+    
+    private bool includePsalm21 = false;
 
     protected override async Task OnParametersSetAsync()
     {

@@ -1,0 +1,27 @@
+﻿@inherits OrthodoxPrayerBasePage
+
+<Heading HeadingKind="HeadingKind">
+    Psalm 23
+</Heading>
+
+@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+    {
+        <PrayerLine>
+            The earth is the Lord’s and the fullness thereof, the world and those who dwell therein; for He has founded it upon the seas, and established it upon the rivers. Who shall ascend the hill of the Lord? And who shall stand in His holy place? He who has clean hands and a pure heart, who does not lift up his soul to what is false, and does not swear deceitfully. He will receive blessing from the Lord and vindication from the God of his salvation. Such is the generation of those who seek Him, who seek the face of the God of Jacob. Lift up your heads, O gates! and be lifted up, O ancient doors! that the King of Glory may come in. Who is the King of Glory? The Lord, strong and mighty, the Lord, mighty in battle! Lift up your heads, O gates! and be lifted up, O ancient doors! that the King of Glory may come in. Who is this King of Glory? The Lord of Hosts, He is the King of Glory!
+        </PrayerLine>
+        break;
+    }
+}
+
+@code {
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
+    
+    [Parameter, EditorRequired]
+    public HeadingKindEnum HeadingKind { get; set; }
+}

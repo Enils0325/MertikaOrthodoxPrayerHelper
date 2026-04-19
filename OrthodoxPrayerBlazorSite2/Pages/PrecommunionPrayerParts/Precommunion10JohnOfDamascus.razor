@@ -1,0 +1,24 @@
+﻿@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+    {
+        <Heading HeadingKind="HeadingKind">
+            10th Prayer, of St. John of Damascus
+        </Heading>
+        <PrayerLine>
+            I stand before the doors of Thy temple and I do not forsake my wicked thoughts. But, O Christ my God, as Thou hast justified the tax-collector, and hast had mercy on the woman of Canaan and hast opened the gates of Paradise to the thief, open to me the interior depths of Thy love for men and receive me as I come and repent before Thee! Receive me as Thou didst receive the sinful woman and the woman with the flow of blood: for the first embraced Thy most pure feet and received the forgiveness of her sins, and the second just touched the hem of Thy garment and received healing! But I who am lost, daring to receive Thy whole Body, may I not be burned; but receive me as Thou hast received them, and enlighten my spiritual senses, burning up my sinful faults by the prayers of her who gave birth to Thee without human seed, and of the Heavenly Angelic Powers, for Thou art blessed unto ages of ages. Amen.
+        </PrayerLine>
+        break;
+    }
+}
+
+@code {
+    [Parameter]
+    public HeadingKindEnum HeadingKind { get; set; } = HeadingKindEnum.None;
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
+}

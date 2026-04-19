@@ -1,0 +1,24 @@
+﻿@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+    {
+        <Heading HeadingKind="HeadingKind">
+            8th Prayer, of St. John Chrysostom
+        </Heading>
+        <PrayerLine>
+            I am not worthy, Master and Lord, that Thou shouldst enter under the roof of my soul; yet inasmuch as Thou desirest to live in me as the Lover of men, I approach with boldness! Thou hast commanded: let the doors be opened which Thou Thyself alone hast made and Thou shalt enter with Thy love for men just as Thou art! Thou shalt enter and enlighten my darkened reasoning. I believe that Thou wilt do this! For Thou didst not cast away the prostitute who came to Thee with tears, neither didst Thou turn away the tax collector who repented, nor didst Thou reject the thief who acknowledged Thy Kingdom, nor didst Thou forsake the repentant persecutor, the Apostle Paul, even as he was! But all who came to Thee in repentance Thou didst unite to the ranks of Thy friends, who alone art blessed forever, now and unto the endless ages. Amen.
+        </PrayerLine>
+        break;
+    }
+}
+
+@code {
+    [Parameter]
+    public HeadingKindEnum HeadingKind { get; set; } = HeadingKindEnum.None;
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
+}

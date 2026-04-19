@@ -1,0 +1,24 @@
+﻿@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+    {
+        <Heading HeadingKind="HeadingKind">
+            6th Prayer, of St. Symeon the New Theologian
+        </Heading>
+        <PrayerLine>
+            From lips defiled and a vile heart, from an impure tongue and a soul defiled, receive my prayer, O my Christ, and do not despise my words, my appearance, nor my shamelessness. Grant me the boldness, my Christ, to say what I desire. Even more ― teach me what to do and say. I have sinned more than the harlot who, on learning where Thou wast, brought myrrh and came boldly to anoint Thy feet, my God, my Master, and my Christ! As Thou didst not turn her away when she came with her heart, so, O Word, turn me not away, but give me Thy feet to hold, to kiss, and anoint boldly with a stream of tears as a precious ointment. Wash me with my tears, O Word, and cleanse me with them! Remit my transgressions and grant me forgiveness! Thou knowest the multitude of my evil: Thou knowest also my wounds. Thou seest my scars: Thou knowest also my faith! Thou seest my intentions and hearest my sighs. Nothing is hidden from Thee, my God, my Maker, and my Redeemer ― not even a tear drop or part of that drop. Thine eyes have seen that which I have not yet done. Thou hast inscribed in Thy book things yet to happen. See my humility! See each of my labors and all of my sins! Absolve me, O God of All, that with a pure heart, trembling thoughts and a contrite soul I may partake of Thine Undefiled and Most Holy Mysteries which enliven and deify all who partake of Them with a pure heart. Thou hast said, O Master: “Whoever eats my Body and drinks my Blood abides in Me and I in him!” True is every word of my Master and God! When I partake of Thy Divine and Deifying Grace I am no longer alone ― I am with Thee, my Christ, the Light of the Triple Sun Which enlightens the world! May I not remain alone without Thee, O Life-Giver, my Breath, my Life, and my Joy, the Salvation of the world! I approach Thee, therefore, with tears, as Thou seest, and a contrite soul. I beg to receive deliverance from my sins. May I partake uncondemned of Thy Life-Giving and Spotless Mysteries, that Thou mayest abide, as Thou hast said, with me, the thrice-wretched. May the tempter not find me without Thy Grace and seize me deceitfully and lead me, deceived, from Thy deifying words! Therefore, I fall down before Thee and fervently cry: as Thou didst receive the Prodigal and the harlot who came to Thee, O Gracious One, receive me, prodigal and defiled. With a contrite soul I approach Thee now: I know, O Savior, that no one has sinned against Thee as I have, nor done the deeds that I have done. But I also know that neither the greatness of my transgressions nor the multitude of my sins surpass the great patience of my God and His extreme love for mankind! Through Thy merciful compassion Thou dost cleanse and brighten those who repent with fervor, making them partakers of Light and full communicants of Thy Divinity! To the astonishment of Angels and human minds, Thou dost converse with them often as with Thy true friends! This makes me bold, my Christ, this gives me wings! Emboldened by the wealth of Thy generosity towards us, with both joy and trepidation, I who am grass partake of Fire! O strange wonder! I am sprinkled with Dew and am not burned, as the bush burned of old without being consumed! With grateful thoughts and a grateful heart, with my grateful members, my soul and my body, I now fall down and worship and glorify Thee, my God, for blessed art Thou, now and forever!
+        </PrayerLine>
+        break;
+    }
+}
+
+@code {
+    [Parameter]
+    public HeadingKindEnum HeadingKind { get; set; } = HeadingKindEnum.None;
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
+}

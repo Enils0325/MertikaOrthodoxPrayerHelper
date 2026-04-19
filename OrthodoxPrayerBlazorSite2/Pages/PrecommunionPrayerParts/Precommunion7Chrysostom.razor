@@ -1,0 +1,24 @@
+﻿@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+    {
+        <Heading HeadingKind="HeadingKind">
+            7th Prayer, of St. John Chrysostom
+        </Heading>
+        <PrayerLine>
+            O God, absolve, remit and pardon me my transgressions; as many sins as I have committed by word or action or thought, willingly or unwillingly, consciously or unconsciously; forgive me everything since Thou art good and the Lover of men! And by the prayers of Thy Most Pure Mother, of Thy spiritual servants, the holy Angelic Powers and all the Saints, who from all ages have been well-pleasing to Thee, be pleased to allow me to receive Thy Most Pure Body and Thy Most Precious Blood for the healing of my soul and body, and the purification of my evil thoughts! For Thine is the Kingdom and the power and the glory with the Father and the Holy Spirit, now and ever and unto ages of ages. Amen.
+        </PrayerLine>
+        break;
+    }
+}
+
+@code {
+    [Parameter]
+    public HeadingKindEnum HeadingKind { get; set; } = HeadingKindEnum.None;
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
+}
