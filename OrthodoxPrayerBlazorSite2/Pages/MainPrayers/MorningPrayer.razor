@@ -15,7 +15,7 @@
     <StSeraphimOfSarovPrayer/>
 }
 
-@if (HolidayCalculator.IsGreatLent(DateOnly.FromDateTime(Date)))
+@if (IsPaschaltide)
 {
     <ChristIsRisen HeadingKind="HeadingKindEnum.None" />
 }
@@ -69,7 +69,7 @@ else
     <TrulyMeetTheotokos HeadingKind="HeadingKindEnum.SubHeading" />
 }
 
-@if (HolidayCalculator.IsGreatLent(Date.ToDateOnly()) && !IsBrief)
+@if (IsLent && !IsBrief)
 {
     <LentStEphremPrayer HeadingKind="HeadingKindEnum.SubHeading" />
 }
@@ -90,6 +90,9 @@ else
     public NilsEventService NilsEventService { get; set; } = null!;
 
     private bool IsBrief { get; set; } = false;
+    
+    private bool IsPaschaltide => HolidayCalculator.IsPaschaltide(DateOnly.FromDateTime(Date));
+    private bool IsLent => HolidayCalculator.IsGreatLent(DateOnly.FromDateTime(Date));
 
     private int SelectedIndexOutOf3 { get; set; } = 0;
 

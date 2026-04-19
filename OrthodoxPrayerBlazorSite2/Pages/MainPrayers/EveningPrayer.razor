@@ -10,7 +10,7 @@
 
 <InTheNameOfTheTrinity />
 
-@if (HolidayCalculator.IsGreatLent(DateOnly.FromDateTime(Date)))
+@if (IsPaschaltide)
 {
     <ChristIsRisen HeadingKind="HeadingKindEnum.None" />
 }
@@ -39,7 +39,7 @@ else
 }
 else
 {
-    switch (SelectedIndexOutOf2)
+    switch (MainUtil.GetRandomIndex(2))
     {
         case 0:
             <APrayerForForgiveness HeadingKind="HeadingKindEnum.SubHeading" />
@@ -64,7 +64,7 @@ else
     <TrulyMeetTheotokos HeadingKind="HeadingKindEnum.SubHeading" />
 }
 
-@if (HolidayCalculator.IsGreatLent(Date.ToDateOnly()))
+@if (IsLent)
 {
     <LentStEphremPrayer HeadingKind="HeadingKindEnum.SubHeading" />
 }
@@ -85,6 +85,8 @@ else
     public NilsEventService NilsEventService { get; set; } = null!;
 
     private bool IsBrief { get; set; } = false;
+    private bool IsPaschaltide => HolidayCalculator.IsPaschaltide(DateOnly.FromDateTime(Date));
+    private bool IsLent => HolidayCalculator.IsGreatLent(DateOnly.FromDateTime(Date));
 
     private int SelectedIndexOutOf2 { get; set; } = 0;
     private int SelectedIndexOutOf3 { get; set; } = 0;

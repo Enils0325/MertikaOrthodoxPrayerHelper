@@ -44,6 +44,9 @@ public static class HolidayCalculator
 
     public static DateOnly GetNextCleanMonday(DateOnly date) => GetNextPascha(date).AddDays(-48);
 
+    /// <summary>The 40 days after Pascha</summary>
+    public static bool IsPaschaltide(DateOnly date) => GetPascha(date.Year) < date && date < GetPascha(date.Year).AddDays(40);
+
     public static bool IsGreatLent(DateOnly date)
     {
         var pascha = GetNextPascha(date);
