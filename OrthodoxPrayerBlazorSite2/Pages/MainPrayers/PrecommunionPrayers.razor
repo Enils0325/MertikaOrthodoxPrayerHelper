@@ -1,12 +1,59 @@
-﻿<h3>PrecommunionPrayers</h3>
+﻿<h3>Precommunion Prayers</h3>
+
+@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+    {
+        <PrayerLine>
+            Through the prayers of our holy fathers, O Lord Jesus Christ our God, have mercy on us.
+        </PrayerLine>
+        <Amen />
+
+        <PrayerLine>
+            Glory to thee, our God, glory to thee.
+        </PrayerLine>
+
+        <OHeavenlyKingAndTrisagion HeadingKind="HeadingKindEnum.None" />
+
+        <HolyGodHolyMightyHolyImmortal HeadingKind="HeadingKindEnum.None"/>
+
+        <GloryNowAndForever />
+
+        <OhMostHolyTrinity />
+
+        <LordHaveMercy TimesToSay="3" />
+
+        <OurFather HeadingKind="HeadingKindEnum.None" />
+
+        <LordHaveMercy TimesToSay="12" />
+
+        <GloryNowAndForever />
+
+        <ComeLetUsWorshipGodOurKing />
+
+        <Psalm HeadingKind="HeadingKindEnum.SubHeading2" ShouldSelectRandomPsalm="false" SelectedPsalm="22" />
+
+        break;
+    }
+
+}
+
+
+<Heading HeadingKind="HeadingKindEnum.MainHeading">
+
+</Heading>
+
+
 
 @code {
     [Inject]
     public NilsEventService NilsEventService { get; set; } = null!;
-
-    private RangeValue<decimal> BriefnessRangeValue { get; set; } = new (2.5m, 0.0m, 5.0m);
-
-    private int SelectedIndexOutOf3 { get; set; } = 0;
+    
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
 
 
     protected override async Task OnParametersSetAsync()
@@ -19,7 +66,7 @@
 
     public async Task OnRandomClicked()
     {
-        SelectedIndexOutOf3 = MainUtil.GetRandomIndex(3);
+        // SelectedIndexOutOf3 = MainUtil.GetRandomIndex(3);
         StateHasChanged();
     }
 
