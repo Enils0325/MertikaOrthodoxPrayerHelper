@@ -1,0 +1,36 @@
+﻿
+<Heading HeadingKind="HeadingKindEnum.SubHeading">
+    Pregnancy Prayers
+</Heading>
+
+<InputRadioGroup @bind-Value="ForWhomPregnancyKind">
+    <div>
+        <InputRadio Value="ForWhomPregnancyKindEnum.Me" id="radioOptionBefore" />
+        <label for="radioOptionBefore">Me</label>
+    </div>
+    <div>
+        <InputRadio Value="ForWhomPregnancyKindEnum.AnotherWoman" id="radioOptionAfter" />
+        <label for="radioOptionAfter">Another Woman</label>
+    </div>
+</InputRadioGroup>
+
+@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+
+    break;
+}
+
+
+@code {
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
+
+    private ForWhomPregnancyKindEnum ForWhomPregnancyKind { get; set; } = ForWhomPregnancyKindEnum.AnotherWoman;
+
+
+    private enum ForWhomPregnancyKindEnum { AnotherWoman, Me, }
+}
