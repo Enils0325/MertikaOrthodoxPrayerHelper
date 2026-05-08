@@ -14,6 +14,11 @@
     </div>
 </InputRadioGroup>
 
+@if (ForWhomPregnancyKind == ForWhomPregnancyKindEnum.AnotherWoman)
+{
+    <InputText @bind-Value="WomanName" placeholder="Enter woman's name" />
+}
+
 @switch (LanguageKind)
 {
     case LanguageKindEnum.EnglishOlder:
@@ -30,6 +35,8 @@
     public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
 
     private ForWhomPregnancyKindEnum ForWhomPregnancyKind { get; set; } = ForWhomPregnancyKindEnum.AnotherWoman;
+
+    private string WomanName { get; set; } = string.Empty;
 
 
     private enum ForWhomPregnancyKindEnum { AnotherWoman, Me, }
