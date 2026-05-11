@@ -1,4 +1,5 @@
 ﻿@page "/"
+@using OrthodoxPrayerBlazorSite2.Pages.OtherPrayers
 
 <PageTitle>Orthodox Pray Today</PageTitle>
 
@@ -71,8 +72,17 @@
                 <MealPrayer />
                 break;
             case MainPrayerChoiceKind.Other:
-                <OtherPrayers Date="Date" />
-                break;
+            {
+                @if (selectedOtherPrayer == OtherPrayerChoiceKind.None)
+                {
+                    <OtherPrayers Date="Date" OnPrayerSelected="OnOtherPrayerSelected" />
+                }
+                else
+                {
+                    <OtherPrayersDisplayer OtherPrayerChoices="[selectedOtherPrayer]" />
+                }
+            }
+            break;
             default:
                 <div>Select a prayer.</div>
                 break;

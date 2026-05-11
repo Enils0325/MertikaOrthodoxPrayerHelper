@@ -31,7 +31,6 @@ public enum OtherPrayerChoiceKind
     None,
     AfterSickness,
     ForDeparted,
-    ForOthersWhoAreSick,
     ForPriests,
     ForSoldiers,
     ForThoseWithDepression,
@@ -45,6 +44,7 @@ public enum OtherPrayerChoiceKind
     TimeOfSickness,
     TimeOfTrouble,
     ToFindASpouse,
+    PregnancySafeBirth,
 }
 
 public enum HeadingKindEnum

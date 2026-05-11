@@ -1,0 +1,86 @@
+﻿
+@if (OtherPrayerChoices.Contains(OtherPrayerChoiceKind.AfterSickness))
+{
+    <AfterSickness HeadingKind="HeadingKindEnum.MainHeading" />
+}
+    
+@if (OtherPrayerChoices.Contains(OtherPrayerChoiceKind.ForDeparted))
+{
+    <ForDeparted HeadingKind="HeadingKindEnum.MainHeading" />
+}
+    
+@if (OtherPrayerChoices.Contains(OtherPrayerChoiceKind.ForThoseWithDepression))
+{
+    <ForThoseWithDepression HeadingKind="HeadingKindEnum.MainHeading" />
+}
+    
+@if (OtherPrayerChoices.Contains(OtherPrayerChoiceKind.FromChildrenForParents))
+{
+    <FromChildrenForParents HeadingKind="HeadingKindEnum.MainHeading" />
+}
+    
+@if (OtherPrayerChoices.Contains(OtherPrayerChoiceKind.FromParentsForChildren))
+{
+    <FromParentsForChildren HeadingKind="HeadingKindEnum.MainHeading" />
+}
+    
+@if (OtherPrayerChoices.Contains(OtherPrayerChoiceKind.ForPriests))
+{
+    <ForPriests HeadingKind="HeadingKindEnum.MainHeading" />
+}
+    
+@if (OtherPrayerChoices.Contains(OtherPrayerChoiceKind.FromSinglePersons))
+{
+    <FromSinglePersons HeadingKind="HeadingKindEnum.MainHeading" />
+}
+    
+@if (OtherPrayerChoices.Contains(OtherPrayerChoiceKind.ForSoldiers))
+{
+    <ForSoldiers HeadingKind="HeadingKindEnum.MainHeading" />
+}
+    
+@if (OtherPrayerChoices.Contains(OtherPrayerChoiceKind.NiceneCreed))
+{
+    <NiceneCreed HeadingKind="HeadingKindEnum.MainHeading" />
+}
+    
+@if (OtherPrayerChoices.Contains(OtherPrayerChoiceKind.PregnancySafeBirth))
+{
+    <PregnancyPrayers HeadingKind="HeadingKindEnum.MainHeading" />
+}
+    
+@if (OtherPrayerChoices.Contains(OtherPrayerChoiceKind.OfHusbandAndWife))
+{
+    <OfHusbandAndWife HeadingKind="HeadingKindEnum.MainHeading" />
+}
+    
+@if (OtherPrayerChoices.Contains(OtherPrayerChoiceKind.Repentance))
+{
+    <Repentance HeadingKind="HeadingKindEnum.MainHeading" />
+}
+    
+@if (OtherPrayerChoices.Contains(OtherPrayerChoiceKind.StrugglingWithAddiction))
+{
+    <StrugglingWithAddiction HeadingKind="HeadingKindEnum.MainHeading" />
+}
+    
+@if (OtherPrayerChoices.Contains(OtherPrayerChoiceKind.TimeOfSickness))
+{
+    <TimeOfSickness HeadingKind="HeadingKindEnum.MainHeading" />
+}
+    
+@if (OtherPrayerChoices.Contains(OtherPrayerChoiceKind.ToFindASpouse))
+{
+    <ToFindASpouse HeadingKind="HeadingKindEnum.MainHeading" />
+}
+    
+@if (OtherPrayerChoices.Contains(OtherPrayerChoiceKind.TimeOfTrouble))
+{
+    <TimeOfTrouble HeadingKind="HeadingKindEnum.MainHeading" />
+}
+
+
+@code {
+    [Parameter]
+    public IEnumerable<OtherPrayerChoiceKind> OtherPrayerChoices { get; set; } = [];
+}

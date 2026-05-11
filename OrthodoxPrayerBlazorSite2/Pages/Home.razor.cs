@@ -41,7 +41,19 @@ public partial class Home : IDisposable
         await Task.Delay(300);
 
         this.MainPrayerChoice = choiceKind;
+        this.selectedOtherPrayer = OtherPrayerChoiceKind.None;
 
+        IsLoading = false;
+        StateHasChanged();
+    }
+
+    private OtherPrayerChoiceKind selectedOtherPrayer = OtherPrayerChoiceKind.None;
+    private async Task OnOtherPrayerSelected(OtherPrayerChoiceKind choiceKind)
+    {
+        IsLoading = true;
+        StateHasChanged();
+        await Task.Delay(300);
+        selectedOtherPrayer = choiceKind;
         IsLoading = false;
         StateHasChanged();
     }

@@ -1,6 +1,6 @@
 ﻿
 <a class="button-link" style="@(GetStyle())"
-   @onclick="@(OnClick)">
+       @onclick="@(OnClick)">
     @ChildContent
 </a>
 
@@ -17,9 +17,12 @@
     [Parameter]
     public string BackgroundColor { get; set; } = string.Empty;
 
+    [Parameter]
+    public string Style { get; set; } = string.Empty;
+
     private string GetStyle()
     {
-        List<string> styles = [];
+        List<string> styles = [Style];
 
         if (!string.IsNullOrWhiteSpace(BackgroundColor))
             styles.Add($"background-color: {BackgroundColor};");

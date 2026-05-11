@@ -4,11 +4,16 @@ namespace OrthodoxPrayerBlazorSite2.Pages.MainPrayers;
 
 public partial class OtherPrayers
 {
-    [Parameter, EditorRequired] public DateTime Date { get; set; }
     [Inject] public NilsEventService NilsEventService { get; set; } = null!;
 
 
-    private OtherPrayerChoiceKind PrayerChoice { get; set; } = OtherPrayerChoiceKind.None;
+    [Parameter, EditorRequired] 
+    public DateTime Date { get; set; }
+
+
+    [Parameter, EditorRequired]
+    public EventCallback<OtherPrayerChoiceKind> OnPrayerSelected { get; set; }
+
 
     protected override async Task OnParametersSetAsync()
     {

@@ -1,98 +1,155 @@
-﻿
+﻿@using OrthodoxPrayerBlazorSite2.Pages.OtherPrayers
 
-<div class="main-prayer-buttons">
-    <div>
-        <ButtonLink OnClick="() => this.PrayerChoice = OtherPrayerChoiceKind.TimeOfSickness">
-            During Sickness
-        </ButtonLink>
-    </div>
-    <div>
-        <ButtonLink OnClick="() => this.PrayerChoice = OtherPrayerChoiceKind.AfterSickness">
-            After Sickness
-        </ButtonLink>
-    </div>
-    <div>
-        <ButtonLink OnClick="() => this.PrayerChoice = OtherPrayerChoiceKind.ForOthersWhoAreSick">
-            Others Who Are Sick
-        </ButtonLink>
-    </div>
 
-    <div>
-        <ButtonLink OnClick="() => this.PrayerChoice = OtherPrayerChoiceKind.ForDeparted">
-            For the Departed
-        </ButtonLink>
+<div class="prayer-group-container">
+    <h2>Sickness</h2>
+    <div class="main-prayer-buttons">
+        <div>
+            <ButtonLink OnClick="async () => await OnPrayerSelected.InvokeAsync(OtherPrayerChoiceKind.TimeOfSickness)" BackgroundColor="@BackgroundColor">
+                During Sickness
+            </ButtonLink>
+        </div>
+        <div>
+            <ButtonLink OnClick="async () => await OnPrayerSelected.InvokeAsync(OtherPrayerChoiceKind.AfterSickness)" BackgroundColor="@BackgroundColor">
+                After Sickness
+            </ButtonLink>
+        </div>
     </div>
+</div>
 
-    <div>
-        <ButtonLink OnClick="() => this.PrayerChoice = OtherPrayerChoiceKind.ForPriests">
-            For a Priest
-        </ButtonLink>
-    </div>
 
-    <div>
-        <ButtonLink OnClick="() => this.PrayerChoice = OtherPrayerChoiceKind.ForSoldiers">
-            For a Soldier
-        </ButtonLink>
+<div class="prayer-group-container">
+    <h2>For the Departed</h2>
+    <div class="main-prayer-buttons">
+        <div>
+            <ButtonLink OnClick="async () => await OnPrayerSelected.InvokeAsync(OtherPrayerChoiceKind.ForDeparted)" BackgroundColor="@BackgroundColor">
+                For the Departed
+            </ButtonLink>
+        </div>
     </div>
+</div>
 
-    <div>
-        <ButtonLink OnClick="() => this.PrayerChoice = OtherPrayerChoiceKind.ForThoseWithDepression">
-            For a Person with Depression
-        </ButtonLink>
-    </div>
 
-    <div>
-        <ButtonLink OnClick="() => this.PrayerChoice = OtherPrayerChoiceKind.FromParentsForChildren">
-            From Parents to Child
-        </ButtonLink>
+<div class="prayer-group-container">
+    <h2>Pregnancy</h2>
+    <div class="main-prayer-buttons">
+        <div>
+            <ButtonLink OnClick="async () => await OnPrayerSelected.InvokeAsync(OtherPrayerChoiceKind.PregnancySafeBirth)" BackgroundColor="@BackgroundColor">
+                For safe birth
+            </ButtonLink>
+        </div>
     </div>
-    <div>
-        <ButtonLink OnClick="() => this.PrayerChoice = OtherPrayerChoiceKind.FromChildrenForParents">
-            From Child For Parent
-        </ButtonLink>
+</div>
+
+
+<div class="prayer-group-container">
+    <h2>Mental Struggles</h2>
+    <div class="main-prayer-buttons">
+
+        <div>
+            <ButtonLink OnClick="async () => await OnPrayerSelected.InvokeAsync(OtherPrayerChoiceKind.ForThoseWithDepression)" BackgroundColor="@BackgroundColor">
+                For a Person with Depression
+            </ButtonLink>
+        </div>
+
+        <div>
+            <ButtonLink OnClick="async () => await OnPrayerSelected.InvokeAsync(OtherPrayerChoiceKind.StrugglingWithAddiction)" BackgroundColor="@BackgroundColor">
+                Person Struggling with Addiction
+            </ButtonLink>
+        </div>
+
     </div>
+</div>
+
+     
+<div class="prayer-group-container">
+    <h2>For People</h2>
+    <div class="main-prayer-buttons">
+        
+        <div>
+            <ButtonLink OnClick="async () => await OnPrayerSelected.InvokeAsync(OtherPrayerChoiceKind.ForPriests)" BackgroundColor="@BackgroundColor">
+                For a Priest
+            </ButtonLink>
+        </div>
+
+        <div>
+            <ButtonLink OnClick="async () => await OnPrayerSelected.InvokeAsync(OtherPrayerChoiceKind.ForSoldiers)" BackgroundColor="@BackgroundColor">
+                For a Soldier
+            </ButtonLink>
+        </div>
+
+        <div>
+            <ButtonLink OnClick="async () => await OnPrayerSelected.InvokeAsync(OtherPrayerChoiceKind.FromParentsForChildren)" BackgroundColor="@BackgroundColor">
+                From Parents to Child
+            </ButtonLink>
+        </div>
+        <div>
+            <ButtonLink OnClick="async () => await OnPrayerSelected.InvokeAsync(OtherPrayerChoiceKind.FromChildrenForParents)" BackgroundColor="@BackgroundColor">
+                From Child For Parent
+            </ButtonLink>
+        </div>
     
-    <div>
-        <ButtonLink OnClick="() => this.PrayerChoice = OtherPrayerChoiceKind.OfHusbandAndWife">
-            Of Husband and Wife
-        </ButtonLink>
+        <div>
+            <ButtonLink OnClick="async () => await OnPrayerSelected.InvokeAsync(OtherPrayerChoiceKind.OfHusbandAndWife)" BackgroundColor="@BackgroundColor">
+                Of Husband and Wife
+            </ButtonLink>
+        </div>
+
     </div>
-    <div>
-        <ButtonLink OnClick="() => this.PrayerChoice = OtherPrayerChoiceKind.ToFindASpouse">
-            To find a spouse
-        </ButtonLink>
-    </div>
-    <div>
-        <ButtonLink OnClick="() => this.PrayerChoice = OtherPrayerChoiceKind.FromSinglePersons">
-            From a Single Person
-        </ButtonLink>
-    </div>
+</div>
+
+     
+     
+<div class="prayer-group-container">
+    <h2>Relationship</h2>
+    <div class="main-prayer-buttons">
+        
+        <div>
+            <ButtonLink OnClick="async () => await OnPrayerSelected.InvokeAsync(OtherPrayerChoiceKind.ToFindASpouse)" BackgroundColor="@BackgroundColor">
+                To find a spouse
+            </ButtonLink>
+        </div>
+        <div>
+            <ButtonLink OnClick="async () => await OnPrayerSelected.InvokeAsync(OtherPrayerChoiceKind.FromSinglePersons)" BackgroundColor="@BackgroundColor">
+                From a Single Person
+            </ButtonLink>
+        </div>
     
-    <div>
-        <ButtonLink OnClick="() => this.PrayerChoice = OtherPrayerChoiceKind.Repentance">
-            Repentence
-        </ButtonLink>
     </div>
-    
-    <div>
-        <ButtonLink OnClick="() => this.PrayerChoice = OtherPrayerChoiceKind.StrugglingWithAddiction">
-            Person Struggling with Addiction
-        </ButtonLink>
+</div>
+
+
+<div class="prayer-group-container">
+    <h2>Prayers (by themselves)</h2>
+    <div class="main-prayer-buttons">
+        <div>
+            <ButtonLink OnClick="async () => await OnPrayerSelected.InvokeAsync(OtherPrayerChoiceKind.NiceneCreed)" BackgroundColor="@BackgroundColor">
+                Nicene Creed
+            </ButtonLink>
+        </div>
     </div>
+</div>
+
+<div class="prayer-group-container">
+    <h2>Other</h2>
+    <div class="main-prayer-buttons">
+        <div>
+            <ButtonLink OnClick="async () => await OnPrayerSelected.InvokeAsync(OtherPrayerChoiceKind.Repentance)" BackgroundColor="@BackgroundColor">
+                Repentence
+            </ButtonLink>
+        </div>
     
-    <div>
-        <ButtonLink OnClick="() => this.PrayerChoice = OtherPrayerChoiceKind.TimeOfTrouble">
-            Time of Trouble
-        </ButtonLink>
-    </div>
-    
-    <div>
-        <ButtonLink OnClick="() => this.PrayerChoice = OtherPrayerChoiceKind.NiceneCreed">
-            Nicene Creed
-        </ButtonLink>
+        <div>
+            <ButtonLink OnClick="async () => await OnPrayerSelected.InvokeAsync(OtherPrayerChoiceKind.TimeOfTrouble)" BackgroundColor="@BackgroundColor">
+                Time of Trouble
+            </ButtonLink>
+        </div>
+
     </div>
 </div>
 
 
 @code {
+    private string BackgroundColor = "var(--other-prayer-background-color)";
+
 }

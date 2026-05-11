@@ -1,8 +1,21 @@
 ﻿
+div.prayer-group-container {
+    border-radius: 0.25em;
+    border: 1px solid var(--dark-red);
+    margin: 8px 2px 8px 2px;
+    padding: 8px 2px 8px 2px;
+}
+
+    div.prayer-group-container > h2 {
+        margin: 0;
+        border-bottom: 1.25px solid var(--light-yellow);
+        padding: 2px 6px 2px 6px;
+    }
+
 div.main-prayer-buttons {
     display: flex;
     gap: 16px 4px;
     padding: 8px 4px 8px 4px;
-    margin-top: 20px;
+    margin-top: 2px;
     flex-wrap: wrap;
 }
