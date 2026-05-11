@@ -19,14 +19,29 @@
     <InputText @bind-Value="WomanName" placeholder="Enter woman's name" />
 }
 
-@switch (LanguageKind)
+@if ()
 {
-    case LanguageKindEnum.EnglishOlder:
-    case LanguageKindEnum.EnglishModern:
-    case LanguageKindEnum.EnglishMixed:
-    default:
+    switch (LanguageKind)
+    {
+        case LanguageKindEnum.EnglishOlder:
+        <div>
+            O Sovereign Lord Jesus Christ our God, the Source of life and immortality, I thank Thee, for in my marriage Thou has blest me to be a recipient of Thy blessing and gift; for Thou, O Master, didst say: Be fruitful and multiply and replenish the earth.
 
-    break;
+            I thank Thee and pray: Bless this fruit of my body that was given to me by Thee; favor it and animate it by Thy Holy Spirit, and let it grow a healthy and pure body, with well-formed limbs.
+
+            Sanctify its body, mind, heart, and vitals, and grant this infant that is to be born an intelligent soul; establish him in the fear of Thee.
+
+            A faithful angel, a guardian of soul and body, do thou vouchsafe him. Protect, keep, strengthen, and shelter the child in my womb until the hour of his birth. But conceal him not in his mother's womb; Thou gavest him life and health.
+
+            O Lord Jesus Christ, into Thine almighty and paternal hands do I entrust my child. Place him upon the right hand of Thy grace, and through Thy Holy Spirit sanctify him and renew him unto life everlasting, that he may be a comminucant of Thy Heavenly Kingdom. Amen.
+        </div>
+        break;
+        case LanguageKindEnum.EnglishModern:
+        case LanguageKindEnum.EnglishMixed:
+        default:
+
+            break;
+    }
 }
 
 
