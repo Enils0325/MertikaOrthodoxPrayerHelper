@@ -1,0 +1,17 @@
+﻿div.radio-group-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4px;
+    margin: 8px 4px 8px 4px;
+    border-radius: 8px;
+    border: 1px solid lightgrey;
+}
+
+div.radio-group-container > div {
+    padding: 2px 4px 2px 4px;
+}
+
+
+div.text-input-container {
+    padding: 4px 4px 12px 4px;
+}

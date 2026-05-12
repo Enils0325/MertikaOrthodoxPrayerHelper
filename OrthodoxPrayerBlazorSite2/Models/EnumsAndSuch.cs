@@ -45,6 +45,7 @@ public enum OtherPrayerChoiceKind
     TimeOfTrouble,
     ToFindASpouse,
     PregnancyProtectUnbornBaby,
+    PregnancyLookDownAndProtect,
 }
 
 public enum HeadingKindEnum

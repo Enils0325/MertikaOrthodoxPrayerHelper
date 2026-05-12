@@ -1,0 +1,111 @@
+﻿
+<Heading HeadingKind="HeadingKindEnum.SubHeading">
+    Pregnancy Prayers
+</Heading>
+
+<InputRadioGroup @bind-Value="ForWhomPregnancyKind">
+    <div class="radio-group-container">
+        <div>
+            <InputRadio Value="ForWhomPregnancyKindEnum.Me" id="radioOptionMe" />
+            <label for="radioOptionMe">Me</label>
+        </div>
+        <div>
+            <InputRadio Value="ForWhomPregnancyKindEnum.AnotherWoman" id="radioOptionANotherWoman" />
+            <label for="radioOptionANotherWoman">Another Woman</label>
+        </div>
+    </div>
+</InputRadioGroup>
+
+@if (ForWhomPregnancyKind == ForWhomPregnancyKindEnum.AnotherWoman)
+{
+    <div class="text-input-container">
+        <InputText @bind-Value="InputtedWomanName" placeholder="Enter woman's name" />
+    </div>
+}
+
+@if (ForWhomPregnancyKind == ForWhomPregnancyKindEnum.Me)
+{
+    switch (LanguageKind)
+    {
+        case LanguageKindEnum.EnglishOlder:
+        {
+            <PrayerLine>
+                O All-Merciful Christ our God, look down and protect me, Thy handmaiden, from fear and from evil spirits that seek to destroy the work of Thy hands. And when my hour and time is come, deliver me by Thy grace.
+            </PrayerLine>
+            <PrayerLine>
+                Look with compassionate eye and deliver me, Thy handmaiden, from pain. Lighten mine infirmity in the time of my travail and grant me fortitude and strength for birthgiving, and hasten it by Thine almighty help.
+            </PrayerLine>
+            <PrayerLine>
+                For this is Thy glorious work, the power of Thine omnipotence, the work of Thy grace and tender-heartedness. Amen.
+            </PrayerLine>
+        }
+        break;
+        case LanguageKindEnum.EnglishModern:
+        case LanguageKindEnum.EnglishMixed:
+        default:
+        {
+            <PrayerLine>
+                O All-Merciful Christ our God, look down and protect me, Your servant, from fear and from evil spirits that seek to destroy the work of Your hands. And when my hour and time is come, deliver me by Your grace.
+            </PrayerLine>
+            <PrayerLine>
+                Look with compassionate eye and deliver me, Your servant, from pain. Lighten mine weakness in the time of my travail and grant me fortitude and strength for birthgiving, and hasten it by Your almighty help.
+            </PrayerLine>
+            <PrayerLine>
+                For this is Your glorious work, the power of Your omnipotence, the work of Your grace and tender-heartedness. Amen.
+            </PrayerLine>
+        }
+        break;
+    }
+}
+else
+{
+    switch (LanguageKind)
+    {
+        case LanguageKindEnum.EnglishOlder:
+        {
+            <PrayerLine>
+                O All-Merciful Christ our God, look down and protect her, Thy handmaiden, from fear and from evil spirits that seek to destroy the work of Thy hands. And when her hour and time is come, deliver me by Thy grace.
+            </PrayerLine>
+            <PrayerLine>
+                Look with compassionate eye and deliver her, Thy handmaiden, from pain. Lighten mine infirmity in the time of her travail and grant her fortitude and strength for birthgiving, and hasten it by Thine almighty help.
+            </PrayerLine>
+            <PrayerLine>
+                For this is Thy glorious work, the power of Thine omnipotence, the work of Thy grace and tender-heartedness. Amen.
+            </PrayerLine>
+        }
+        break;
+        case LanguageKindEnum.EnglishModern:
+        case LanguageKindEnum.EnglishMixed:
+        default:
+        {
+            <PrayerLine>
+                O All-Merciful Christ our God, look down and protect Your servant, @(WomanName) from fear and from evil spirits that seek to destroy the work of Your hands. And when her hour and time is come, deliver her by Your grace.
+            </PrayerLine>
+            <PrayerLine>
+                Look with compassionate eye and deliver Your servant, @(WomanName), from pain. Lighten mine weakness in the time of her travail and grant her fortitude and strength for birthgiving, and hasten it by Your almighty help.
+            </PrayerLine>
+            <PrayerLine>
+                For this is Your glorious work, the power of Your omnipotence, the work of Your grace and tender-heartedness. Amen.
+            </PrayerLine>
+        }
+        break;
+    }
+}
+
+
+@code {
+    [Parameter]
+    public HeadingKindEnum HeadingKind { get; set; } = HeadingKindEnum.None;
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
+
+    private ForWhomPregnancyKindEnum ForWhomPregnancyKind { get; set; } = ForWhomPregnancyKindEnum.Me;
+
+    private string InputtedWomanName { get; set; } = string.Empty;
+    private string WomanName => string.IsNullOrWhiteSpace(InputtedWomanName) ? "(name)" : InputtedWomanName.Trim();
+
+
+
+    private enum ForWhomPregnancyKindEnum { AnotherWoman, Me, }
+}

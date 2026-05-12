@@ -48,6 +48,11 @@
 {
     <PregnancyProtectUnbornBaby HeadingKind="HeadingKindEnum.MainHeading" />
 }
+
+@if (OtherPrayerChoices.Contains(OtherPrayerChoiceKind.PregnancyLookDownAndProtect))
+{
+    <PregnancyLookDownProtect HeadingKind="HeadingKindEnum.MainHeading" />
+}
     
 @if (OtherPrayerChoices.Contains(OtherPrayerChoiceKind.OfHusbandAndWife))
 {
