@@ -189,13 +189,41 @@ div.main-prayer-buttons[b-35nwn8ksa0] {
     margin-top: 2px;
     flex-wrap: wrap;
 }
-/* /Pages/OtherPrayers/PregnancyPrayers.razor.rz.scp.css */
-div.radio-group-container[b-lfgpk5c6in] {
+/* /Pages/OtherPrayers/PregnancyLookDownProtect.razor.rz.scp.css */
+div.radio-group-container[b-ddl0yut2to] {
     display: flex;
+    flex-wrap: wrap;
     padding: 4px;
     margin: 8px 4px 8px 4px;
     border-radius: 8px;
     border: 1px solid lightgrey;
+}
+
+div.radio-group-container > div[b-ddl0yut2to] {
+    padding: 2px 4px 2px 4px;
+}
+
+
+div.text-input-container[b-ddl0yut2to] {
+    padding: 4px 4px 12px 4px;
+}
+/* /Pages/OtherPrayers/PregnancyProtectUnbornBaby.razor.rz.scp.css */
+div.radio-group-container[b-zqliqrcfby] {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4px;
+    margin: 8px 4px 8px 4px;
+    border-radius: 8px;
+    border: 1px solid lightgrey;
+}
+
+div.radio-group-container > div[b-zqliqrcfby] {
+    padding: 2px 4px 2px 4px;
+}
+
+
+div.text-input-container[b-zqliqrcfby] {
+    padding: 4px 4px 12px 4px;
 }
 /* /Pages/Prayers/GospelReading.razor.rz.scp.css */
 body[b-qvszgwv3uy] {
