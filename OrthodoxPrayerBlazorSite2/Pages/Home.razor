@@ -38,14 +38,11 @@
         </ButtonLink>
     </div>
 
-    @if (MainUtil.IsDebug)
-    {
-        <div>
-            <ButtonLink OnClick="() => SetMainPrayerKind(MainPrayerChoiceKind.Other)">
-                Other
-            </ButtonLink>
-        </div>
-    }
+    <div>
+        <ButtonLink OnClick="() => SetMainPrayerKind(MainPrayerChoiceKind.Other)">
+            Other
+        </ButtonLink>
+    </div>
 
     @if (!choiceKindsWithNoRandom.Contains(MainPrayerChoice))
     {
