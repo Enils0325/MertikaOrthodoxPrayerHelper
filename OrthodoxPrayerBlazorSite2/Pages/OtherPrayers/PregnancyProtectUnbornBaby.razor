@@ -35,7 +35,9 @@
 
 @if (ForWhomPregnancyKind == ForWhomPregnancyKindEnum.AnotherWoman)
 {
-    <InputText @bind-Value="InputtedWomanName" placeholder="Enter woman's name" />
+    <div class="text-input-container">
+        <InputText @bind-Value="InputtedWomanName" placeholder="Enter woman's name" />
+    </div>
 }
 
 @if (ForWhomPregnancyKind == ForWhomPregnancyKindEnum.Me)
@@ -48,7 +50,7 @@
                 O Sovereign Lord Jesus Christ our God, the Source of life and immortality, I thank Thee, for in my marriage Thou has blest me to be a recipient of Thy blessing and gift; for Thou, O Master, didst say: Be fruitful and multiply and replenish the earth.
             </PrayerLine>
             <PrayerLine>
-                I thank Thee and pray: Bless this fruit of my body that was given to me by Thee; favor @(GenderKind.Him("this child")) and animate @(GenderKind.Him()) by Thy Holy Spirit, and let @(GenderKind.Him()) grow a healthy and pure body, with well-formed limbs.
+                I thank Thee and pray: Bless this fruit of my body that was given to me by Thee; favor and animate @(GenderKind.Him()) by Thy Holy Spirit, and let @(GenderKind.Him()) grow a healthy and pure body, with well-formed limbs.
             </PrayerLine>
             <PrayerLine>
                 Sanctify @(GenderKind.His()) body, mind, heart, and vitals, and grant this infant that is to be born an intelligent soul; establish @(GenderKind.Him()) in the fear of Thee.
@@ -69,7 +71,7 @@
                 O Sovereign Lord Jesus Christ our God, the Source of life and immortality, I thank You, for in my marriage You have given me Your blessing and gift; for You, O Master, did say: Be fruitful and multiply and replenish the earth.
             </PrayerLine>
             <PrayerLine>
-                I thank You and pray: Bless the fruit of my body that was given to me by You; favor @(GenderKind.Him("this child")) and animate @(GenderKind.Him()) by Your Holy Spirit, and let @(GenderKind.Him()) grow a healthy and pure body, with well-formed limbs.
+                I thank You and pray: Bless the fruit of my body that was given to me by You; favor and animate @(GenderKind.Him()) by Your Holy Spirit, and let @(GenderKind.Him()) grow a healthy and pure body, with well-formed limbs.
             </PrayerLine>
             <PrayerLine>
                 Sanctify @(GenderKind.His()) body, mind, heart, and vitals, and grant this infant that is to be born an intelligent soul; establish @(GenderKind.Him()) in the fear of Thee.
@@ -81,7 +83,7 @@
                 O Lord Jesus Christ, into Your almighty and paternal hands do I entrust my child. Place @(GenderKind.Him()) upon the right hand of Your grace, and through Your Holy Spirit sanctify @(GenderKind.Him("this child")) and renew @(GenderKind.Him()) unto life everlasting, that @(GenderKind.He()) may be a comminucant of Your Heavenly Kingdom. Amen.
             </PrayerLine>
         }
-            break;
+        break;
     }
 }
 else
@@ -91,13 +93,13 @@ else
         case LanguageKindEnum.EnglishOlder:
         {
             <PrayerLine>
-                O Sovereign Lord Jesus Christ our God, the Source of life and immortality, bless @(WomanName) and the fruit of her body that was given by Thee, favor them and animate @(GenderKind.Him("this child")) by Thy Holy Spirit, and let it grow a healthy and pure body, with well-formed limbs.
+                O Sovereign Lord Jesus Christ our God, the Source of life and immortality, bless @(WomanName) and the fruit of her body that was given by Thee, favor and animate @(GenderKind.Him("this child")) by Thy Holy Spirit, and let it grow a healthy and pure body, with well-formed limbs.
             </PrayerLine>
             <PrayerLine>
                 Sanctify @(GenderKind.His()) body, mind, heart, and vitals, and grant this infant that is to be born an intelligent soul; establish @(GenderKind.Him()) in the fear of Thee.
             </PrayerLine>
             <PrayerLine>
-                A faithful angel, a guardian of soul and body, do thou vouchsafe @(GenderKind.Him()). Protect, keep, strengthen, and shelter the child until the hour of birth. 
+                A faithful angel, a guardian of soul and body, do thou vouchsafe @(GenderKind.Him()). Protect, keep, strengthen, and shelter the child until the hour of birth.
             </PrayerLine>
             <PrayerLine>
                 O Lord Jesus Christ, place this infant upon the right hand of Thy grace, and through Thy Holy Spirit sanctify @(GenderKind.Him()) and renew @(GenderKind.Him()) unto life everlasting, that @(GenderKind.He()) may be a comminucant of Thy Heavenly Kingdom. Amen.
@@ -109,7 +111,7 @@ else
         default:
         {
             <PrayerLine>
-                O Sovereign Lord Jesus Christ our God, the Source of life and immortality, bless @(WomanName) and the fruit of her body that was given by You, favor them and animate @(GenderKind.Him("this child")) by Thy Holy Spirit, and let it grow a healthy and pure body, with well-formed limbs.
+                O Sovereign Lord Jesus Christ our God, the Source of life and immortality, bless @(WomanName) and the fruit of her body that was given by You, favor and animate @(GenderKind.Him("this child")) by Thy Holy Spirit, and let it grow a healthy and pure body, with well-formed limbs.
             </PrayerLine>
             <PrayerLine>
                 Sanctify @(GenderKind.His()) body, mind, heart, and vitals, and grant this infant that is to be born an intelligent soul; establish @(GenderKind.Him()) in the fear of Thee.
