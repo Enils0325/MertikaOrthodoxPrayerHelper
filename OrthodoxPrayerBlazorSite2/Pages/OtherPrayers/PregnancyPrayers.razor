@@ -4,13 +4,32 @@
 </Heading>
 
 <InputRadioGroup @bind-Value="ForWhomPregnancyKind">
-    <div>
-        <InputRadio Value="ForWhomPregnancyKindEnum.Me" id="radioOptionBefore" />
-        <label for="radioOptionBefore">Me</label>
+    <div class="radio-group-container">
+        <div>
+            <InputRadio Value="ForWhomPregnancyKindEnum.Me" id="radioOptionMe" />
+            <label for="radioOptionMe">Me</label>
+        </div>
+        <div>
+            <InputRadio Value="ForWhomPregnancyKindEnum.AnotherWoman" id="radioOptionANotherWoman" />
+            <label for="radioOptionANotherWoman">Another Woman</label>
+        </div>
     </div>
-    <div>
-        <InputRadio Value="ForWhomPregnancyKindEnum.AnotherWoman" id="radioOptionAfter" />
-        <label for="radioOptionAfter">Another Woman</label>
+</InputRadioGroup>
+
+<InputRadioGroup @bind-Value="GenderKind">
+    <div class="radio-group-container">
+        <div>
+            <InputRadio Value="GenderKindEnum.Male" id="radioOptionMale" />
+            <label for="radioOptionMale">Baby is a boy</label>
+        </div>
+        <div>
+            <InputRadio Value="GenderKindEnum.Female" id="radioOptionFemale" />
+            <label for="radioOptionFemale">Baby is a girl</label>
+        </div>
+        <div>
+            <InputRadio Value="GenderKindEnum.Unknown" id="radioOptionUnknown" />
+            <label for="radioOptionUnknown">Unknown</label>
+        </div>
     </div>
 </InputRadioGroup>
 
@@ -19,29 +38,55 @@
     <InputText @bind-Value="WomanName" placeholder="Enter woman's name" />
 }
 
-@if ()
+@if (IsPregnantWomanMe)
 {
     switch (LanguageKind)
     {
         case LanguageKindEnum.EnglishOlder:
-        <div>
-            O Sovereign Lord Jesus Christ our God, the Source of life and immortality, I thank Thee, for in my marriage Thou has blest me to be a recipient of Thy blessing and gift; for Thou, O Master, didst say: Be fruitful and multiply and replenish the earth.
-
-            I thank Thee and pray: Bless this fruit of my body that was given to me by Thee; favor it and animate it by Thy Holy Spirit, and let it grow a healthy and pure body, with well-formed limbs.
-
-            Sanctify its body, mind, heart, and vitals, and grant this infant that is to be born an intelligent soul; establish him in the fear of Thee.
-
-            A faithful angel, a guardian of soul and body, do thou vouchsafe him. Protect, keep, strengthen, and shelter the child in my womb until the hour of his birth. But conceal him not in his mother's womb; Thou gavest him life and health.
-
-            O Lord Jesus Christ, into Thine almighty and paternal hands do I entrust my child. Place him upon the right hand of Thy grace, and through Thy Holy Spirit sanctify him and renew him unto life everlasting, that he may be a comminucant of Thy Heavenly Kingdom. Amen.
-        </div>
+        {
+            <PrayerLine>
+                O Sovereign Lord Jesus Christ our God, the Source of life and immortality, I thank Thee, for in my marriage Thou has blest me to be a recipient of Thy blessing and gift; for Thou, O Master, didst say: Be fruitful and multiply and replenish the earth.
+            </PrayerLine>
+            <PrayerLine>
+                I thank Thee and pray: Bless this fruit of my body that was given to me by Thee; favor @(GenderKind.Him()) and animate @(GenderKind.Him()) by Thy Holy Spirit, and let @(GenderKind.Him()) grow a healthy and pure body, with well-formed limbs.
+            </PrayerLine>
+            <PrayerLine>
+                Sanctify @(GenderKind.His()) body, mind, heart, and vitals, and grant this infant that is to be born an intelligent soul; establish @(GenderKind.Him()) in the fear of Thee.
+            </PrayerLine>
+            <PrayerLine>
+                A faithful angel, a guardian of soul and body, do thou vouchsafe @(GenderKind.Him()). Protect, keep, strengthen, and shelter the child in my womb until the hour of @(GenderKind.His()) birth. But conceal @(GenderKind.Him()) not in @(GenderKind.His()) mother's womb; Thou gavest @(GenderKind.Him()) life and health.
+            </PrayerLine>
+            <PrayerLine>
+                O Lord Jesus Christ, into Thine almighty and paternal hands do I entrust my child. Place @(GenderKind.Him()) upon the right hand of Thy grace, and through Thy Holy Spirit sanctify @(GenderKind.Him()) and renew @(GenderKind.Him()) unto life everlasting, that he may be a comminucant of Thy Heavenly Kingdom. Amen.
+            </PrayerLine>
+        }
         break;
         case LanguageKindEnum.EnglishModern:
         case LanguageKindEnum.EnglishMixed:
         default:
-
+        {
+            <PrayerLine>
+                O Sovereign Lord Jesus Christ our God, the Source of life and immortality, I thank You, for in my marriage You have given me Your blessing and gift; for You, O Master, did say: Be fruitful and multiply and replenish the earth.
+            </PrayerLine>
+            <PrayerLine>
+                I thank You and pray: Bless the fruit of my body that was given to me by You; favor @(GenderKind.Him()) and animate @(GenderKind.Him()) by Your Holy Spirit, and let @(GenderKind.Him()) grow a healthy and pure body, with well-formed limbs.
+            </PrayerLine>
+            <PrayerLine>
+                Sanctify @(GenderKind.His()) body, mind, heart, and vitals, and grant this infant that is to be born an intelligent soul; establish @(GenderKind.Him()) in the fear of Thee.
+            </PrayerLine>
+            <PrayerLine>
+                A faithful angel, guardian of soul and body, watch over @(GenderKind.Him()). Protect, keep, strengthen, and shelter the child in my womb until the hour of @(GenderKind.His()) birth. But conceal @(GenderKind.Him()) not in @(GenderKind.His()) mother's womb; You have given @(GenderKind.Him()) life and health.
+            </PrayerLine>
+            <PrayerLine>
+                O Lord Jesus Christ, into Your almighty and paternal hands do I entrust my child. Place @(GenderKind.Him()) upon the right hand of Your grace, and through Your Holy Spirit sanctify @(GenderKind.Him()) and renew @(GenderKind.Him()) unto life everlasting, that he may be a comminucant of Your Heavenly Kingdom. Amen.
+            </PrayerLine>
+        }
             break;
     }
+}
+else
+{
+    
 }
 
 
@@ -53,9 +98,13 @@
     public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
 
     private ForWhomPregnancyKindEnum ForWhomPregnancyKind { get; set; } = ForWhomPregnancyKindEnum.AnotherWoman;
+    private GenderKindEnum GenderKind { get; set; } = GenderKindEnum.Unknown;
 
     private string WomanName { get; set; } = string.Empty;
+    private bool IsPregnantWomanMe => WomanName == string.Empty;
 
 
     private enum ForWhomPregnancyKindEnum { AnotherWoman, Me, }
+
+
 }
