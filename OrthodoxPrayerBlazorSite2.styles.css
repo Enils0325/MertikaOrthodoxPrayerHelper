@@ -129,6 +129,10 @@ span.note-container[b-32tw2udlrv] {
     font-style: italic;
     padding: 0 8px 0 8px;
 }
+/* /Pages/Components/PrayerLine.razor.rz.scp.css */
+.prayer-line[b-xt3kovutmy] {
+    padding-bottom: 8px;
+}
 /* /Pages/Home.razor.rz.scp.css */
 div.top-controls[b-mqxlcqlz8l] {
     display: flex;
@@ -165,12 +169,33 @@ div.notification-bar[b-mqxlcqlz8l] {
 
 /* /Pages/MainPrayers/OtherPrayers.razor.rz.scp.css */
 
+div.prayer-group-container[b-35nwn8ksa0] {
+    border-radius: 0.25em;
+    border: 1px solid var(--dark-red);
+    margin: 8px 2px 8px 2px;
+    padding: 8px 2px 8px 2px;
+}
+
+    div.prayer-group-container > h2[b-35nwn8ksa0] {
+        margin: 0;
+        border-bottom: 1.25px solid var(--light-yellow);
+        padding: 2px 6px 2px 6px;
+    }
+
 div.main-prayer-buttons[b-35nwn8ksa0] {
     display: flex;
     gap: 16px 4px;
     padding: 8px 4px 8px 4px;
-    margin-top: 20px;
+    margin-top: 2px;
     flex-wrap: wrap;
+}
+/* /Pages/OtherPrayers/PregnancyPrayers.razor.rz.scp.css */
+div.radio-group-container[b-lfgpk5c6in] {
+    display: flex;
+    padding: 4px;
+    margin: 8px 4px 8px 4px;
+    border-radius: 8px;
+    border: 1px solid lightgrey;
 }
 /* /Pages/Prayers/GospelReading.razor.rz.scp.css */
 body[b-qvszgwv3uy] {
