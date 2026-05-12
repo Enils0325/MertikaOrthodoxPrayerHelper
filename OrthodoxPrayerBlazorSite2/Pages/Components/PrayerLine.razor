@@ -1,0 +1,8 @@
+﻿<div class="prayer-line">
+    @(ChildContent)
+</div>
+
+@code {
+    [Parameter, EditorRequired]
+    public RenderFragment? ChildContent { get; set; }
+}
