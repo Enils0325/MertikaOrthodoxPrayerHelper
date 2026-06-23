@@ -133,6 +133,19 @@ span.note-container[b-32tw2udlrv] {
 .prayer-line[b-xt3kovutmy] {
     padding-bottom: 8px;
 }
+/* /Pages/Components/RandomizablePrayer.razor.rz.scp.css */
+div.randContainer[b-8hsafxk74g] {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+div.randButtonContainer[b-8hsafxk74g] {
+    padding-top: 12px;
+}
+
+div.randItem[b-8hsafxk74g] {
+    flex: 1;
+}
 /* /Pages/Home.razor.rz.scp.css */
 div.top-controls[b-mqxlcqlz8l] {
     display: flex;
