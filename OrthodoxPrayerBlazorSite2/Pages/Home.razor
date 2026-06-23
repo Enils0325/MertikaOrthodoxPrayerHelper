@@ -44,15 +44,6 @@
         </ButtonLink>
     </div>
 
-    @if (!choiceKindsWithNoRandom.Contains(MainPrayerChoice))
-    {
-        <div>
-            <ButtonLink OnClick="() => NilsEventService.NotifyRandomClicked()"
-                        BackgroundColor="@(StaticColors.LightBeige)">
-                <DiceIcon />
-            </ButtonLink>
-        </div>
-    }
 </div>
 
 <LoadingContainer IsLoading="IsLoading" ContainerStyle="">

@@ -18,7 +18,6 @@ public partial class OtherPrayers
     protected override async Task OnParametersSetAsync()
     {
         await OnRandomClicked();
-        NilsEventService.OnRandomClicked += OnRandomClicked;
         base.OnParametersSet();
     }
 
@@ -32,7 +31,6 @@ public partial class OtherPrayers
 
     public void Dispose()
     {
-        NilsEventService.OnRandomClicked -= OnRandomClicked;
     }
 
 }

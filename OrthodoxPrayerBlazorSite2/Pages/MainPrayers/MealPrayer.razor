@@ -20,37 +20,24 @@
 <div>
     @if (BeforeAfterKind == BeforeAfterKindEnum.Before)
     {
+        ImmutableList<RenderFragment> RandomizableBeforePrayerItems = [
+        @<RichSentAwayHungry/>,
+        @<BlessFoodAndDrinkOfYourServants />,
+        @<OurFather HeadingKind="HeadingKindEnum.SubHeading" />,
+        @<BlessedFiveLoaves HeadingKind="HeadingKindEnum.SubHeading" />,
+        @<HasShownMercyAndNourishedUs />,
+        ];
 
-        switch (SelectedIndexOutOf5)
-        {
-            case 0:
-                <RichSentAwayHungry />
-                break;
-            case 1:
-                <BlessFoodAndDrinkOfYourServants />
-                break;
-            case 2:
-                <OurFather HeadingKind="HeadingKindEnum.SubHeading" />
-                break;
-            case 3:
-                <BlessedFiveLoaves />
-                break;
-            case 4:
-                <HasShownMercyAndNourishedUs />
-                break;
-        }
+        <RandomizablePrayer Items='RandomizableBeforePrayerItems' />
     }
     else
     {
-        switch (SelectedIndexOutOf2)
-        {
-            case 0:
-                <MayTheLordKeepUs />
-                break;
-            case 1:
-                <FilledUsThisDay />
-                break;
-        }
+        ImmutableList<RenderFragment> RandomizableAfterPrayerItems = [
+        @<MayTheLordKeepUs />,
+        @<FilledUsThisDay />,
+        ];
+
+        <RandomizablePrayer Items='RandomizableAfterPrayerItems' />
     }
 </div>
 
@@ -61,31 +48,19 @@
     [Inject]
     public NilsEventService NilsEventService { get; set; } = null!;
 
-    private int SelectedIndexOutOf2 { get; set; } = 0;
-    private int SelectedIndexOutOf3 { get; set; } = 0;
-    private int SelectedIndexOutOf4 { get; set; } = 0;
-    private int SelectedIndexOutOf5 { get; set; } = 0;
-
     protected override async Task OnParametersSetAsync()
     {
-        await OnRandomClicked();
-        NilsEventService.OnRandomClicked += OnRandomClicked;
         base.OnParametersSet();
     }
 
 
     public async Task OnRandomClicked()
     {
-        SelectedIndexOutOf2 = MainUtil.GetRandomIndex(2);
-        SelectedIndexOutOf3 = MainUtil.GetRandomIndex(3);
-        SelectedIndexOutOf4 = MainUtil.GetRandomIndex(4);
-        SelectedIndexOutOf5 = MainUtil.GetRandomIndex(5);
         StateHasChanged();
     }
 
 
     public void Dispose()
     {
-        NilsEventService.OnRandomClicked -= OnRandomClicked;
     }
 }

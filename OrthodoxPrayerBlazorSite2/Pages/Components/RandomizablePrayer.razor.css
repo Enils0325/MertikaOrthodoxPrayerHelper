@@ -1,0 +1,12 @@
+﻿div.randContainer {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+div.randButtonContainer {
+    padding-top: 12px;
+}
+
+div.randItem {
+    flex: 1;
+}

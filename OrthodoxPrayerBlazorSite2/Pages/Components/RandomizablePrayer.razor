@@ -1,0 +1,35 @@
+﻿
+<div class="randContainer">
+    <div class="randButtonContainer">
+        <ButtonLink OnClick="() => Roll()"
+                    BackgroundColor="@(StaticColors.LightBeige)">
+            <DiceIcon />
+        </ButtonLink>
+    </div>
+
+    <div class="randItem">
+        @if (Items?.Count > 0)
+        {
+            @Items[CurrentIndex]
+        }
+    </div>
+</div>
+
+
+@code {
+    [Parameter] 
+    public ImmutableList<RenderFragment> Items { get; set; } = [];
+
+    private int CurrentIndex { get; set; } = 0;
+
+    protected override void OnInitialized()
+    {
+        CurrentIndex = Random.Shared.Next(0, Items.Count);
+        base.OnInitialized();
+    }
+
+    private void Roll()
+    {
+        CurrentIndex = Random.Shared.Next(0, Items.Count);
+    }
+}

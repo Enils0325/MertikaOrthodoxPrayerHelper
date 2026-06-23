@@ -2,39 +2,27 @@
 @using Microsoft.AspNetCore.Components
 @implements IDisposable
 
-@switch (selectedPsalm)
+@if (PsalmTimeOfDayKind == PsalmTimeOfDayKindEnum.Morning)
 {
-    case 4:
-        <Psalm4 HeadingKind="HeadingKind" />
-        break;
-    case 5:
-        <Psalm5 HeadingKind="HeadingKind" />
-        break;
-    case 50:
-        <Psalm50 HeadingKind="HeadingKind" />
-        break;
-    case 62:
-        <Psalm62 HeadingKind="HeadingKind" />
-        break;
-    case 90:
-        <Psalm90 HeadingKind="HeadingKind" />
-        break;
-    case 102:
-        <Psalm102 HeadingKind="HeadingKind" />
-        break;
-    case 133:
-        <Psalm133 HeadingKind="HeadingKind" />
-        break;
-    case 140:
-        <Psalm140 HeadingKind="HeadingKind" />
-        break;
-    case 142:
-        <Psalm142 HeadingKind="HeadingKind" />
-        break;
-    case 120: // randomly selected as default
-    default:
-        <Psalm120 HeadingKind="HeadingKind" />
-        break;
+    if (IsBrief)
+    {
+        <RandomizablePrayer Items="RandomizableBriefMorningPsalms" />
+    }
+    else
+    {
+        <RandomizablePrayer Items="RandomizableMorningPsalms" />
+    }
+}
+else
+{
+    if (IsBrief)
+    {
+        <RandomizablePrayer Items="RandomizableBriefEveningPsalms" />
+    }
+    else
+    {
+        <RandomizablePrayer Items="RandomizableEveningPsalms" />
+    }
 }
 
 @code {
@@ -46,4 +34,42 @@
 
     [Parameter, EditorRequired]
     public PsalmTimeOfDayKindEnum PsalmTimeOfDayKind { get; set; } = PsalmTimeOfDayKindEnum.Morning;
+
+    private ImmutableList<RenderFragment> RandomizableBriefMorningPsalms = [];
+    private ImmutableList<RenderFragment> RandomizableMorningPsalms = [];
+
+    private ImmutableList<RenderFragment> RandomizableBriefEveningPsalms = [];
+    private ImmutableList<RenderFragment> RandomizableEveningPsalms = [];
+
+    protected override void OnInitialized()
+    {
+        RandomizableMorningPsalms = [
+            @<Psalm5 HeadingKind="HeadingKind" />,
+            @<Psalm50 HeadingKind="HeadingKind" />,
+            @<Psalm62 HeadingKind="HeadingKind" />,
+            @<Psalm102 HeadingKind="HeadingKind" />,
+            @<Psalm142 HeadingKind="HeadingKind" />,
+        ];
+        
+        RandomizableBriefMorningPsalms = [
+            @<Psalm50 HeadingKind="HeadingKind" />,
+            @<Psalm62 HeadingKind="HeadingKind" />,
+        ];
+        
+        RandomizableEveningPsalms = [
+            @<Psalm4 HeadingKind="HeadingKind" />,
+            @<Psalm90 HeadingKind="HeadingKind" />,
+            @<Psalm140 HeadingKind="HeadingKind" />,
+            @<Psalm120 HeadingKind="HeadingKind" />,
+            @<Psalm133 HeadingKind="HeadingKind" />,
+        ];
+        
+        RandomizableBriefEveningPsalms = [
+            @<Psalm4 HeadingKind="HeadingKind" />,
+            @<Psalm120 HeadingKind="HeadingKind" />,
+            @<Psalm133 HeadingKind="HeadingKind" />,
+        ];
+
+        base.OnInitialized();
+    }
 }
