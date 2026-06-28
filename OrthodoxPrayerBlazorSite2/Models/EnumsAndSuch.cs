@@ -23,6 +23,7 @@ public enum MainPrayerChoiceKind
     Meal,
     MorningPrayer,
     EveningPrayer,
+    PrecommunionPrayers,
     Other,
 }
 

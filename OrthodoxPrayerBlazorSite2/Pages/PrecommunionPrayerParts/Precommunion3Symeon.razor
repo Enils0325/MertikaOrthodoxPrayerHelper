@@ -1,0 +1,24 @@
+﻿@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+    {
+        <Heading HeadingKind="HeadingKind">
+            3rd Prayer, of St. Simeon Metaphrastes
+        </Heading>
+        <PrayerLine>
+            O Only Pure and Incorruptible Lord, because of the unspeakable mercy of Thy love for mankind, Thou didst take to Thyself our entire human composition from the pure blood of the Virgin who gave birth to Thee beyond nature, by the descent of the Holy Spirit and the good-will of the Ever-Existing Father. O Christ Jesus, Wisdom of God and Peace and Power, through the human nature which Thou didst take to Thyself, Thou didst suffer the life-creating and saving Passion: the Cross, the nails, the spear, death itself. Put to death in me the soul-destroying passions of the body! Through Thy burial Thou didst capture the kingdom of death. Bury in me the evil devices of the devil with good thoughts, and destroy the spirits of evil! Through Thy life-bringing Resurrection Thou didst raise up the first father who had fallen. Raise me up who am sunk down in sin and give me the image of repentance! Through Thy glorious Ascension Thou didst make the flesh which Thou didst assume to be Divine, and placed It on the Throne at the Father's right hand. Grant me to receive a place at the right hand with the saved through Communion of Thy Holy Mysteries! Through the coming of Thy Spirit, the Comforter, Thou didst make Thy consecrated Disciples to be honorable vessels. Show me also to be the receptacle of His coming! Thou hast promised to come again to judge the world in righteousness. Grant that I may go to meet Thee in the clouds, my Judge and Creator, with all Thy Saints; that I may glorify and praise Thee without end, together with Thy Father Who is without beginning, and Thy Most Holy and Good and Life-Creating Spirit, now and ever and unto ages of ages. Amen.
+        </PrayerLine>
+        break;
+    }
+}
+
+@code {
+    [Parameter]
+    public HeadingKindEnum HeadingKind { get; set; } = HeadingKindEnum.None;
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
+}

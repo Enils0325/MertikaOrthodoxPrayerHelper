@@ -1,0 +1,30 @@
+﻿@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+    {
+        <Heading HeadingKind="HeadingKind">
+            The 11th and Final Prayer, of St. John Chrysostom
+        </Heading>
+        <PrayerLine>
+            I believe, O Lord, and I confess that Thou art truly the Christ the Son of the Living God Who camest into the world to save sinners, of whom I am first. I believe also that this is truly Thine own Most Pure Body, and that this is truly Thine own Precious Blood. Therefore, I pray Thee: have mercy upon me and forgive my transgressions both voluntary and involuntary, of word and of deed, committed in knowledge or in ignorance! And make me worthy to partake without condemnation of Thy Most Pure Mysteries, for the remission of my sins, and unto life everlasting. Amen.
+        </PrayerLine>
+        <PrayerLine>
+            Of Thy Mystical Supper, O Son of God, accept me today as a communicant; for I will not speak of Thy Mystery to Thine enemies, neither like Judas will I give Thee a kiss; but like the thief will I confess Thee: Remember me, O Lord, in Thy Kingdom!
+        </PrayerLine>
+        <PrayerLine>
+            May the Communion of Thy Holy Mysteries be neither to my judgment, nor to my condemnation, O Lord, but to the healing of soul and body. Amen.
+        </PrayerLine>
+        break;
+    }
+}
+
+@code {
+    [Parameter]
+    public HeadingKindEnum HeadingKind { get; set; } = HeadingKindEnum.None;
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
+}

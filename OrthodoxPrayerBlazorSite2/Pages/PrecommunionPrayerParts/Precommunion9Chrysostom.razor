@@ -1,0 +1,24 @@
+﻿@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+    {
+        <Heading HeadingKind="HeadingKind">
+            9th Prayer, again of St. John Chrysostom
+        </Heading>
+        <PrayerLine>
+            O Lord Jesus Christ my God: absolve, loose, cleanse and forgive me Thy sinful and useless and unworthy servant my errors, transgressions and sinful failings as many as I have committed from my youth up to this present day and hour, consciously and unconsciously, in words or actions or reasonings, thoughts, pursuits and in all my senses! By the prayers of Thy Mother the Most Pure and Ever-Virgin Mary who gave birth to Thee without human seed, my only Hope which will not put me to shame, my Intercessor and Salvation, grant me to have Communion without condemnation of Thy Most Pure, Immortal, Life-Creating and Awesome Mysteries; for the remission of sins and unto life everlasting; for sanctification, enlightenment, strength, healing and health of soul and body; for the most perfect removal and destruction of my evil thoughts and reasonings and intentions, fantasies by night, brought by dark and evil spirits; for Thine is the Kingdom and the power and the glory and the honor and the worship with the Father and Thy Holy Spirit, now and ever and unto ages of ages. Amen.
+        </PrayerLine>
+        break;
+    }
+}
+
+@code {
+    [Parameter]
+    public HeadingKindEnum HeadingKind { get; set; } = HeadingKindEnum.None;
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
+}

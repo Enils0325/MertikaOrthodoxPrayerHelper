@@ -1,0 +1,26 @@
+﻿@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+    {
+        <Heading HeadingKind="HeadingKind">1st Prayer, St. Basil the Great</Heading>
+        <PrayerLine>
+            O Lord and Master Jesus Christ our God, the Fountain of Life and Immortality, the Creator of everything visible and invisible, the Eternal and Everlasting Son of the Eternal Father, Thou hast come in these latter days because of the abundance of Thy goodness, Thou hast put on our human flesh and wast crucified and buried for us thankless and graceless men, and through Thine own Blood Thou hast renewed our human nature which is corrupted by sin. And now, O Immortal King, accept the repentance of me a sinner and incline Thine ear to me and listen to my words: I have sinned, O Lord, I have sinned before Heaven and before Thy Face, and I am not worthy to look upon the height of Thy Glory. I have provoked Thy goodness, I have transgressed Thy commandments, I have not obeyed Thy statutes. But, O Lord, since Thou dost not remember evil, but art long-suffering and of great mercy, Thou hast not given me over to destruction for my lawlessness, but hast ever awaited my conversion. O Lover of men, Thou hast said by Thy prophets: “I have no pleasure in the death of the wicked, but that the wicked turn from his way and live.” For Thou dost not wish, O Master, that the work of Thy hands should perish, neither dost Thou take pleasure in the destruction of men, but Thou desirest that all men should be saved and come to the knowledge of the truth. Therefore, although I am unworthy both of Heaven and of earth and of this passing life, having wholly yielded myself to sin and defiled Thine image, yet being Thy creature and of Thy making, I do not despair of my salvation in my wretchedness. But made bold by Thine infinite compassion, I draw near.
+        </PrayerLine>
+
+        <PrayerLine>
+            Receive me, O Christ Who lovest all men, as Thou didst receive the prostitute, the thief, the tax-collector and the prodigal. Take away the heavy burden of my sins, for Thou takest away the sins of the world, Thou healest the infirmities of men, Thou callest to Thyself and givest rest to those who labor and are heavy laden. Thou hast not come to call the righteous, but sinners to repentance. Cleanse me from every stain of flesh and spirit. Teach me to fulfil holiness in fear of Thee. That having the testimony of my own conscience clean, and having Communion of Thy Holy Things, I may be united with Thy Body and Blood and may have Thee to dwell and abide in me, with the Father and Thy Holy Spirit. O Lord Jesus Christ my God, may the Communion of Thy Most Pure and Life-Creating Mysteries not bring me into judgment, nor may I become weak in soul and body by partaking in an unworthy manner, but grant me to receive Communion of Thy Holy Things without condemnation even to my very last breath, and by them to receive Communion of the Holy Spirit, provision for the journey of eternal life, and an acceptable answer at Thy dread judgment seat; that I, together with all Thy chosen ones, may also be a partaker of the incorruptible blessings which Thou hast prepared for those who love Thee, O Lord, in whom Thou art glorified forever. Amen.
+        </PrayerLine>
+        break;
+    }
+}
+
+@code {
+    [Parameter]
+    public HeadingKindEnum HeadingKind { get; set; } = HeadingKindEnum.None;
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
+}

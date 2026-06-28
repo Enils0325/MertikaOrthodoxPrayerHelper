@@ -1,0 +1,24 @@
+﻿@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+    {
+        <Heading HeadingKind="HeadingKind">
+            4th Prayer, of St. John of Damascus
+        </Heading>
+        <PrayerLine>
+            O Lord and Master Jesus Christ our God, Who alone hast power to absolve men from their sins, for Thou art good and lovest all men, forgive all my transgressions done in knowledge or in ignorance, and make me worthy without condemnation to have Communion of Thy Divine and Glorious and Pure and Life-Creating Mysteries. Let them not be for my punishment, or for the increase of my sins. But let them be for my purification and sanctification, as a promise of the life and Kingdom to come, a defense and a help and a repulsion of every evil attacker and the removal of my many transgressions! For Thou art a God of mercy and generosity and love for mankind, and to Thee we send up glory, with the Father and the Holy Spirit, now and ever and unto ages of ages. Amen.
+        </PrayerLine>
+        break;
+    }
+}
+
+@code {
+    [Parameter]
+    public HeadingKindEnum HeadingKind { get; set; } = HeadingKindEnum.None;
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
+}

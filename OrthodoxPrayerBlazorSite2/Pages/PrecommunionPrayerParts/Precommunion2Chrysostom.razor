@@ -1,0 +1,22 @@
+﻿@switch (LanguageKind)
+{
+    case LanguageKindEnum.EnglishOlder:
+    case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
+    default:
+    {
+        <Heading HeadingKind="HeadingKind">2nd Prayer, of St. John Chrysostom</Heading>
+        <PrayerLine>
+            O Lord my God, I know that I am not worthy nor sufficiently pleasing that Thou shouldst come under the roof of the house of my soul for it is entirely desolate and fallen in ruin and Thou wilt not find in me a place worthy to lay Thy head. But as Thou didst humble Thyself from on high for our sake, so now humble Thyself to my lowliness. As Thou didst deign to lie in a cavern, in a manger of dumb beasts, so now deign to enter in to the manger of my beastly soul, and into my soiled body. And as Thou didst not disdain to enter and to eat with sinners in the house of Simon the leper, so now be pleased to enter into the house of my soul, humble and leprous and sinful. And as Thou didst not cast out the prostitute, the sinful woman who came to touch Thee, so have compassion on me a sinner who comes to touch Thee. As Thou didst not abhor the kiss of her sin-stained and unclean mouth, do not abhor my mouth, worse stained and more unclean than hers, nor my stained and shamed and unclean lips, nor my still more impure tongue. But let the Fiery Coal of Thy Most Pure Body and Thy Most Precious Blood bring me sanctification, enlightenment and strengthening of my lowly soul and body, relief from the burden of my many transgressions, protection against every action of the devil, repulsion and victory over my wicked and evil habits, mortification of my passions, accomplishment of Thy commandments, increase of Thy Divine Grace, and inheritance of Thy Kingdom. For I do not come to Thee in presumption, O Christ my God, but made bold by Thine unspeakable goodness, lest I stray far away from Thy flock, O Master, and become caught by the wolf of souls. Therefore I pray Thee, O Master, for Thou alone art holy, sanctify my soul and body, my mind and heart, my muscles and bones. Renew me entirely. Implant Thy fear in my fleshly members and let Thy sanctification never be removed from me. Be my helper and defender, guide my life in peace and make me worthy to stand at Thy right hand with all Thy Saints. By the prayers and supplications of Thy Most Pure Mother, of Thy spiritual servants, the most pure Angelic Powers, and of all the Saints who from all ages have been well-pleasing to Thee. Amen.
+        </PrayerLine>
+        break;
+    }
+}
+
+@code {
+    [Parameter]
+    public HeadingKindEnum HeadingKind { get; set; } = HeadingKindEnum.None;
+
+    [CascadingParameter]
+    public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
+}
