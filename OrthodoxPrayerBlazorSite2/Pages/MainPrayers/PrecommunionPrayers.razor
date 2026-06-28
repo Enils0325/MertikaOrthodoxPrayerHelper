@@ -108,21 +108,17 @@
 
     protected override async Task OnParametersSetAsync()
     {
-        await OnRandomClicked();
-        NilsEventService.OnRandomClicked += OnRandomClicked;
         base.OnParametersSet();
     }
 
 
     public async Task OnRandomClicked()
     {
-        // SelectedIndexOutOf3 = MainUtil.GetRandomIndex(3);
         StateHasChanged();
     }
 
 
     public void Dispose()
     {
-        NilsEventService.OnRandomClicked -= OnRandomClicked;
     }
 }
