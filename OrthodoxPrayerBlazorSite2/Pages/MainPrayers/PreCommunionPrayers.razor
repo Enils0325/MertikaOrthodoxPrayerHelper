@@ -1,56 +1,124 @@
-﻿@inherits OrthodoxPrayerBasePage
-
-<Heading HeadingKind="HeadingKind">
-    @switch (LanguageKind)
-    {
-        case LanguageKindEnum.EnglishModern:
-        case LanguageKindEnum.EnglishMixed:
-        case LanguageKindEnum.EnglishOlder:
-        default:
-            <span>Before Receiving Holy Communion</span>
-            break;
-    }
-</Heading>
+﻿@using OrthodoxPrayerBlazorSite2.Pages.PrecommunionPrayerParts
+@using OrthodoxPrayerBlazorSite2.Pages.Psalms
+<h3>Precommunion Prayers</h3>
 
 @switch (LanguageKind)
 {
     case LanguageKindEnum.EnglishOlder:
-    case LanguageKindEnum.EnglishMixed:
-        <p>
-            I believe, O Lord, and I confess that Thou art truly the Christ, the Son of the Living God, Who camest into the world to save sinners, of whom I am first. I believe also that this is truly Thine own pure Body, and that this is truly Thine own precious Blood. Therefore I pray Thee: have mercy upon me and forgive my transgressions both voluntary and involuntary, of word and of deed, of knowledge and of ignorance. And make me worthy to partake without condemnation of Thy most pure Mysteries, for the remission of my sins, and unto life everlasting. Amen.
-        </p>
-
-        <p>
-            Of Thy Mystical Supper, O Son of God, accept me today as a communicant; for I will not speak of Thy Mystery to Thine enemies, neither like Judas will I give Thee a kiss; but like the thief will I confess Thee: Remember me, O Lord in Thy Kingdom.
-        </p>
-
-        <p>
-            May the communion of Thy Holy Mysteries be neither to my judgment, nor to my condemnation, O Lord, but to the healing of soul and body.
-            <Amen />
-        </p>
-        break;
     case LanguageKindEnum.EnglishModern:
+    case LanguageKindEnum.EnglishMixed:
     default:
-        <p>
-            I believe, O Lord, and I confess that You are truly the Christ, the Son of the Living God, Who came into the world to save sinners, of whom I am first. I believe also that this is truly Your own pure Body, and that this is truly Your own precious Blood. Therefore I pray to You: have mercy on me and forgive my transgressions both voluntary and involuntary, of word and of deed, of knowledge and of ignorance. And make me worthy to partake without condemnation of Your most pure Mysteries, for the remission of my sins, and unto life everlasting. Amen.
-        </p>
+    {
+        <PrayerLine>
+            Through the prayers of our holy fathers, O Lord Jesus Christ our God, have mercy on us.
+        </PrayerLine>
+        <Amen />
 
-        <p>
-            Of Your Mystical Supper, O Son of God, accept me today as a communicant; for I will not speak of Your Mystery to Your enemies, neither like Judas will I give You a kiss; but like the thief will I confess to You: Remember me, O Lord in Your Kingdom.
-        </p>
+        <PrayerLine>
+            Glory to thee, our God, glory to thee.
+        </PrayerLine>
 
-        <p>
-            May the communion of Your Holy Mysteries be neither to my judgment, nor to my condemnation, O Lord, but to the healing of soul and body.
-            <Amen />
-        </p>
+        <OHeavenlyKingAndTrisagion HeadingKind="HeadingKindEnum.None" />
+
+        <GloryNowAndForever />
+
+        <OhMostHolyTrinity />
+
+        <LordHaveMercy TimesToSay="3" />
+        
+        <GloryNowAndForever />
+
+        <OurFather HeadingKind="HeadingKindEnum.None" />
+
+        <LordHaveMercy TimesToSay="12" />
+
+        <GloryNowAndForever />
+
+        <ComeLetUsWorshipGodOurKing />
+
+        <div class="options-container">
+            <InputCheckbox id="includePsalm21" @bind-Value="includePsalm21" />
+            <label for="includePsalm21">Include Psalm 21?</label>
+        </div>
+
+        @if (includePsalm21)
+        {
+            <Psalm21 HeadingKind="HeadingKindEnum.SubHeading2" />
+        }
+
+        <Psalm22 HeadingKind="HeadingKindEnum.SubHeading2" />
+
+        <Psalm115 HeadingKind="HeadingKindEnum.SubHeading2" />
+
+        <Psalm23 HeadingKind="HeadingKindEnum.SubHeading2" />
+
+        <GloryNowAndForever />
+
+        <PrayerLine>
+            Alleluia, Alleluia, Alleluia. Glory to thee, O God. (3x)
+        </PrayerLine>
+
+        <LordHaveMercy TimesToSay="3" />
+
+        <PrayerLine>
+            Disregard my iniquities, O Lord, Who wast born of a Virgin! Cleanse my heart and make it a temple of Thy Most Pure Body and Blood! Turn me not away from Thy countenance, for Thy great mercy is immeasurable!
+        </PrayerLine>
+
+        <GloryNowAndForever />
+
+        <PrayerLine>
+            How dare I partake of Thy Holiness in my unworthiness? Even if I dare to approach Thee with the worthy, my garment accuses me, for it is not a wedding-garment, and I secure the condemnation of my most sinful soul. Cleanse, O Lord, the defilement of my soul and save me, for Thou lovest mankind!
+        </PrayerLine>
+        
+        <GloryNowAndForever />
+
+        <PrayerLine>
+            Great is the multitude of my sins, O Theotokos! I come to thee, O Pure One, in need of salvation! Visit my ailing soul, O thou who alone art Blesséd, and pray to thy Son and our God that He absolve the evil I have done!
+        </PrayerLine>
+
+        <Note>With as many prostrations as desired</Note>
+        <LordHaveMercy TimesToSay="40" />
+
+        <Precommunion1StBasil HeadingKind="HeadingKindEnum.SubHeading2" />
+        <Precommunion2Chrysostom HeadingKind="HeadingKindEnum.SubHeading2" />
+        <Precommunion3Symeon HeadingKind="HeadingKindEnum.SubHeading2" />
+        <Precommunion4StJohnOfDamascus HeadingKind="HeadingKindEnum.SubHeading2" />
+        <Precommunion5StBasil HeadingKind="HeadingKindEnum.SubHeading2" />
+        <Precommunion6Symeon HeadingKind="HeadingKindEnum.SubHeading2" />
+        <Precommunion7Chrysostom HeadingKind="HeadingKindEnum.SubHeading2" />
+        <Precommunion8Chrysostom HeadingKind="HeadingKindEnum.SubHeading2" />
+        <Precommunion9Chrysostom HeadingKind="HeadingKindEnum.SubHeading2" />
+        <Precommunion10JohnOfDamascus HeadingKind="HeadingKindEnum.SubHeading2" />
+        <Precommunion11Chrysostom HeadingKind="HeadingKindEnum.SubHeading2" />
+
         break;
+    }
+
 }
 
-@code {
-    [Parameter, EditorRequired]
-    public HeadingKindEnum HeadingKind { get; set; }
 
+@code {
+    [Inject]
+    public NilsEventService NilsEventService { get; set; } = null!;
+    
     [CascadingParameter]
     public LanguageKindEnum LanguageKind { get; set; } = LanguageKindEnum.EnglishModern;
+    
+    private bool includePsalm21 = false;
 
+    protected override async Task OnParametersSetAsync()
+    {
+        base.OnParametersSet();
+    }
+
+
+    public async Task OnRandomClicked()
+    {
+        StateHasChanged();
+    }
+
+
+    public void Dispose()
+    {
+    }
 }
