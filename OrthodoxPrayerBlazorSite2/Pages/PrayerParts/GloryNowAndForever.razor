@@ -1,9 +1,29 @@
 ﻿<p>
-    Glory to the Father and to the Son and to the Holy Spirit,
-    both now and forever, and to the ages of ages.
-    <Amen />
+    @if (GloryNowOption == GloryNowOptionKind.FirstPortion)
+    {
+        <PrayerLine>
+            Glory to the Father and to the Son and to the Holy Spirit,
+        </PrayerLine>
+    }
+    else if (GloryNowOption == GloryNowOptionKind.LastPortion)
+    {
+        <PrayerLine>
+            both now and forever, and to the ages of ages.
+        </PrayerLine>
+
+        <Amen />
+    }
+    else
+    {
+        <PrayerLine>
+            Glory to the Father and to the Son and to the Holy Spirit,
+        </PrayerLine>
+
+        <PrayerLine>
+            both now and forever, and to the ages of ages.
+        </PrayerLine>
+
+        <Amen />
+    }
+
 </p>
-
-@code {
-
-}
