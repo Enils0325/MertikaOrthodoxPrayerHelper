@@ -36,6 +36,11 @@
         <ButtonLink OnClick="() => SetMainPrayerKind(MainPrayerChoiceKind.Meal)">
             Meal
         </ButtonLink>
+    </div>    
+    <div>
+        <ButtonLink OnClick="() => SetMainPrayerKind(MainPrayerChoiceKind.PrecommunionPrayers)">
+            Precommunion
+        </ButtonLink>
     </div>
 
     <div>
@@ -58,6 +63,9 @@
                 break;
             case MainPrayerChoiceKind.Meal:
                 <MealPrayer />
+                break;
+            case MainPrayerChoiceKind.PrecommunionPrayers:
+                <PrecommunionPrayers />
                 break;
             case MainPrayerChoiceKind.Other:
             {

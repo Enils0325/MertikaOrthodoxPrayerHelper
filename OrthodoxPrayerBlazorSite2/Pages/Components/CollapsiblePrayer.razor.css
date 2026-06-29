@@ -1,0 +1,30 @@
+﻿.collapse-button {
+    height: 24px;
+    width: 24px;
+    border-radius: 4px;
+    background-color: lightgray;
+}
+
+td.icon-cell {
+    vertical-align: top;
+    padding-top: 0.4em;
+}
+
+td.content-cell {
+    vertical-align: top;
+    width: 100%;
+}
+
+div.expanded-content-container {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+div.expand-container .expanded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+div..expand-container .collapsed {
+    opacity: 0;
+    transform: translateY(-10px);
+}
