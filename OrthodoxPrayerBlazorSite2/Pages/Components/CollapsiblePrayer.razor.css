@@ -2,12 +2,12 @@
     height: 24px;
     width: 24px;
     border-radius: 4px;
-    background-color: lightgray;
+    background-color: #ddd;
 }
 
 td.icon-cell {
     vertical-align: top;
-    padding-top: 0.4em;
+    padding-top: 1.2em;
 }
 
 td.content-cell {
