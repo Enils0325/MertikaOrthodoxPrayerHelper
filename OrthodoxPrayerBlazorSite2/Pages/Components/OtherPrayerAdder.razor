@@ -1,0 +1,43 @@
+﻿@using OrthodoxPrayerBlazorSite2.Pages.OtherPrayers
+
+
+<InputSelect @onchange="OnSelectionChange" TValue="string" @bind-Value="SelectedKey">
+    @foreach (var otherPrayerItem in OtherPrayerItems)
+    {
+        <option value="@otherPrayerItem.Key">@otherPrayerItem.Key</option>
+    })
+</InputSelect>
+
+
+@code {
+
+    private readonly Dictionary<string, RenderFragment> OtherPrayerItems = new()
+    {
+        { "Pregnancy: Look down & protect", @<PregnancyLookDownProtect HeadingKind="HeadingKindEnum.SubHeading" /> },
+        { "Pregnancy: Sanctify & renew", @<PregnancyProtectUnbornBaby HeadingKind="HeadingKindEnum.SubHeading" /> },
+    };
+
+    private readonly List<RenderFragment> ShownPrayerItems = [
+        @<PregnancyLookDownProtect HeadingKind="HeadingKindEnum.SubHeading" /> ,
+        @<PregnancyProtectUnbornBaby HeadingKind="HeadingKindEnum.SubHeading" /> ,
+    ];
+
+    private async Task OnSelectionChange(string key)
+    {
+        
+    }
+
+    private string? SelectedKey = null;
+    private async Task OnSelectionChange(ChangeEventArgs e)
+    {
+        var key = e.Value?.ToString();
+
+        if (!string.IsNullOrWhiteSpace(key))
+        {
+            ShownPrayerItems.Add(OtherPrayerItems[key]);
+        }
+
+        // Reset the select
+        SelectedKey = null;
+    }
+}

@@ -60,6 +60,11 @@ else
     <NiceneCreed HeadingKind="HeadingKindEnum.SubHeading" />
 }
 
+@if (MainUtil.IsDebug)
+{
+    <OtherPrayerAdder />
+}
+
 @if (HasPrayerToMotherOfGod || !IsBrief)
 {
     <TrulyMeetTheotokos HeadingKind="HeadingKindEnum.SubHeading" />
