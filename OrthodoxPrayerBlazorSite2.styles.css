@@ -36,6 +36,37 @@ a.button-link[b-mbsbv4l5aa] {
         font-style: italic;
         filter: hue-rotate(260deg);
     }
+/* /Pages/Components/CollapsiblePrayer.razor.rz.scp.css */
+.collapse-button[b-fdjmzhm5wv] {
+    height: 24px;
+    width: 24px;
+    border-radius: 4px;
+    background-color: #ddd;
+}
+
+td.icon-cell[b-fdjmzhm5wv] {
+    vertical-align: top;
+    padding-top: 1.2em;
+}
+
+td.content-cell[b-fdjmzhm5wv] {
+    vertical-align: top;
+    width: 100%;
+}
+
+div.expanded-content-container[b-fdjmzhm5wv] {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+div.expand-container .expanded[b-fdjmzhm5wv] {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+div..expand-container .collapsed[b-fdjmzhm5wv] {
+    opacity: 0;
+    transform: translateY(-10px);
+}
 /* /Pages/Components/HolidayBanner.razor.rz.scp.css */
 div.holiday-banner[b-g4uy1fk3iy] {
     display: flex;
@@ -164,6 +195,7 @@ div.main-prayer-buttons[b-mqxlcqlz8l] {
 
 div.main-prayer-container[b-mqxlcqlz8l] {
     padding: 8px 4px 8px 4px;
+    margin-bottom: 32px;
 }
 
 div.notification-bar[b-mqxlcqlz8l] {
