@@ -8,10 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Resources\SaintDays.json" />
-  </ItemGroup>
-
-  <ItemGroup>
     <EmbeddedResource Include="Resources\SaintDays.json" />
   </ItemGroup>
 
