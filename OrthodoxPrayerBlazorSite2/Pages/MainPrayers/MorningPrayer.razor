@@ -4,8 +4,8 @@
 </Heading>
 
 <div class="options-container">
-    <InputCheckbox id="checkboxIsBrief" @bind-Value="IsBrief" />
-    <label for="checkboxIsBrief">Brief?</label>
+    <label for="sliderBriefnessLevel">Briefness Level: @BriefnessLevel</label>
+    <input type="range" id="sliderBriefnessLevel" min="1" max="5" @bind="BriefnessLevel" @bind:event="oninput" />
 </div>
 
 <InTheNameOfTheTrinity />
@@ -51,7 +51,7 @@ else
 
 <ComeLetUsWorshipGodOurKing />
 
-<Psalm HeadingKind="HeadingKindEnum.SubHeading" PsalmTimeOfDayKind="PsalmTimeOfDayKindEnum.Morning" IsBrief="IsBrief" />
+<Psalm HeadingKind="HeadingKindEnum.SubHeading" PsalmTimeOfDayKind="PsalmTimeOfDayKindEnum.Morning" BriefnessLevel="BriefnessLevel" />
 
 <GospelReading HeadingKind="HeadingKindEnum.SubHeading" Date="Date" />
 
@@ -90,7 +90,9 @@ else
     [Inject]
     public NilsEventService NilsEventService { get; set; } = null!;
 
-    private bool IsBrief { get; set; } = false;
+    private int BriefnessLevel { get; set; } = 3;
+
+    private bool IsBrief => BriefnessLevel < 3;
 
     private bool IsPaschaltide => HolidayCalculator.IsPaschaltide(DateOnly.FromDateTime(Date));
     private bool IsLent => HolidayCalculator.IsGreatLent(DateOnly.FromDateTime(Date));
