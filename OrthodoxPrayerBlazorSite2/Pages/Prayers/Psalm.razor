@@ -30,7 +30,9 @@ else
     public HeadingKindEnum HeadingKind { get; set; }
 
     [Parameter, EditorRequired]
-    public bool IsBrief { get; set; } = false;
+    public int BriefnessLevel { get; set; } = 3;
+
+    private bool IsBrief => BriefnessLevel < 3;
 
     [Parameter, EditorRequired]
     public PsalmTimeOfDayKindEnum PsalmTimeOfDayKind { get; set; } = PsalmTimeOfDayKindEnum.Morning;
