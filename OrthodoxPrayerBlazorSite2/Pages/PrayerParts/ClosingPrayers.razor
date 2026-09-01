@@ -9,9 +9,10 @@
 
         <LordHaveMercy TimesToSay="3" />
 
-        <p>
+        <PrayerLine>
             O Lord Jesus Christ, the Son of God, through the intercessions of Thy most pure Mother
-            <br />
+        </PrayerLine>
+        <PrayerLine>
             and of all Thy Saints@(SaintText == string.Empty ? "" : ", ")
             <LoadingTextContainer IsLoading="IsLoading">
                 @if (SaintText != string.Empty)
@@ -22,10 +23,13 @@
                 }
             </LoadingTextContainer>
             ,
-            <br />
+        </PrayerLine>
+        <PrayerLine>
             have mercy on us and save us, forasmuch as Thou art good and lovest mankind.
-            <Amen />
-        </p>
+        </PrayerLine>
+        <PrayerLine>
+            Amen.
+        </PrayerLine>
         break;
     case LanguageKindEnum.EnglishModern:
     case LanguageKindEnum.EnglishMixed:
@@ -38,9 +42,10 @@
 
         <LordHaveMercy TimesToSay="3" />
 
-        <p>
+        <PrayerLine>
             O Lord Jesus Christ, the Son of God, through the intercessions of Your most pure Mother
-            <br />
+        </PrayerLine>
+        <PrayerLine>
             and of all Your Saints@(SaintText == string.Empty ? "" : ", ")
             <LoadingTextContainer IsLoading="IsLoading" IsInline="true">
                 @if (SaintText != string.Empty)
@@ -51,10 +56,13 @@
                 }
             </LoadingTextContainer>
             ,
-            <br />
+        </PrayerLine>
+        <PrayerLine>
             have mercy on us and save us, for You are good and love mankind.
-            <Amen />
-        </p>
+        </PrayerLine>
+        <PrayerLine>
+            Amen.
+        </PrayerLine>
         break;
 }
 
